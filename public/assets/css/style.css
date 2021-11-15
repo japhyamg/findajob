@@ -1,0 +1,2001 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html{
+	scroll-behavior: smooth;
+}
+body{
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #E5E5E5;
+}
+ul{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+}
+.container{
+	max-width: 1050px;
+	margin: auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+.text-center{
+	text-align: center !important;
+}
+.text-left{
+	text-align: left !important;
+}
+.text-right{
+	text-align: right !important;
+}
+.text-uppercase{
+	text-transform: uppercase !important;
+}
+.align-items-center{
+	align-items: center;
+}
+.section-title{
+	width: 100%;
+	text-align: center;
+}
+
+/*Header*/
+header{
+	width: 100%;
+	margin-top: 42px;
+	padding: 0 15px;
+	z-index: 11;
+}
+/*header.fixed{
+	background-color: #ffffff;
+	position: fixed;
+	border-color: #eeeeee;
+	z-index: 100;
+	animation: fixHeader .5s ease;
+}
+@keyframes fixHeader{
+	0%{
+		transform: translateY(-100%);
+	}
+	100%{
+		transform: translateY(0%);
+	}
+}*/
+header .row{
+	justify-content: space-between;
+	align-items: center;
+}
+header .brand-name{
+	margin-top: 10px;
+	display: none;
+}
+header .brand-name a img{
+	width: 100px;
+}
+/*Style for fixed navbar*/
+/*header.fixed .brand-name a{
+	color: #000000;
+}
+header.fixed .brand-name .logo{
+	display: none;
+}*/
+header .navbar{
+	margin: 30px 0;
+}
+header .navbar ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+header .navbar ul li{
+	display: inline-block;
+	margin-right: 35px;
+}
+header .navbar ul li a{
+	font-size: 16px;
+	font-weight: 400;
+	text-decoration: none;
+	line-height: 24px;
+	color: #000000;
+	position: relative;
+	display: block;
+}
+header .navbar ul li a .fa {
+	font-size: 20px;
+}
+header .navbar ul li.login-signup-sm{
+	display: none;
+}
+header .navbar ul li a:hover,
+header .navbar ul li a.active{
+	color: #CF1818;
+	border-bottom: 4px solid #CF1818;
+}
+/*header.fixed .navbar ul li a{
+	color: #000000;
+}*/
+.ham-burger .fa{
+	font-size: 20px;
+	display: none;
+	height: 30px;
+	width: 35px;
+	background-color: #ffffff;
+	color: #CF1818;
+	border-radius: 3px;
+	line-height: 30px;
+	text-align: center;
+	cursor: pointer;
+	border: 1px solid #CF1818;
+}
+header .login-signup img{
+	vertical-align: middle;
+	margin-right: 5px;
+	width: 20px;
+}
+header .login-signup a{
+	font-size: 16px;
+	font-weight: 400;
+	text-decoration: none;
+	line-height: 24px;
+	color: #000000;
+}
+header .login-signup a:hover{
+	color: #CF1818;
+}
+
+/*Home Section Styles*/
+/*Home Section Styles*/
+.home{
+	width: 100%;
+	padding: 20px 0;
+}
+.home .home-text{
+	width: 50%;
+}
+.home .home-text .home-text-head{
+	font-size: 18px;
+	color: #A1A1A1;
+	margin-bottom: 10px;
+}
+.home .home-text .home-main-text{
+	font-size: 32px;
+	color: #7B7B7B;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+.home .home-text .home-text-desc{
+	font-size: 12px;
+	color: #000000;
+	margin-bottom: 50px;
+}
+.home .home-text .home-btns a{
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #F8F8F8;
+	padding: 10px 30px;
+	border-radius: 30px;
+	transition: 0.3s ease;
+}
+.home .home-text .home-btns a.btn-red{
+	background-color: #CF1818;
+	border: 2px solid #CF1818;
+}
+.home .home-text .home-btns a.btn-red:hover{
+	background-color: transparent;
+	color: #CF1818;
+}
+.home .home-text .home-btns a.btn-orange{
+	background-color: #FABA52;
+	border: 2px solid #FABA52;
+}
+.home .home-text .home-btns a.btn-orange:hover{
+	background-color: transparent;
+	color: #FABA52;
+}
+.home .home-text .home-btns span{
+	font-size: 16px;
+	text-transform: uppercase;
+	margin: 0 10px;
+	color: #A1A1A1;
+}
+.home .home-img{
+	width: 50%;
+	text-align: center;
+}
+
+/*SEO Styles Starts*/
+.seo{
+	width: 100%;
+}
+.seo .container{
+	width: 1050px;
+	margin: 10px auto 0 auto;
+	padding: 50px 20px;
+	background-image: url("../img/seo-bg.png");
+}
+.seo .container form {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.seo .container .form-group{
+	width: 30%;
+	margin-right: 20px;
+}
+.seo .container .form-group input[type="text"],
+.seo .container .form-group-2 input[type="text"]{
+	width: 100%;
+	padding: 10px;
+	outline: none;
+	background-color: #F8F8F8;
+	border: none;
+	border: 1px solid #CED4DA;
+}
+.seo .container form label{
+	font-size: 12px;
+	color: #F8F8F8;
+}
+.seo .container .form-group-2{
+	width: 25%;
+	margin-right: 20px;
+}
+.seo .container .form-group-3{
+	width: 15%;
+}
+.seo .container .form-group-3 input[type="submit"]{
+	background-color: #55A747;
+	padding: 10px;
+	width: 100%;
+	color: #F8F8F8;
+	font-size: 13px;
+	cursor: pointer;
+	transition: all  0.3s ease;
+	border: 2px solid #55A747;
+}
+.seo .container .form-group-3 input[type="submit"]:hover{
+	background-color: transparent;
+}
+
+/*Jobs Section Styles*/
+.jobs{
+	width: 100%;
+	padding: 50px 0;
+}
+.jobs .row{
+	justify-content: space-between;
+}
+.jobs .sidebar,
+.jobs .sidebar-2{
+	width: 26%;
+}
+.jobs .sidebar .categories{
+	width: 100%;
+	height: 600px;
+	padding: 20px;
+	box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2); 
+	background-color: #FFFFFF;
+}
+.jobs .sidebar .sidebar-head{
+	display: flex;
+	flex-wrap: wrap;
+	padding-bottom: 20px;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid #E3E3E3;
+}
+.jobs .sidebar .sidebar-head .head-text{
+	font-size: 15px;
+	color: #212529;
+	text-transform: uppercase;
+}
+.jobs .sidebar .sidebar-head .head-btn a{
+	font-size: 13px;
+	color: #F8F8F8;
+	padding: 10px 15px;
+	box-shadow: 0px 2px 4px #CF1818;
+	border-radius: 11px;
+	text-transform: uppercase;
+	background-color: #CF1818;
+}
+.jobs .sidebar .sidebar-search{
+	margin-top: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	border-bottom: 1px solid #E3E3E3;
+}
+.jobs .sidebar .sidebar-search form input{
+	border: none;
+	outline: none;
+}
+.jobs .sidebar .sidebar-categories{
+	margin-top: 20px;
+}
+.jobs .sidebar .sidebar-categories .category-item{
+	width: 100%;
+	margin-bottom: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content:space-between;
+	align-items: center;
+}
+.jobs .sidebar .sidebar-categories .category-item .category-name img{
+	vertical-align: middle;
+	margin-right: 10px;
+}
+.jobs .sidebar .sidebar-categories .category-item .category-name span{
+	font-size: 12px;
+	color: #212529;
+	text-transform: capitalize;
+}
+.jobs .sidebar .sidebar-categories .no-of-jobs{
+	color: #AAAAAA;
+	font-size: 12px;
+}
+.jobs .sidebar .ad-banner{
+	width: 100%;
+	margin-top: 20px;
+	height: 425px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	background-color: #000000;
+}
+.jobs .sidebar .ad-banner p{
+	font-weight: 500;
+	font-size: 16px;
+	color: #FFFFFF;
+	margin-bottom: 20px;
+	text-transform: capitalize;
+}
+.jobs .main-jobs{
+	width: 44%;
+}
+.jobs .main-jobs .main-jobs-head{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+.jobs .main-jobs .main-jobs-head .main-jobs-head-text{
+	font-size: 20px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #212529;
+}
+.jobs .main-jobs .main-jobs-head .main-jobs-head-text span{
+	color: #CF1818;
+}
+.jobs .main-jobs .main-jobs-head .main-jobs-head-btn a{
+	background-color: #CF1818;
+	color: #F8F8F8;
+	text-transform: capitalize;
+	font-size: 16px;
+	padding: 2px 20px;
+}
+.jobs .main-jobs .main-jobs-item{
+	position: relative;
+	width: 100%;
+	padding: 10px;
+	background-color: #FFFFFF;
+	margin-top: 20px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.jobs .main-jobs .main-jobs-item .badge{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.jobs .main-jobs .main-jobs-item .main-jobs-item-head-btn{
+	position: absolute;
+	top: 30px;
+	right: 20px;
+}
+.jobs .main-jobs .main-jobs-item .main-jobs-item-head-btn a{
+	padding: 2px 8px;
+	font-size: 14px;
+	color: #FFFFFF;
+	border-radius: 3px;
+}
+.jobs .main-jobs .main-jobs-item .main-jobs-item-head-btn a img{
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.jobs .main-jobs .main-jobs-item .main-jobs-item-head-btn a.red{
+	background-color: #CF1818;
+}
+.jobs .main-jobs .main-jobs-item .main-jobs-item-head-btn a.orange{
+	background-color: #FABA52;
+}
+.jobs .main-jobs .main-jobs-item .main-jobs-item-head{
+	display: flex;
+	align-items: center;
+}
+.main-jobs-item .main-jobs-item-head .main-jobs-item-head-text img{
+	vertical-align: middle;
+}
+.main-jobs-item .main-jobs-item-head .main-jobs-item-head-text .project-title{
+	font-size: 16px;
+	color: #212529;
+	margin-left: 5px;
+	text-transform: uppercase;
+} 
+.main-jobs-item .main-jobs-item-head .main-jobs-item-head-text .project-category{
+	font-size: 13px;
+	color: #212529;
+	margin-left: 5px;
+	text-transform: capitalize;
+}
+.main-jobs-item .main-jobs-item-main .desc{
+	font-size: 14px;
+	color: #212529;
+	margin-top: 10px;
+}
+.main-jobs-item .main-jobs-item-main .btns{
+	margin: 10px 0;
+	display: none;
+}
+.main-jobs-item .main-jobs-item-main .btns a{
+	padding: 2px 8px;
+	font-size: 14px;
+	color: #FFFFFF;
+	border-radius: 3px;
+}
+.main-jobs-item .main-jobs-item-main .btns a img{
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.main-jobs-item .main-jobs-item-main .btns a.red{
+	background-color: #CF1818;
+}
+.main-jobs-item .main-jobs-item-main .btns a.orange{
+	background-color: #FABA52;
+}
+.main-jobs-item .main-jobs-item-footer{
+	display: flex;
+	flex-wrap: wrap;
+	margin: 20px 0;
+}
+.main-jobs-item .main-jobs-item-footer .main-jobs-item-footer-item{
+	margin-right: 50px;
+}
+.main-jobs-item .main-jobs-item-footer .main-jobs-item-footer-item img{
+	vertical-align: middle;
+}
+.main-jobs-item .main-jobs-item-footer .main-jobs-item-footer-item span{
+	font-size: 14px;
+	color: #808080;
+	margin-left: 10px;
+}
+.jobs .main-jobs .click-more-jobs-btn a{
+	display: block;
+	width: 100%;
+	background-color: #CF1818;
+	margin: 10px 0;
+	font-size: 12px;
+	text-align: center;
+	color: #F8F8F8;
+	padding: 10px;
+	border-radius: 5px;
+	text-transform: capitalize;
+}
+.jobs .main-jobs .more-jobs-img img{
+	width: 100%;
+}
+.sidebar-2 .self-employ{
+	position: relative;
+	width: 100%;
+	height: 150px;
+	margin-bottom: 20px;
+	background-image: url("../img/selfemploy.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.sidebar-2 .self-employ::before{
+	background-color: rgba(0, 0, 0, 0.5);
+	content: '';
+	display: block;
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+.sidebar-2 .self-employ .content{
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}
+.sidebar-2 .self-employ .content p{
+	text-transform: uppercase;
+	color: #FAF4F5;
+	font-size: 15px;
+	font-weight: 900;
+	text-align: center;
+	line-height: 25px;
+	margin-bottom: 10px;
+}
+.sidebar-2 .self-employ .content p a{
+	text-decoration: none;
+	color: #FFFFFF;
+	font-size: 10px;
+	text-transform: capitalize;
+	background-color: #FBBC05;
+	padding: 5px 15px;
+	border-radius: 5px;
+}
+.sidebar-2 .have-business{
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 30px 20px;
+	margin-bottom: 20px;
+	align-items: center;
+	background-color: #FFFFFF;
+	box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.25), 0px 1px 4px rgba(0, 0, 0, 0.25);
+}
+.sidebar-2 .have-business .text-1{
+	font-size: 15px;
+	color: #212529;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+	text-align: center;
+	line-height: 25px;
+}
+.sidebar-2 .have-business .text-2{
+	font-size: 15px;
+	color: #212529;
+	text-align: center;
+}
+.sidebar-2 .nysc,
+.sidebar-2 .ayeen,
+.sidebar-2 .nde{
+	width: 100%;
+	height: auto;
+	margin-bottom: 20px;
+}
+.sidebar-2 .nysc img,
+.sidebar-2 .ayeen img,
+.sidebar-2 .nde img{
+	width: 100%;
+	height: 100%;
+}
+.sidebar-2 .ad-banner{	
+	width: 100%;
+	margin-top: 20px;
+	height: 175px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	background-color: #000000;
+}
+.sidebar-2 .ad-banner p{
+	font-weight: 500;
+	font-size: 16px;
+	color: #FFFFFF;
+	margin-bottom: 20px;
+	text-transform: capitalize;
+}
+
+/*Featured Employers Section Styles*/
+.employers{
+	width: 100%;
+	margin-bottom: 50px;
+}
+.employers .employers-head .employers-head-text{
+	text-align: center;
+	font-size: 20px;
+}
+.employers .employers-head .employers-head-text span{
+	color: #CF1818;
+}
+.employers .employers-head .employers-head-text1{
+	font-size: 15px;
+	color: #525252;
+	margin-top: 10px;
+	text-align: center;
+}
+#employers-slider {
+  width: 100%;
+  position: relative;
+}
+#employers-slider .MS-content {
+  margin: 15px 5%;
+  height: 150px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+#employers-slider .MS-content .item {
+  display: inline-block;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  vertical-align: top;
+  border-right: none;
+  width: 20%;
+  margin-left: 20px;
+}
+#employers-slider .MS-content .item:first-child{
+	margin-left: 0;
+}
+#employers-slider .MS-content .item img{
+	width: 100%;
+	height: 100%;
+}
+@media (max-width: 1200px) {
+  
+}
+@media (max-width: 767px) {
+  #employers-slider .MS-content .item {
+    width: 50%;
+  }
+}
+#employers-slider .MS-content .item p {
+  font-size: 30px;
+  text-align: center;
+  line-height: 1;
+  vertical-align: middle;
+  margin: 0;
+  padding: 10px 0;
+}
+#employers-slider .MS-controls button {
+  position: absolute;
+  border: none;
+  background: transparent;
+  font-size: 30px;
+  outline: 0;
+  top: 50px;
+}
+#employers-slider .MS-controls button:hover {
+  cursor: pointer;
+}
+#employers-slider .MS-controls .MS-left {
+  left: 10px;
+}
+
+#employers-slider .MS-controls .MS-right {
+  right: 10px;
+}
+
+/*Footer Section Styles*/
+.footer{
+	position: relative;
+	width: 100%;
+	/*height: 390px;*/
+	padding: 20px 0;
+	background-color: #111111;
+}
+.footer .footer-bottom-img1{
+	position: absolute;
+	bottom: 0;
+	left: 80px;
+	z-index: 100;
+}
+.footer .footer-bottom-img2{
+	position: absolute;
+	bottom: 0;
+	right: 70px;
+}
+.footer .footer-bottom-img1 img{
+	width: 270px;
+}
+.footer .footer-bottom-img2 img{
+	width: 200px;
+}
+.footer .footer-items{
+	width: 55%;
+	margin: 70px 0 0 400px;
+	display: flex;
+	flex-wrap: wrap;
+	z-index: 300;
+	justify-content: space-between;
+}
+.footer .footer-items .footer-item{
+	width: 20%;
+}
+.footer .footer-items .footer-item .footer-item-head p{
+	font-size: 14px;
+	color: #FDE07D;
+	text-transform: uppercase;
+	margin-bottom: 30px;
+}
+.footer .footer-items .footer-item .footer-item-links ul li{
+	margin-bottom: 10px;
+}
+.footer .footer-items .footer-item .footer-item-links ul li a{
+	font-size: 12px;
+	color: #F8F8F8;
+	text-transform: capitalize;
+}
+.footer .app-btns{
+	width: 50%;
+	margin: 10px auto 10px auto;
+	text-align: center;
+}
+.footer .app-btns a{
+	margin-right: 10px;
+}
+.footer .copyright{
+	text-align: center;
+}
+.footer .copyright p{
+	font-size: 13px;
+	color: #DEDCDC;
+}
+
+/*Pricing Plans Page Styles*/
+.pricing-plans-header{
+	width: 100%;
+	height: 370px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-image: url('../img/pp-head-bg.png');
+}
+.pricing-plans-header .pricing-plans-heading p{
+	font-size: 80px;
+	text-transform: capitalize;
+	color: #FFFFFF;
+	margin-bottom: 20px;
+}
+.pricing-plans-header .pricing-plans-description p{
+	font-size: 16px;
+	color: rgba(255, 255, 255, 0.8);
+}
+.pricing-plans{
+	width: 100%;
+	padding: 30px 0;
+}
+.pricing-plans .pricing-plans-head p{
+	font-size: 34px;
+	text-transform: uppercase;
+	color: #232323;
+	margin-bottom: 10px;
+	text-align: center;
+}
+.pricing-plans .pricing-plans-desc p{
+	font-size: 13px;
+	color: #808080;
+	text-align: center;
+	line-height: 30px;
+}
+.pricing-plans .pricing-plans-desig-btns{
+	text-align: center;
+	margin: 30px 0;
+}
+.pricing-plans .pricing-plans-desig-btns button{
+	font-size: 13px;
+	color: #F8F8F8;
+	padding: 10px 30px;
+	margin-right: 10px;
+	border-radius: 20px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	text-transform: uppercase;
+	background-color: #7E7E7E;
+	transition: all 0.3s ease;
+}
+.pricing-plans .pricing-plans-desig-btns button.active,
+.pricing-plans .pricing-plans-desig-btns button:hover{
+	background-color: #CF1818;
+}
+.pricing-plans .pricing-plans-toggle-btns{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.pricing-plans .pricing-plans-toggle-btns .switch-title {
+  margin-bottom: 6px;
+}
+.pricing-plans .pricing-plans-toggle-btns .switch-field input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+		border-radius: 30px;
+}
+.pricing-plans .pricing-plans-toggle-btns .switch-field label {
+  float: left;
+}
+
+.pricing-plans .pricing-plans-toggle-btns .switch-field label {
+  display: inline-block;
+  width: 100px;
+  background-color: #7E7E7E;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  text-shadow: none;
+  padding: 10px 14px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition:    all 0.1s ease-in-out;
+  -ms-transition:     all 0.1s ease-in-out;
+  -o-transition:      all 0.1s ease-in-out;
+  transition:         all 0.1s ease-in-out;
+}
+.pricing-plans .pricing-plans-toggle-btns .switch-field label:hover {
+	cursor: pointer;
+}
+.pricing-plans .pricing-plans-toggle-btns .switch-field input{
+	/*background-color: red;*/
+}
+.pricing-plans .pricing-plans-toggle-btns .switch-field input:checked + label {
+  background-color: #CF1818;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+	color: white;
+}
+.pricing-plans .pricing-plans-toggle-btns .switch-field label:first-of-type {
+  border-radius: 20px 0 0 20px;
+}
+.pricing-plans .pricing-plans-toggle-btns .switch-field label:last-of-type {
+  border-radius: 0 20px 20px 0;
+}
+.pricing-plans-cards{
+	width: 90%;
+	margin: 20px auto;
+}
+.pricing-plans-cards#booster{
+	display: none;
+}
+.pricing-plans-cards .pricing-plans-cards-items{
+	width: 50%;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.pricing-plans-cards .pricing-plans-cards-items .pricing-plans-cards-item{
+	width: 46%;
+	margin: auto;
+	padding: 50px 20px;
+	background: #FFFFFF;
+	box-shadow: 0px 3px 26px rgba(1, 53, 141, 0.05);
+	border-radius: 15px;
+	position: relative;
+}
+.pricing-plans-cards-items .pricing-plans-cards-item .pricing-plans-cards-item-head p{
+	font-size: 24px;
+	margin: 20px 0;
+	text-transform: uppercase;
+	text-align: center;
+	color: #CF1818;
+}
+.pricing-plans-cards-items .pricing-plans-cards-item .pricing-plans-cards-item-head-img{
+	text-align: center;
+	margin-bottom: 20px;
+}
+.pricing-plans-cards-items .pricing-plans-cards-item .pricing-plans-cards-item-desc p{
+	font-size: 14px;
+	text-align: justify;
+	color: #808080;
+	line-height: 26px;
+	margin-bottom: 50px;
+}
+.pricing-plans-cards-items .pricing-plans-cards-item .pricing-plans-cards-item-features{
+	margin-bottom: 90px;
+}
+.pricing-plans-cards-items .pricing-plans-cards-item .pricing-plans-cards-item-features ul{
+	text-align: center;
+}
+.pricing-plans-cards-items .pricing-plans-cards-item .pricing-plans-cards-item-features ul li {
+	margin-bottom: 10px;
+	font-size: 14px;
+	color: #808080;
+	text-transform: capitalize;
+}
+.pricing-plans-cards-items .pricing-plans-cards-item .pricing-plans-cards-item-free-btn{
+	text-align: center;
+}
+.pricing-plans-cards-items .pricing-plans-cards-item .pricing-plans-cards-item-free-btn button{
+	background-color: #CF1818;
+	border: 1px solid #CF1818;
+	border-radius: 30px;
+	padding: 10px 30px;
+	color: #FFFFFF;
+	font-size: 16px;
+	cursor: pointer;
+	text-transform: capitalize;
+	transition: all 0.3s ease;
+}
+.pricing-plans-cards-items .pricing-plans-cards-item .pricing-plans-cards-item-free-btn button:hover{
+	background-color: #FFFFFF;
+	color: #CF1818;
+}
+.pricing-plans-cards-items .pricing-plans-cards-item.bg-red{
+	background-color: #CF1818;
+}
+.pricing-plans-cards-items .bg-red .pricing-plans-cards-item-head p,
+.pricing-plans-cards-items .bg-red .pricing-plans-cards-item-desc p,
+.pricing-plans-cards-items .bg-red .pricing-plans-cards-item-features ul li{
+	color: #FFFFFF;
+}
+.pricing-plans-cards-items .bg-red .pricing-plans-cards-item-free-btn button{
+	background-color: #FFFFFF;
+	border: 1px solid #FFFFFF;
+	border-radius: 30px;
+	padding: 10px 30px;
+	color: #CF1818;
+	font-size: 16px;
+	cursor: pointer;
+	text-transform: capitalize;
+	transition: all 0.3s ease;
+}
+.pricing-plans-cards-items .pricing-plans-cards-item.bg-red .pricing-plans-cards-item-free-btn button:hover{
+	background-color: transparent;
+	color: #FFFFFF;
+}
+
+/*Help Page Styles Starts*/
+.help-accordion{
+	width: 100%;
+	padding: 100px 0;
+}
+.help-accordion .accordion {
+  background-color: #F2F2F2;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 14px;
+  transition: 0.4s;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.help-accordion .active {
+  background-color: #CF1818;
+  color: #FFFFFF;
+}
+
+.help-accordion .accordion:after {
+  content: '\002B';
+  color: #444444;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.help-accordion .active:after{
+  content: "\2212";
+  color: #FFFFFF;
+}
+.help-accordion .active:before{
+	content: "";
+  position: absolute;
+  top: 100%;
+  left: 30px;
+  margin-left: -5px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #CF1818 transparent transparent transparent;
+}
+.help-accordion .panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  margin-bottom: 10px;
+  transition: max-height 0.2s ease-out;
+}
+.help-accordion .panel p{
+	padding: 20px 0;
+}
+
+/*Contact Us Page Style Starts*/
+.contact-us{
+	width: 100%;
+	padding: 100px 0;
+	background-color: #FFFFFF;
+}
+.contact-us .container .row{
+	justify-content: space-between;
+}
+.contact-us .contact-us-text {
+	width: 35%;
+}
+.contact-us .contact-us-text .contact-us-text-head{
+	font-size: 34px;
+	color: #000000;
+	text-transform: capitalize;
+	text-align: center;
+}
+.contact-us .contact-us-text .contact-us-text-desc{
+	font-size: 20px;
+	color: #5B6880;
+	margin: 20px 0;
+}
+.contact-us .contact-us-text .mobile-email{
+	font-size: 20px;
+	color: #CF1818;
+	margin-bottom: 10px;
+}
+.contact-us .contact-us-text .mobile-email span{
+	margin-left: 10px;
+	color: #5B6880;
+}
+.contact-us .contact-us-text .timing{
+	font-size: 20px;
+	color: #5B6880;
+	line-height: 28px;
+	margin-top: 20px;
+}
+.contact-us .contact-us-form{
+	width: 62%;
+}
+.contact-us .contact-us-form .half-form-control{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+.contact-us .contact-us-form .half-form-control input{
+	width: 48%;
+	padding: 8px 10px;
+	border: 1px solid #828282;
+	border-radius: 4px;
+	outline: none;
+}
+.contact-us .contact-us-form .form-control input,
+.contact-us .contact-us-form .form-control textarea{
+	width: 100%;
+	padding: 8px 10px;
+	border: 1px solid #828282;
+	margin-bottom: 20px;
+	border-radius: 4px;
+	outline: none;
+}
+.contact-us .contact-us-form .send-btn input[type="submit"]{
+	font-size: 16px;
+	color: #FFFFFF;
+	padding: 8px 80px;
+	border-radius: 4px;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background-color: #CF1818;
+}
+
+/*NYSC Page Style Starts*/
+.nysc-header{
+	width: 100%;
+	height: 300px;
+	background-image: url('../img/nysc-header-bg.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.nysc-header .nysc-header-text p{
+	font-size: 76px;
+	color: #FFFFFF;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.nysc-content{
+	width: 100%;
+	padding: 100px 0;
+}
+.nysc-content .nysc-content-head p{
+	font-size: 36px;
+	color: #000000;
+	text-transform: capitalize;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+.nysc-content .nysc-content-main{
+	margin-top: 30px;
+}
+.nysc-content .nysc-content-main .nysc-content-main-head{
+	font-size: 16px;
+	font-weight: 500;
+	text-transform: capitalize;
+	color: #808080;
+	margin-bottom: 20px;
+}
+.nysc-content .nysc-content-main .nysc-content-main-desc{
+	font-size: 14px;
+	color: #808080;
+	margin-bottom: 30px;
+	line-height: 24px;
+}
+
+/*Self Employed Page Styles*/
+.self-employed-header{
+	width: 100%;
+	height: 300px;
+	background-image: url('../img/self-header-bg.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	display: flex;
+	align-items: center;
+	background-size: cover;
+	justify-content: center;
+}
+.self-employed-header .self-employed-head p{
+	font-size: 76px;
+	color: #FFFFFF;
+	font-weight: 700;
+	text-align: center;
+	text-transform: uppercase;
+}
+.self-employed-content{
+	padding: 30px 0;
+}
+.self-employed-content .self-employed-content-head{
+	font-size: 36px;
+	font-weight: 700;
+}
+.self-employed-content .self-employed-content-desc{
+	margin: 20px 0;
+}
+.self-employed-content .self-employed-content-desc p{
+	color: #808080;
+	font-size: 14px;
+	line-height: 24px;
+	margin-bottom: 20px;
+}
+.self-employed-content .self-employed-content-desc p span{
+	font-weight: 500;
+	font-size: 16px;
+}
+.self-employed-content .self-employed-content-item{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: 50px;
+}
+.self-employed-content .self-employed-content-item .self-employed-content-item-img{
+	width: 40%;
+}
+.self-employed-content .self-employed-content-item .self-employed-content-item-img img{
+	width: 100%;
+	height: 100%;
+}
+.self-employed-content .self-employed-content-item .self-employed-content-item-text{
+	width: 57%;
+}
+.self-employed-content .self-employed-content-item-text-head p{
+	font-size: 34px;
+	color: #232323;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+.self-employed-content .self-employed-content-item-text-desc p{
+	font-size: 14px;
+	line-height: 25px;
+	color: #808080;
+	margin-bottom: 20px;
+}
+.self-employed-content .self-employed-content-item-text-desc p span{
+	font-weight: 500;
+	font-size: 16px;
+}
+.self-employed-content .learn-more-btn a{
+	font-size: 14px;
+	color: #FFFFFF;
+	background-color: #CF1818;
+	border-radius: 4px;
+	padding: 5px 30px;
+	text-transform: capitalize;
+}
+
+/*Login/Signup Page Styles*/
+.login-signup2{
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.login-signup2 .boxes-container{
+	width: 50%;
+}
+.login-signup2 .boxes-container .boxes-items{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.login-signup2 .boxes-container .boxes-items .boxes-item{
+	width: 48%;
+	background-color: #FFFFFF;
+	border-radius: 8px;
+	padding: 50px;
+	text-align: center;
+	box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.05), 0px 6px 30px rgba(0, 0, 0, 0.04), 0px 8px 10px rgba(0, 0, 0, 0.06);
+	cursor: pointer;
+}
+.login-signup2 .boxes-container .boxes-items .boxes-item .boxes-item-img{
+	margin-bottom: 10px;
+}
+.login-signup2 .boxes-container .boxes-items .boxes-item .boxes-item-title{
+	font-size: 22px;
+	color: #CF1818;
+	font-weight: bold;
+	margin-bottom: 10px;
+	text-transform: capitalize;
+}
+.login-signup2 .boxes-container .boxes-items .boxes-item .boxes-item-desc{
+	font-size: 15px;
+	color: #4E5559;
+	line-height: 26px;
+}
+
+/*Login page Styles*/
+.job-seeker,
+.job-seeker-signup{
+	padding: 30px 0;
+}
+.job-seeker .row,
+.job-seeker-signup .row{
+	justify-content: space-between;
+}
+.job-seeker .job-seeker-slider,
+.job-seeker-signup .job-seeker-slider{
+	width: 48%;
+}
+
+/* The dots/bullets/indicators */
+.job-seeker .job-seeker-slider .dot,
+.job-seeker-signup .job-seeker-slider .dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #000000;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.job-seeker .job-seeker-slider .active,
+.job-seeker-signup .job-seeker-slider .active {
+  background-color: #CF1818;
+  width: 40px;
+  border-radius: 10px;
+}
+
+/* Fading animation */
+.job-seeker .job-seeker-slider .fade,
+.job-seeker-signup .job-seeker-slider .fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+.job-seeker .job-seeker-form,
+.job-seeker-signup .job-seeker-form{
+	margin-top: 40px;
+	width: 48%;
+}
+.job-seeker .job-seeker-form-head p,
+.job-seeker-signup .job-seeker-form-head p{
+	font-size: 24px;
+	color: #161E2E;
+	text-align: center;
+	font-weight: bold;
+	text-transform: capitalize;
+	margin-bottom: 50px;
+}
+.job-seeker-signup .job-seeker-form-head p{
+	margin-bottom: 20px;
+}
+.job-seeker-signup .job-seeker-form-sub-head p{
+	font-size: 20px;
+	color: #CF1818;
+	text-align: center;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+.job-seeker .job-seeker-form .form-control,
+.job-seeker .job-seeker-form .form-control-2{
+	width: 70%;
+	margin: 0 auto 20px auto;
+}
+.job-seeker-signup .job-seeker-form .form-control{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+.job-seeker .job-seeker-form .form-control input[type="email"],
+.job-seeker .job-seeker-form .form-control input[type="password"]{
+	width: 100%;
+	padding: 10px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	border: 1px solid #D2D6DC;
+	background-color: #FFFFFF;
+}
+.job-seeker-signup .job-seeker-form .form-control input[type="text"],
+.job-seeker-signup .job-seeker-form .form-control input[type="email"],
+.job-seeker-signup .job-seeker-form .form-control input[type="password"],
+.job-seeker-signup .job-seeker-form .form-control select,
+.job-seeker-signup .job-seeker-form .form-control input[type="number"]{
+	width: 48%;
+	padding: 10px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	border: 1px solid #D2D6DC;
+	background-color: #FFFFFF;
+}
+.job-seeker .job-seeker-form .form-control-2{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.job-seeker .job-seeker-form .form-control-2 .checkbox label{
+	font-size: 14px;
+	color: #696969;
+}
+.job-seeker .job-seeker-form .form-control-2 .forgot-link a{
+	font-size: 14px;
+	text-transform: capitalize;
+	color: #CF1818;
+}
+.job-seeker .job-seeker-form .form-control input[type="submit"],
+.job-seeker-signup .job-seeker-form .form-control input[type="submit"]{
+	width: 50%;
+	padding: 10px;
+	border-radius: 5px;
+	background-color: #CF1818;
+	color: #FFFFFF;
+	font-size: 14px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	margin: auto;
+}
+.job-seeker .job-seeker-form .have-text,
+.job-seeker-signup .job-seeker-form .have-text{
+	text-align: center;
+	font-size: 14px;
+	color: #212529;
+	margin: 20px 0;
+}
+.job-seeker-signup .job-seeker-form .have-text a{
+	color: #212529;
+}
+.job-seeker .job-seeker-form .signup-btn{
+	text-align: center;
+}
+.job-seeker .job-seeker-form .signup-btn a{
+	color: #CF1818;
+}
+/* Media queries - Responsive timeline on screens less than 600px wide */
+/*Style for different devices*/
+@media(max-width: 767px){
+	.container{
+		width: 100%;
+	}
+	header{
+		position: fixed;
+		padding: 15px;
+		background-color: #ffffff;
+		border: none;
+		top: 0;
+		margin-top: 0;
+		border-bottom: 1px solid #eeeeee;
+	}
+	header .bonus img{
+		width: 350px;
+	}
+	.logo-bonus{
+		display: none;
+	}
+	header .brand-name {
+		display: block;
+	}
+	.ham-burger .fa{
+		display: block;
+	}
+	.navbar{
+		position: absolute;
+		background-color: #ffffff;
+		width: 100%;
+		left: 0;
+		top: 60px;
+		padding: 15px;
+		border-top: 1px solid #eeeeee;
+		display: none;
+		border-bottom: 1px solid #eeeeee;
+	}
+	.navbar.show{
+		display: block;
+	}
+	header .navbar{
+		margin: 0;
+	}
+	header .navbar ul li{
+		display: block;
+		margin: 0;
+	}
+	header .navbar ul li a{
+		line-height: 42px;
+		color: #000000;
+	}
+	header .navbar ul li a::before{
+		background-color: #febd01;
+	}
+	header .navbar ul li.login-signup-sm{
+		display: block;
+	}
+	header .login-signup{
+		display: none;
+	}
+	.home{
+		width: 90%;
+		margin: 70px auto 0 auto;
+	}
+	.home .home-text,
+	.home .home-img{
+		width: 100%;
+	}
+	.home .home-img{
+		order: 1;
+		margin-bottom: 20px;
+	}
+	.home .home-img img{
+		width: 100%;
+		display: block;
+		margin: auto;
+	}
+	.home .home-text{
+		order: 2;
+	}
+	.home .home-text .home-text-head{
+		font-size: 16px;
+	}
+	.home .home-text .home-main-text{
+		font-size: 20px;
+	}
+	.home .home-text .home-text-desc{
+		margin-bottom: 25px;
+	}
+	.home .home-text .home-btns{
+		text-align: center;
+	}
+	.home .home-text .home-btns a{
+		padding: 8px 15px;
+	}
+
+	.seo .container{
+		width: 90%;
+	}
+	.seo .container .form-group,
+	.seo .container .form-group-2,
+	.seo .container .form-group-3{
+		margin-right: 0;
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	.seo .container .form-group-3{
+		margin-bottom: 0;
+	}
+
+	.jobs .sidebar,
+	.jobs .sidebar-2{
+		width: 90%;
+		margin: auto;
+	}
+	.jobs .main-jobs{
+		width: 90%;
+		margin: 20px auto;
+	}
+	.jobs .main-jobs .main-jobs-item .main-jobs-item-head-btn{
+		display: none;
+	}
+	.main-jobs-item .main-jobs-item-main .btns{
+		display: block;
+	}
+	.main-jobs-item .main-jobs-item-footer .main-jobs-item-footer-item span{
+		margin-left: 5px;
+	}
+	.main-jobs-item .main-jobs-item-footer .main-jobs-item-footer-item{
+		margin-right: 10px;
+	}
+	.sidebar-2 .self-employ .content{
+		bottom: 10px;
+	}
+
+	.employers .container{
+		width: 90%;
+		margin: auto;
+	}
+	#employers-slider .MS-content .item{
+		width: 100%;
+	}
+	#employers-slider .MS-content .item img{
+		width: 100%;
+	}
+	#employers-slider .MS-controls button {
+	  	display: none;
+	}
+
+	.footer{
+		padding: 50px 0;
+	}
+	.footer .footer-bottom-img1,
+  .footer .footer-bottom-img2{
+  	display: none;
+  }
+	.footer .footer-items{
+		margin: auto;
+		width: 90%;
+	}
+	.footer .footer-items .footer-item{
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	.footer .footer-items .footer-item .footer-item-head{
+		text-align: center;
+	}
+	.footer .footer-items .footer-item .footer-item-head p{
+		margin-bottom: 20px;
+		font-size: 18px;
+	}
+	.footer .footer-items .footer-item .footer-item-links ul{
+		text-align: center;
+	}
+	.footer .footer-items .footer-item .footer-item-links ul li a{
+		font-size: 16px;
+	}
+	.footer .app-btns{
+		width: 100%;
+	}
+
+	.pricing-plans-header .pricing-plans-heading p{
+		font-size: 40px;
+	}
+	.pricing-plans-header .pricing-plans-description p{
+		text-align: center;
+	}
+	.pricing-plans{
+		width: 90%;
+		margin: auto;
+	}
+	.pricing-plans-cards{
+		width: 100%;
+	}
+	.pricing-plans-cards .pricing-plans-cards-items{
+		width: 100%;
+	}
+	.pricing-plans-cards .pricing-plans-cards-items .pricing-plans-cards-item{
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	.help-accordion{
+		width: 90%;
+		margin: auto;
+		padding: 30px 0;
+	}
+
+	.contact-us .container{
+		width: 90%;
+		margin: auto;
+	}
+	.contact-us .contact-us-text{
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	.contact-us .contact-us-text .contact-us-text-head{
+		font-size: 30px;
+	}
+	.contact-us .contact-us-text .contact-us-text-desc,
+	.contact-us .contact-us-text .mobile-email,
+	.contact-us .contact-us-text .timing{
+		font-size: 18px;
+	}
+	.contact-us .contact-us-form{
+		width: 100%;
+	}
+	.contact-us .contact-us-form .half-form-control{
+		margin-bottom: 0;
+	}
+	.contact-us .contact-us-form .half-form-control input{
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	.contact-us .contact-us-form .send-btn input[type="submit"]{
+		width: 100%;
+	}
+
+	.nysc-header .nysc-header-text p{
+		font-size: 40px;
+	}
+	.nysc-content .container{
+		width: 90%;
+		margin: auto;
+	}
+
+	.self-employed-header .self-employed-head p{
+		font-size: 30px;
+	}
+	.self-employed-content .container{
+		width: 90%;
+		margin: auto;
+	}
+	.self-employed-content .self-employed-content-head{
+		font-size: 24px;
+	}
+	.self-employed-content .self-employed-content-item .self-employed-content-item-img{
+		width: 100%;
+		order: 1;
+		margin-bottom: 20px;
+	}
+	.self-employed-content .self-employed-content-item .self-employed-content-item-text{
+		width: 100%;
+		order: 2;
+	}
+	.self-employed-content .self-employed-content-item-text-head p{
+		font-size: 24px;
+	}
+
+	.login-signup2{
+		height: auto;
+		padding: 50px 0;
+	}
+	.login-signup2 .boxes-container{
+		width: 90%;
+	}
+	.login-signup2 .boxes-container .boxes-items{
+		width: 100%;
+	}
+	.login-signup2 .boxes-container .boxes-items .boxes-item{
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	.job-seeker,
+	.job-seeker-signup{
+		margin-top: 70px;
+	}
+	.job-seeker .container,
+	.job-seeker-signup .container{
+		width: 90%;
+		margin: auto;
+	}
+	.job-seeker .job-seeker-slider,
+	.job-seeker .job-seeker-form,
+	.job-seeker-signup .job-seeker-slider,
+	.job-seeker-signup .job-seeker-form{
+		width: 100%;
+	}
+	.job-seeker .job-seeker-form .form-control,
+	.job-seeker .job-seeker-form .form-control-2,
+	.job-seeker-signup .job-seeker-form .form-control{
+		width: 100%;
+	}
+	.job-seeker-signup .job-seeker-form .form-control{
+		margin-bottom: 0;
+	}
+	.job-seeker-signup .job-seeker-form .form-control input[type="text"],
+	.job-seeker-signup .job-seeker-form .form-control input[type="email"],
+	.job-seeker-signup .job-seeker-form .form-control input[type="password"],
+	.job-seeker-signup .job-seeker-form .form-control input[type="number"],
+	.job-seeker-signup .job-seeker-form .form-control input[type="submit"],
+	.job-seeker-signup .job-seeker-form .form-control select{
+		width: 100%;
+		margin-bottom: 20px;
+	}
+}
+
+@media(min-width: 768px) and (max-width:  1023px){
+	.container{
+		width: 100%;
+	}
+	header{
+		width: 94%;
+		margin: 20px auto;
+		/*position: fixed;
+		padding: 15px;
+		border: none;
+		z-index: 1000;*/
+	}
+	header .bonus img{
+		width: 300px;
+	}
+	header .navbar ul li{
+		margin-left: 10px;
+	}
+	header .navbar ul li a{
+		font-size: 14px;
+	}
+	.home{
+		width: 90%;
+		margin: auto;
+	}
+	.home .home-text .home-btns a{
+		padding: 8px 15px;
+	}
+	.home .home-text .home-main-text{
+		font-size: 28px;
+	}
+
+	.seo .container{
+		width: 90%;
+	}
+	.seo .container .form-group,
+	.seo .container .form-group-2,
+	.seo .container .form-group-3{
+		width: 48%;
+		margin-right: 0;
+	}
+	.seo .container .form-group{
+		margin-bottom: 20px;
+	}
+
+	.jobs .container{
+		width: 90%;
+		margin: auto;
+	}
+	.jobs .sidebar{
+		width: 40%;
+	}
+	.jobs .main-jobs{
+		width: 55%;
+	}
+	.jobs .main-jobs .main-jobs-item .main-jobs-item-head-btn{
+		display: none;
+	}
+	.main-jobs-item .main-jobs-item-main .btns{
+		display: block;
+	}
+	.main-jobs-item .main-jobs-item-footer .main-jobs-item-footer-item{
+		margin-right: 15px;
+	}
+	.jobs .sidebar-2{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		width: 100%;
+		margin-top: 20px;
+	}
+	.jobs .sidebar-2 .sidebar-2-item{
+		width: 48%;
+		height: 200px;
+	}
+	.jobs .sidebar-2 .nde img{
+		height: 225px;
+	}
+	.employers .container{
+		width: 87%;
+		margin: auto;
+	}
+	#employers-slider .MS-content .item {
+	  width: 33.3333%;
+	}
+  #employers-slider .MS-controls .MS-left {
+    left: -2px;
+  }
+  #employers-slider .MS-controls .MS-right {
+    right: -2px;
+  }
+
+  .footer{
+  	padding: 50px 0;
+  }
+  .footer .footer-bottom-img1,
+  .footer .footer-bottom-img2{
+  	display: none;
+  }
+  .footer .footer-items{
+  	width: 75%;
+  	margin-left: 0;
+  	margin: auto;
+  }
+
+  .pricing-plans{
+  	width: 90%;
+  	margin: auto;
+  }
+  .pricing-plans-cards .pricing-plans-cards-items{
+  	width: 100%;
+  }
+
+  .help-accordion{
+		width: 90%;
+		margin: auto;
+	}
+
+	.contact-us .container{
+		width: 90%;
+		margin: auto;
+	}
+	.contact-us .container .contact-us-text{
+		width: 40%;
+	}
+	.contact-us .container .contact-us-form{
+		width: 57%;
+	}
+
+	.nysc-content .container{
+		width: 90%;
+		margin: auto;
+	}
+
+	.self-employed-header .self-employed-head p{
+		font-size: 50px;
+	}
+	.self-employed-content .container{
+		width: 90%;
+		margin: auto;
+	}
+	.self-employed-content .self-employed-content-head{
+		font-size: 24px;
+	}
+	.self-employed-content .self-employed-content-item .self-employed-content-item-img{
+		width: 100%;
+		order: 1;
+		margin-bottom: 20px;
+	}
+	.self-employed-content .self-employed-content-item .self-employed-content-item-text{
+		width: 100%;
+		order: 2;
+	}
+	.self-employed-content .self-employed-content-item-text-head p{
+		font-size: 24px;
+	}
+
+	.login-signup2 .boxes-container{
+		width: 80%;
+	}
+
+	.job-seeker .container,
+	.job-seeker-signup .container{
+		width: 90%;
+	}
+	.job-seeker .job-seeker-form .form-control, .job-seeker .job-seeker-form .form-control-2{
+		width: 100%;
+	}
+
+}
+
+@media(min-width: 1024px) and (max-width:  1050px){
+	.container{
+		width: 100%;
+	}
+	header{
+		width: 94%;
+		margin: 20px auto;
+	}
+	.home{
+		width: 90%;
+		margin: auto;
+	}
+	.home .home-text .home-btns a{
+		padding: 8px 15px;
+	}
+
+	.seo .container{
+		width: 90%;
+	}
+	.seo .container .form-group,
+	.seo .container .form-group-2,
+	.seo .container .form-group-3{
+		width: 48%;
+		margin-right: 0;
+	}
+	.seo .container .form-group{
+		margin-bottom: 20px;
+	}
+
+	.jobs .container{
+		width: 90%;
+		margin: auto;
+	}
+	.jobs .main-jobs .main-jobs-item .main-jobs-item-head-btn{
+		display: none;
+	}
+	.main-jobs-item .main-jobs-item-main .btns{
+		display: block;
+	}
+	.main-jobs-item .main-jobs-item-footer .main-jobs-item-footer-item{
+		margin-right: 15px;
+	}
+
+	.sidebar-2 .ad-banner{
+		height: 250px;
+	}
+	.sidebar-2 .have-business .text-2{
+		font-size: 10px;
+	}
+
+	.employers .container{
+		width: 90%;
+		margin: auto;
+	}
+	#employers-slider .MS-content .item {
+	  width: 25%;
+	}
+
+	.footer{
+		padding: 50px 0;
+	}
+	.footer .footer-bottom-img1,
+	.footer .footer-bottom-img2{
+		display: none;
+	}
+	.footer .footer-items{
+		width: 75%;
+		margin-left: 0;
+		margin: auto;
+	}
+
+	.pricing-plans{
+  	width: 90%;
+  	margin: auto;
+  }
+  .pricing-plans-cards .pricing-plans-cards-items{
+  	width: 100%;
+  }
+
+  .help-accordion{
+		width: 90%;
+		margin: auto;
+	}
+
+	.contact-us .container,
+	.nysc-content .container,
+	.self-employed-content .container{
+		width: 90%;
+		margin: auto;
+	}
+
+	.login-signup2 .boxes-container{
+		width: 70%;
+	}
+
+	.job-seeker .container,
+	.job-seeker-signup .container{
+		width: 90%;
+	}
+	.job-seeker .job-seeker-form .form-control, 
+	.job-seeker .job-seeker-form .form-control-2,
+	.job-seeker-signup .job-seeker-form .form-control{
+		width: 100%;
+	}	
+}
+@media(min-width: 1051px){
+	.seo .container form{
+		flex-wrap: nowrap;
+	}
+}
