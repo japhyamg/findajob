@@ -17,10 +17,13 @@ use App\Http\Controllers\Users\ProfileController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [PagesController::class, 'index'])->name('index');
 Route::get('/get-started', [PagesController::class, 'getstarted'])->name('get-started');
+Route::get('/show', [PagesController::class, 'show'])->name('show');
+
+// Route::get('/contact-us', [PagesController::class, 'contactus'])->name('contact-us');
+Route::get('/contact-us', [PagesController::class, 'contactus'])->name('contact-us');
+
 
 
 

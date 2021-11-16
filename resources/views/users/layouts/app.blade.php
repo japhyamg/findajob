@@ -16,7 +16,7 @@
 	<!-- sidebar Starts -->
 	<div class="sidebar">
 		<div class="sidebar-logo">
-			<a href="{{route('user.dashboard')}}">
+			<a href="{{route('index')}}">
 				<img src="{{asset('assets/img/logo.png')}}" alt="Logo" />
 			</a>
 		</div>
