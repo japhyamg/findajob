@@ -25,7 +25,16 @@ Route::get('/terms', [PagesController::class, 'terms'])->name('terms');
 Route::get('/privacy', [PagesController::class, 'privacy'])->name('privacy');
 Route::get('/pricing-plans', [PagesController::class, 'pricingplans'])->name('pricing-plans');
 Route::get('/nysc', [PagesController::class, 'nysc'])->name('nysc');
+Route::get('/job-search', [PagesController::class, 'jobsearch'])->name('job-search');
 Route::get('/self-employed', [PagesController::class, 'selfemployed'])->name('self-employed');
+Route::get('/employers', [PagesController::class, 'employers'])->name('employers');
+Route::get('/job-seekers', [PagesController::class, 'jobseekers'])->name('job-seekers');
+Route::get('/loop-vc', [PagesController::class, 'loopvc'])->name('loop-vc');
+Route::get('/ayeen', [PagesController::class, 'ayeen'])->name('ayeen');
+Route::get('/nde', [PagesController::class, 'nde'])->name('nde');
+Route::get('/cv-creator', [PagesController::class, 'cvcreator'])->name('cv-creator');
+Route::get('/job-centers', [PagesController::class, 'jobcenters'])->name('job-centers');
+Route::get('/job-seeker-videos', [PagesController::class, 'jobseekervideos'])->name('job-seeker-videos');
 
 Route::get('/faqs', [PagesController::class, 'faqs'])->name('faqs');
 Route::get('/help', [PagesController::class, 'help'])->name('help');

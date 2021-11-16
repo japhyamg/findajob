@@ -13,7 +13,7 @@ class PagesController extends Controller
         $jobs = Job::orderBy('created_at', 'DESC')->get();
         return view('front.index', compact('jobs'));
     }
-    
+
     public function getstarted()
     {
         return view('front.getstarted');
@@ -31,7 +31,7 @@ class PagesController extends Controller
     {
         return view('front.aboutus');
     }
-    
+
     public function terms()
     {
         return view('front.terms');
@@ -40,6 +40,51 @@ class PagesController extends Controller
     public function nysc()
     {
         return view('front.nysc');
+    }
+
+    public function jobsearch()
+    {
+        return view('front.jobsearch');
+    }
+
+    public function employers()
+    {
+        return view('front.employers');
+    }
+
+    public function jobseekers()
+    {
+        return view('front.jobseekers');
+    }
+
+    public function loopvc()
+    {
+        return view('front.loopvc');
+    }
+
+    public function ayeen()
+    {
+        return view('front.ayeen');
+    }
+
+    public function nde()
+    {
+        return view('front.nde');
+    }
+
+    public function cvcreator()
+    {
+        return view('front.cvcreator');
+    }
+
+    public function jobcenters()
+    {
+        return view('front.jobcenters');
+    }
+
+    public function jobseekervideos()
+    {
+        return view('front.jobseekervideos');
     }
 
     public function selfemployed()

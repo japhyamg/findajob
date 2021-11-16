@@ -19,9 +19,9 @@
 				</div>
 				<br>
 				<div style="text-align:center">
-				  <span class="dot"></span> 
-				  <span class="dot"></span> 
-				  <span class="dot"></span> 
+				  <span class="dot"></span>
+				  <span class="dot"></span>
+				  <span class="dot"></span>
 				</div>
 			</div>
 			<div class="job-seeker-form">
@@ -30,21 +30,31 @@
                     <div class="job-seeker-form-head">
                         <p>Login to Your Account</p>
                     </div>
+                    @if($errors->any())
+                        <div style="position:relative;padding:1rem 1rem;margin-bottom:1rem;border:1px solid transparent;border-radius:.25rem; color:#842029;background-color:#f8d7da;border-color:#f5c2c7;text-align:center!important;">
+                            <p><strong>Opps Something went wrong</strong></p>
+                            <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="form-control">
                         <input type="email" name="email" placeholder="Email">
-                        @error('email')
+                        {{-- @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                        @enderror
+                        @enderror --}}
                     </div>
                     <div class="form-control">
                         <input type="password" name="password" placeholder="Password">
-                        @error('password')
+                        {{-- @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                        @enderror
+                        @enderror --}}
                     </div>
                     <div class="form-control-2">
                         <div class="checkbox">
@@ -147,14 +157,14 @@
       var slides = document.getElementsByClassName("mySlides");
       var dots = document.getElementsByClassName("dot");
       for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
+        slides[i].style.display = "none";
       }
       slideIndex++;
-      if (slideIndex > slides.length) {slideIndex = 1}    
+      if (slideIndex > slides.length) {slideIndex = 1}
       for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
       }
-      slides[slideIndex-1].style.display = "block";  
+      slides[slideIndex-1].style.display = "block";
       dots[slideIndex-1].className += " active";
       setTimeout(showSlides, 2000); // Change image every 2 seconds
     }

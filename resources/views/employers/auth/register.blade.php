@@ -32,33 +32,43 @@
                     <div class="job-seeker-form-sub-head">
                         <p>Take the first step in finding that special talent</p>
                     </div>
+                    @if($errors->any())
+                        <div style="position:relative;padding:1rem 1rem;margin-bottom:1rem;border:1px solid transparent;border-radius:.25rem; color:#842029;background-color:#f8d7da;border-color:#f5c2c7;text-align:center!important;">
+                            <p><strong>Opps Something went wrong</strong></p>
+                            <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="form-control">
                         <input type="text" name="firstname" placeholder="First Name">
-                        @error('firstname')
+                        {{-- @error('firstname')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                        @enderror
+                        @enderror --}}
                         <input type="text" name="lastname" placeholder="Last Name">
-                        @error('lastname')
+                        {{-- @error('lastname')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                        @enderror
+                        @enderror --}}
                     </div>
                     <div class="form-control">
                         <input type="email" name="email" placeholder="Email">
-                        @error('email')
+                        {{-- @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                        @enderror
+                        @enderror --}}
                         <input type="password" name="password" placeholder="Password">
-                        @error('password')
+                        {{-- @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                        @enderror
+                        @enderror --}}
                     </div>
                     <div class="form-control">
                         <input type="password" name="password_confirmation" placeholder="Confirm Password">
@@ -71,55 +81,55 @@
                             <option>Position 3</option>
                             <option>Position 4</option>
                         </select>
-                        @error('position')
+                        {{-- @error('position')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                        @enderror
+                        @enderror --}}
                         <select name="sex">
                             <option>Sex</option>
                             <option>Male</option>
                             <option>Female</option>
                             <option>Other</option>
                         </select>
-                        @error('sex')
+                        {{-- @error('sex')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                        @enderror
+                        @enderror --}}
                     </div>
                     <div class="form-control">
                         <input type="text" name="nationality" placeholder="Nationality">
-                        @error('nationality')
+                        {{-- @error('nationality')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                        @enderror
+                        @enderror --}}
                         <input type="number" name="phone" placeholder="Phone Number">
-                        @error('phone')
+                        {{-- @error('phone')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                        @enderror
+                        @enderror --}}
                     </div>
                     <div class="form-control">
                         <input type="text" name="companyname" placeholder="Company Name">
-                        @error('companyname')
+                        {{-- @error('companyname')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                        @enderror
+                        @enderror --}}
                         <select name="industry">
                             <option value="">Select Industry</option>
                             @foreach ($industries as $industry)
                                 <option value="{{$industry->slug}}">{{$industry->name}}</option>
                             @endforeach
                         </select>
-                        @error('industry')
+                        {{-- @error('industry')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                        @enderror
+                        @enderror --}}
                     </div>
                     <p class="have-text">By clicking "Submit", you agree to our <b><a href="#">TERMS & CONDITIONS</a></b> and <b><a href="#">PRIVACY POLICY</a></b></p>
                     <div class="form-control">

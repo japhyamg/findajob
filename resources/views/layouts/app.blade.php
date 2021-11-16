@@ -25,7 +25,7 @@
 	<div class="container">
 		<div class="row logo-bonus">
 			<div class="logo">
-				<a href="index.html">
+				<a href="{{route('index')}}">
 					<img src="{{asset('assets/img/logo.png')}}" alt="Logo" />
 				</a>
 			</div>
@@ -35,14 +35,14 @@
 		</div>
 		<div class="row navbar-login">
 			<div class="brand-name">
-				<a href="#" class="logo">
+				<a href="{{route('index')}}" class="logo">
 					<img src="{{asset('assets/img/logo.png')}}" alt="Logo" />
 				</a>
 			</div>
 			<div class="navbar">
 				<ul>
-					<li><a href="index.html" class="active"><i class="fa fa-home"></i></a></li>
-					<li><a href="job-centers.html">Job centers</a></li>
+					<li><a href="{{route('index')}}" class="active"><i class="fa fa-home"></i></a></li>
+					<li><a href="{{route('job-centers')}}">Job centers</a></li>
 					<li><a href="{{route('pricing-plans')}}">Pricing plans</a></li>
 					<li><a href="{{route('help')}}">Help</a></li>
 					<li><a href="{{route('contact-us')}}">Contact Us</a></li>
@@ -98,10 +98,10 @@
 			</div>
 			<div class="footer-item-links">
 				<ul>
-					<li><a href="job-search.html">job search</a></li>
+					<li><a href="{{route('job-search')}}">job search</a></li>
 					<li><a href="{{route('pricing-plans')}}">pricing plans</a></li>
-					<li><a href="employers.html">employers</a></li>
-					<li><a href="job-seekers.html">job seekers</a></li>
+					<li><a href="{{route('employers')}}">employers</a></li>
+					<li><a href="{{route('job-seekers')}}">job seekers</a></li>
 				</ul>
 			</div>
 		</div>
@@ -112,10 +112,10 @@
 			<div class="footer-item-links">
 				<ul>
 					<li><a href="{{route('self-employed')}}">become self employed</a></li>
-					<li><a href="loop-vc.html">loop VC</a></li>
+					<li><a href="{{route('loop-vc')}}">loop VC</a></li>
 					<li><a href="{{route('nysc')}}">NYSC</a></li>
-					<li><a href="ayeen.html">ayeen</a></li>
-					<li><a href="nde.html">NDE</a></li>
+					<li><a href="{{route('ayeen')}}">ayeen</a></li>
+					<li><a href="{{route('nde')}}">NDE</a></li>
 				</ul>
 			</div>
 		</div>
@@ -125,9 +125,9 @@
 			</div>
 			<div class="footer-item-links">
 				<ul>
-					<li><a href="cv-creator.html">CV creator</a></li>
-					<li><a href="job-centers.html">job centers</a></li>
-					<li><a href="job-seeker-videos.html">job seeker videos</a></li>
+					<li><a href="{{route('cv-creator')}}">CV creator</a></li>
+					<li><a href="{{route('job-centers')}}">job centers</a></li>
+					<li><a href="{{route('job-seeker-videos')}}">job seeker videos</a></li>
 				</ul>
 			</div>
 		</div>
@@ -150,7 +150,7 @@
 	<div class="copyright">
 		<p>Copyright 2021 FindAJob, LLC</p>
 	</div>
-</footer>	
+</footer>
 <!-- Footer Section Ends	 -->
 	<script src="{{asset('js/app.js')}}"></script>
 	<script src="{{asset('assets/js/script.js')}}"></script>
