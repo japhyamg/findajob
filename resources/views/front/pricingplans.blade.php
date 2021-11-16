@@ -31,7 +31,7 @@
 					<p>free</p>
 				</div>
 				<div class="pricing-plans-cards-item-head-img">
-					<img src="img/brief-case.png" alt="Brief Case" />
+					<img src="{{asset('assets/img/brief-case.png')}}" alt="Brief Case" />
 				</div>
 				<div class="pricing-plans-cards-item-desc">
 					<p>Lorem ipsum dolor sit amet, non odio tincidunt ut ante, lorem a euismod suspendisse vel, sed quam nulla mauris iaculis.</p>
@@ -54,7 +54,7 @@
 					<p>premium</p>
 				</div>
 				<div class="pricing-plans-cards-item-head-img">
-					<img src="img/person.png" alt="Person" />
+					<img src="{{asset('assets/img/person.png')}}" alt="Person" />
 				</div>
 				<div class="pricing-plans-cards-item-desc">
 					<p>Lorem ipsum dolor sit amet, non odio tincidunt ut ante, lorem a euismod suspendisse vel, sed quam nulla mauris iaculis.</p>
