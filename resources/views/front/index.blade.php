@@ -360,12 +360,12 @@
                 .then(function (response) {
                     // handle success
                     var data = response.data
-					// if(data == 'true'){
-					// 	location.href = '{{route('user.find')}}'
-					// }else{
-					// 	location.href = '{{route('get-started')}}'
-					// }
-                    console.log(data);
+					// console.log(data, typeof data);
+					if(data == true){
+						location.href = '{{route('user.find')}}'
+					}else{
+						location.href = '{{route('get-started')}}'
+					}
 
                 })
                 .catch(function (error) {

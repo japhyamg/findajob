@@ -27,6 +27,46 @@ class PagesController extends Controller
         return 'false';
     }
 
+    public function aboutus()
+    {
+        return view('front.aboutus');
+    }
+    
+    public function terms()
+    {
+        return view('front.terms');
+    }
+
+    public function nysc()
+    {
+        return view('front.nysc');
+    }
+
+    public function selfemployed()
+    {
+        return view('front.selfemployed');
+    }
+
+    public function privacy()
+    {
+        return view('front.privacy');
+    }
+
+    public function pricingplans()
+    {
+        return view('front.pricingplans');
+    }
+
+    public function faqs()
+    {
+        return view('front.faqs');
+    }
+
+    public function help()
+    {
+        return view('front.help');
+    }
+
     public function contactus()
     {
         return view('front.contactus');

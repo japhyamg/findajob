@@ -20,8 +20,15 @@ use App\Http\Controllers\Users\ProfileController;
 Route::get('/', [PagesController::class, 'index'])->name('index');
 Route::get('/get-started', [PagesController::class, 'getstarted'])->name('get-started');
 Route::get('/show', [PagesController::class, 'show'])->name('show');
+Route::get('/about-us', [PagesController::class, 'aboutus'])->name('about-us');
+Route::get('/terms', [PagesController::class, 'terms'])->name('terms');
+Route::get('/privacy', [PagesController::class, 'privacy'])->name('privacy');
+Route::get('/pricing-plans', [PagesController::class, 'pricingplans'])->name('pricing-plans');
+Route::get('/nysc', [PagesController::class, 'nysc'])->name('nysc');
+Route::get('/self-employed', [PagesController::class, 'selfemployed'])->name('self-employed');
 
-// Route::get('/contact-us', [PagesController::class, 'contactus'])->name('contact-us');
+Route::get('/faqs', [PagesController::class, 'faqs'])->name('faqs');
+Route::get('/help', [PagesController::class, 'help'])->name('help');
 Route::get('/contact-us', [PagesController::class, 'contactus'])->name('contact-us');
 
 

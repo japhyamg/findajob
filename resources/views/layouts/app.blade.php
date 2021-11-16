@@ -14,7 +14,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Styles -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 	@toastr_css
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
@@ -43,9 +43,9 @@
 				<ul>
 					<li><a href="index.html" class="active"><i class="fa fa-home"></i></a></li>
 					<li><a href="job-centers.html">Job centers</a></li>
-					<li><a href="pricing-plans.html">Pricing plans</a></li>
-					<li><a href="help.html">Help</a></li>
-					<li><a href="contact-us.html">Contact Us</a></li>
+					<li><a href="{{route('pricing-plans')}}">Pricing plans</a></li>
+					<li><a href="{{route('help')}}">Help</a></li>
+					<li><a href="{{route('contact-us')}}">Contact Us</a></li>
 					<li class="login-signup-sm"><a href="{{route('get-started')}}">Login / Signup</a></li>
 				</ul>
 			</div>
@@ -86,9 +86,9 @@
 			</div>
 			<div class="footer-item-links">
 				<ul>
-					<li><a href="about-us.html">about us</a></li>
-					<li><a href="terms.html">terms of services</a></li>
-					<li><a href="privacy.html">privacy</a></li>
+					<li><a href="{{route('about-us')}}">about us</a></li>
+					<li><a href="{{route('terms')}}">terms of services</a></li>
+					<li><a href="{{route('privacy')}}">privacy</a></li>
 				</ul>
 			</div>
 		</div>
@@ -99,7 +99,7 @@
 			<div class="footer-item-links">
 				<ul>
 					<li><a href="job-search.html">job search</a></li>
-					<li><a href="pricing-plans.html">price plans</a></li>
+					<li><a href="{{route('pricing-plans')}}">pricing plans</a></li>
 					<li><a href="employers.html">employers</a></li>
 					<li><a href="job-seekers.html">job seekers</a></li>
 				</ul>
@@ -111,9 +111,9 @@
 			</div>
 			<div class="footer-item-links">
 				<ul>
-					<li><a href="self-employed.html">become self employed</a></li>
+					<li><a href="{{route('self-employed')}}">become self employed</a></li>
 					<li><a href="loop-vc.html">loop VC</a></li>
-					<li><a href="nysc.html">NYSC</a></li>
+					<li><a href="{{route('nysc')}}">NYSC</a></li>
 					<li><a href="ayeen.html">ayeen</a></li>
 					<li><a href="nde.html">NDE</a></li>
 				</ul>
@@ -137,8 +137,8 @@
 			</div>
 			<div class="footer-item-links">
 				<ul>
-					<li><a href="faq.html">FAQs</a></li>
-					<li><a href="contact-us.html">contact us</a></li>
+					<li><a href="{{route('faqs')}}">FAQs</a></li>
+					<li><a href="{{route('contact-us')}}">contact us</a></li>
 				</ul>
 			</div>
 		</div>
