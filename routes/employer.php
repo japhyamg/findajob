@@ -24,6 +24,7 @@ Route::middleware(['auth:employer', 'verified:employer.verification.notice'])->g
     // Company Profile
     Route::get('/company-details', [EmployerDetailsController::class, 'index'])->name('company-details');
     Route::post('/update-company-details', [EmployerDetailsController::class, 'updatecompanydetails'])->name('update-company-details');
+    Route::post('/profile/upload',[EmployerDetailsController::class, 'upload'])->name('profile-upload');
 
     // Contact Person
     Route::get('/contact-person', [EmployerDetailsController::class, 'contactperson'])->name('contact-person');

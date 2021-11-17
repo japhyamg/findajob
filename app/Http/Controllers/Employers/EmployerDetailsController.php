@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Employers;
 
 use App\Models\Industry;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -29,6 +30,33 @@ class EmployerDetailsController extends Controller
         auth('employer')->user()->profile->update($request->except(['token','save']));
 
         return redirect(route('employer.company-details'))->with('success', 'Company Details Updated');
+    }
+
+    public function upload(Request $request)
+    {
+        // $user = auth('employer')->user();
+        if($request->hasFile('logo')){
+            $file = $request->file('logo');
+            // $filename = $file->getClientOriginalName();
+            $filename = Str::random(10).'.'.$file->getClientOriginalExtension();
+            $folder = uniqid() .'-'.now()->timestamp;
+
+
+            $file->storeAs('employers/tmp/'.$folder, $filename);
+
+            return $folder;
+
+            // Image::make(storage_path('app/public/employers/profiles/'.$user->id.'/'.$filename))
+            //         ->fit(50,50)
+            //         ->save(storage_path('app/public/employers/profiles/'.$user->id.'/thumb-'.$filename));
+
+            // $user->profile->update([
+            //     'logo' => $filename
+            // ]);
+
+
+        }
+        return '';
     }
 
     public function contactperson()

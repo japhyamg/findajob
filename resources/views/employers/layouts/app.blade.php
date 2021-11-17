@@ -8,6 +8,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
   <link rel="stylesheet" href="{{asset('assets/css/dashboard2.css')}}">
   @toastr_css
 </head>
@@ -24,10 +25,10 @@
 			<ul>
 				<li><a href="{{route('employer.dashboard')}}" class="@if(Route::is('employer.dashboard')) active @endif"><img src="{{asset('assets/img/dash-icon-1.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-1-1.png')}}" class="light" />dashboards</a></li>
 				<li>
-					<a href="#" class="dropdown-btn" id="dropdown-btn"><img src="{{asset('assets/img/dash-icon-2.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-2-2.png')}}" class="light" />Company profile <i class="fa fa-angle-down angle-down"></i></a></li>
+					<a href="#" class="dropdown-btn @if(Route::is('employer.company-details') || Route::is('employer.contact-person') ) active @endif" id="dropdown-btn"><img src="{{asset('assets/img/dash-icon-2.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-2-2.png')}}" class="light" />Company profile <i class="fa fa-angle-down angle-down"></i></a></li>
 				</li>
-				<li class="job-dropdown"><a href="{{route('employer.company-details')}}"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />company details</a></li>
-				<li class="job-dropdown"><a href="{{route('employer.contact-person')}}"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />contact person</a></li>
+				<li class="job-dropdown profile"><a href="{{route('employer.company-details')}}" class="@if(Route::is('employer.company-details')) active @endif"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />company details</a></li>
+				<li class="job-dropdown profile"><a href="{{route('employer.contact-person')}}" class="@if(Route::is('employer.contact-person')) active @endif"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />contact person</a></li>
 				<li><a href="{{route('employer.post-job')}}" class="dropdown-btn"><img src="{{asset('assets/img/dash-icon-3.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-3-3.png')}}" class="light" />post a new job</a></li>
 				</li>
 				<li><a href="search.html"><img src="{{asset('assets/img/dash-icon-11.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-11-11.png')}}" class="light" />search</a></li>
@@ -191,16 +192,24 @@
   <script type="text/javascript">
   	$(document).ready(function(){
   	  $("#dropdown-btn").click(function(){
-  	    $(".job-dropdown").toggle();
+  	    $(".job-dropdown.profile").toggle();
   	  });
-  	  $("#dropdown-btn1").click(function(){
-  	    $(".resume-dropdown").toggle();
-  	  });
+  	//   $("#dropdown-btn1").click(function(){
+  	//     $(".resume-dropdown").toggle();
+  	//   });
   	});
   </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/filepond-plugin-image-edit/dist/filepond-plugin-image-edit.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
 @toastr_js
   @toastr_render
   @stack('scripts')

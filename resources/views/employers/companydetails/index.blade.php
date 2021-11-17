@@ -1,5 +1,21 @@
 @extends('employers.layouts.app')
+<!-- <style>
+    .filepond--drop-label {
+	color: #4c4e53;
+}
 
+.filepond--label-action {
+	text-decoration-color: #babdc0;
+}
+
+.filepond--panel-root {
+	background-color: #edf0f4;
+}
+.filepond--root {
+	width:170px;
+	margin: 0 0;
+}
+</style> -->
 @section('content')
 <div class="company-details-sec main-content">
     <div class="company-details">
@@ -13,8 +29,9 @@
             <form action="{{route('employer.update-company-details')}}" method="POST">
                 @csrf
                 <div class="upload-btn-wrapper">
-                  <button class="btn">browse logo</button>
-                  <input type="file" name="logo" />
+                    <label for="">Logo</label>
+                  <!-- <button class="btn">browse logo</button> -->
+                  <input type="file" id="logo" class="filepond" name="logo" accept="image/png, image/jpeg, image/gif" />
                   <span>Max file size is 1MB, Minimum dimension: 330x300 And Suitable files are .jpg & .png</span>
                 </div>
                 <div class="form-group-cont">
@@ -47,7 +64,7 @@
                     <div class="form-group">
                         <label>address</label>
                         <div class="input-container">
-                            <textarea rows="11" class="form-control @error('companyrc') is-invalid @enderror" name="address">{{auth('employer')->user()->profile->address}}</textarea>
+                            <textarea rows="3" class="form-control @error('companyrc') is-invalid @enderror" name="address">{{auth('employer')->user()->profile->address}}</textarea>
                             {{-- <img class="textarea-image" src="{{asset('assets/img/check-2.png')}}" /> --}}
                             @error('address')
                                 <div class="invalid-feedback">
@@ -64,7 +81,7 @@
                                 {{$message}}
                             </div>
                         @enderror
-                        <br> <br>
+                        <!-- <br> <br>
                         <label>number of employees</label>
                         <select name="noofemployers" class="form-control @error('noofemployers') is-invalid @enderror">
                             <option>1,000 - 10,000+</option>
@@ -76,6 +93,34 @@
                             </div>
                         @enderror
                         <br><br>
+                        <label>industry</label>
+                        <select name="industry" class="form-control @error('industry') is-invalid @enderror">
+                            <option value="">Select Industry</option>
+                            @foreach ($industries as $industry)
+                                <option value="{{$industry->slug}}" @if (auth('employer')->user()->profile->industry == $industry->slug) selected @endif >{{$industry->name}}</option>
+                            @endforeach
+                        </select>
+                        @error('industry')
+                            <div class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                        @enderror -->
+                    </div>
+                </div>
+                <div class="form-group-cont">
+                    <div class="form-group">
+                        <label>number of employees</label>
+                        <select name="noofemployers" class="form-control @error('noofemployers') is-invalid @enderror">
+                            <option>1,000 - 10,000+</option>
+                            <option>10,000 - 100,000+</option>
+                        </select>
+                        @error('noofemployers')
+                            <div class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <label>industry</label>
                         <select name="industry" class="form-control @error('industry') is-invalid @enderror">
                             <option value="">Select Industry</option>
@@ -123,7 +168,7 @@
                 <div class="form-group-cont">
                     <div class="form-group" style="width: 100%">
                         <label>about us</label>
-                        <textarea rows="10" name="aboutus" class="form-control @error('aboutus') is-invalid @enderror">{{auth('employer')->user()->profile->aboutus}}</textarea>
+                        <textarea rows="3" name="aboutus" class="form-control @error('aboutus') is-invalid @enderror">{{auth('employer')->user()->profile->aboutus}}</textarea>
                         @error('aboutus')
                             <div class="invalid-feedback">
                                 {{$message}}
@@ -179,4 +224,26 @@
 @endsection
 
 @push('scripts')
+<script>
+    const inputElement = document.querySelector('input[id="logo"]');
+
+    
+    // We register the plugins required to do 
+    // image previews, cropping, resizing, etc.
+    // FilePond.registerPlugin(
+    //     FilePondPluginImagePreview
+    // );
+        
+    // Create a FilePond instance
+    const pond = FilePond.create(inputElement);
+    pond.setOptions({
+        server: {
+            url:'{{route("employer.profile-upload")}}',
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            }
+        },
+    });
+</script>
 @endpush
