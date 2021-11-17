@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\PagesController;
-use App\Http\Controllers\Users\HomeController;
 use App\Http\Controllers\Users\JobController;
+use App\Http\Controllers\Users\HomeController;
 use App\Http\Controllers\Users\ProfileController;
 
 /*
@@ -40,6 +41,9 @@ Route::get('/faqs', [PagesController::class, 'faqs'])->name('faqs');
 Route::get('/help', [PagesController::class, 'help'])->name('help');
 Route::get('/contact-us', [PagesController::class, 'contactus'])->name('contact-us');
 
+Route::get('/foo-storage', function () {
+    Artisan::call('storage:link');
+});
 
 
 
