@@ -98,6 +98,15 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
             $media = $this->getMedia('avatars');
             return $media[0]->getUrl();
         }
+        // if($media = $this->getMedia('employers/profile')->last()){
+        //     $url = str_replace("storage","public", $media->getUrl());
+        //     return $url;
+        // }
+        // if($this->avatar !== null){
+        //     $media = $this->getMedia('avatars');
+        //     $url = str_replace("storage","public",$media[0]->getFullUrl());
+        //     return $url;
+        // }
         return asset('assets/img/profile-4.png');
     }
 
