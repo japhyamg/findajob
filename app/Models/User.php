@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail, HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -22,6 +24,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'lastname',
         'email',
         'password',
+        'avatar',
         'phone',
         'dofb',
         'gender',
@@ -89,5 +92,13 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany(Job::class, 'saved_jobs', 'user_id', 'job_id')->withTimestamps();
     }
 
+    public function getProfileImageAttribute()
+    {
+        if($this->avatar !== null){
+            $media = $this->getMedia('avatars');
+            return $media[0]->getUrl();
+        }
+        return asset('assets/img/profile-4.png');
+    }
 
 }

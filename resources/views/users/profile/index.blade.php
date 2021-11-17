@@ -12,6 +12,16 @@
                 @csrf
                 <div class="form-group-cont">
                     <div class="form-group">
+                        <label>Profile image</label>
+                        <input type="file" id="avatar" class="filepond" name="avatar" accept="image/png, image/jpeg, image/gif" />
+                        <span>Max file size is 1MB, Minimum dimension: 330x300 And Suitable files are .jpg & .png</span>
+                    </div>
+                    <div class="form-group">
+                        <img class="img-thumbnail w-50"  src="{{auth()->user()->profile_image}}" alt="profile image">
+                    </div>
+                </div>
+                <div class="form-group-cont">
+                    <div class="form-group">
                         <label>id type</label>
                         <input type="text" class="form-control @error('identification_type') is-invalid @enderror " name="identification_type" value="{{auth()->user()->identification_type}}" placeholder="National Identity Number (NIN)" />
                         @error('identification_type')
@@ -993,6 +1003,20 @@
       $("#language-btn").click(function(){
         $(".language").toggle();
       });
+    });
+</script>
+<script>
+    const inputElement = document.querySelector('input[id="avatar"]');
+
+    const pond = FilePond.create(inputElement);
+    pond.setOptions({
+        server: {
+            url:'{{route("user.profile-upload")}}',
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            }
+        },
     });
 </script>
 @endpush

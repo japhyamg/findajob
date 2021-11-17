@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Users;
 
-use App\Http\Controllers\Controller;
 use App\Models\Industry;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\TemporaryFile;
+use App\Http\Controllers\Controller;
 
 class ProfileController extends Controller
 {
@@ -28,12 +30,47 @@ class ProfileController extends Controller
             'nationality' => 'required',
         ]);
 
+        if($request->has('avatar')){
+            $temporaryfile = TemporaryFile::where('folder', $request->avatar)->first();
+            if($temporaryfile){
+                auth()
+                    ->user()
+                    ->addMedia(storage_path('app/avatars/tmp/'.$request->avatar.'/'.$temporaryfile->filename))
+                    ->toMediaCollection('avatars');
+
+                rmdir(storage_path('app/avatars/tmp/'.$request->avatar));
+                $temporaryfile->delete();
+            }
+        }
+
 
         auth()->user()->update($request->except(['token', 'save']));
 
         // dd($request->all());
         toastr()->success('Profile Updated');
         return redirect(route('user.profile'));
+    }
+
+    public function upload(Request $request)
+    {
+        // $user = auth('employer')->user();
+        if($request->hasFile('avatar')){
+            $file = $request->file('avatar');
+            // $filename = $file->getClientOriginalName();
+            $filename = Str::random(10).'.'.$file->getClientOriginalExtension();
+            $folder = uniqid() .'-'.now()->timestamp;
+
+
+            $file->storeAs('avatars/tmp/'.$folder, $filename);
+
+            TemporaryFile::create([
+                'folder' => $folder,
+                'filename' => $filename,
+            ]);
+
+            return $folder;
+        }
+        return '';
     }
 
 

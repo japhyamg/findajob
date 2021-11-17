@@ -6,6 +6,9 @@ use App\Models\Industry;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Employer;
+use App\Models\EmployerProfile;
+use App\Models\TemporaryFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -27,7 +30,20 @@ class EmployerDetailsController extends Controller
             'industry' => ['required', 'string', 'max:255'],
         ]);
 
-        auth('employer')->user()->profile->update($request->except(['token','save']));
+        if($request->has('logo')){
+            $temporaryfile = TemporaryFile::where('folder', $request->logo)->first();
+            if($temporaryfile){
+                auth('employer')
+                    ->user()->profile
+                    ->addMedia(storage_path('app/employers/tmp/'.$request->logo.'/'.$temporaryfile->filename))
+                    ->toMediaCollection('employers/profile');
+
+                rmdir(storage_path('app/employers/tmp/'.$request->logo));
+                $temporaryfile->delete();
+            }
+        }
+
+        auth('employer')->user()->profile->update($request->except(['token','save','logo']));
 
         return redirect(route('employer.company-details'))->with('success', 'Company Details Updated');
     }
@@ -43,6 +59,11 @@ class EmployerDetailsController extends Controller
 
 
             $file->storeAs('employers/tmp/'.$folder, $filename);
+
+            TemporaryFile::create([
+                'folder' => $folder,
+                'filename' => $filename,
+            ]);
 
             return $folder;
 

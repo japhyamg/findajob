@@ -42,7 +42,8 @@
 			<div class="navbar">
 				<ul>
 					<li><a href="{{route('index')}}" class="active"><i class="fa fa-home"></i></a></li>
-					<li><a href="{{route('job-centers')}}">Job centers</a></li>
+					{{-- <li><a href="{{route('job-centers')}}">Job centers</a></li> --}}
+					<li><a href="{{route('register')}}">Job centers</a></li>
 					<li><a href="{{route('pricing-plans')}}">Pricing plans</a></li>
 					<li><a href="{{route('help')}}">Help</a></li>
 					<li><a href="{{route('contact-us')}}">Contact Us</a></li>

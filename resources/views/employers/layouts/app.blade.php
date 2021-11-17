@@ -65,7 +65,7 @@
 							<span>0</span>
 						</i>
 					</li>
-					<li><span>{{ Auth::guard('employer')->user()->full_name}}</span><img src="{{asset('assets/img/profile.png')}}" alt="Profile Pic"></li>
+					<li><span>{{ Auth::guard('employer')->user()->full_name}}</span><img src="{{Auth::guard('employer')->user()->profile->profile_image}}" width="38px" height="38px" alt="Profile Pic"></li>
 				</ul>
 			</div>
 			<div class="toggle-btn">
@@ -202,13 +202,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://unpkg.com/filepond-plugin-image-edit/dist/filepond-plugin-image-edit.js"></script>
-<script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
-<script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
-<script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>
-<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
-<script src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
-<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
 <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
 @toastr_js
   @toastr_render

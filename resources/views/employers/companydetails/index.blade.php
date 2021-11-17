@@ -28,11 +28,16 @@
         <div class="company-details-body">
             <form action="{{route('employer.update-company-details')}}" method="POST">
                 @csrf
-                <div class="upload-btn-wrapper">
-                    <label for="">Logo</label>
-                  <!-- <button class="btn">browse logo</button> -->
-                  <input type="file" id="logo" class="filepond" name="logo" accept="image/png, image/jpeg, image/gif" />
-                  <span>Max file size is 1MB, Minimum dimension: 330x300 And Suitable files are .jpg & .png</span>
+                <div class="form-group-cont">
+                    <div class="form-group">
+                        <img class="img-thumbnail w-50"  src="{{auth('employer')->user()->profile->profile_image}}" alt="profile image">
+                    </div>
+                    <div class="upload-btn-wrapper">
+                        <label for="">Logo</label>
+                      <!-- <button class="btn">browse logo</button> -->
+                      <input type="file" id="logo" class="filepond" name="logo" accept="image/png, image/jpeg, image/gif" />
+                      <span>Max file size is 1MB, Minimum dimension: 330x300 And Suitable files are .jpg & .png</span>
+                    </div>
                 </div>
                 <div class="form-group-cont">
                     <div class="form-group">
@@ -227,13 +232,13 @@
 <script>
     const inputElement = document.querySelector('input[id="logo"]');
 
-    
-    // We register the plugins required to do 
+
+    // We register the plugins required to do
     // image previews, cropping, resizing, etc.
     // FilePond.registerPlugin(
     //     FilePondPluginImagePreview
     // );
-        
+
     // Create a FilePond instance
     const pond = FilePond.create(inputElement);
     pond.setOptions({

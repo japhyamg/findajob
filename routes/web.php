@@ -65,6 +65,8 @@ Route::middleware(['auth', 'verified'])->name('user.')->group(function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::post('/profile', [ProfileController::class, 'updateprofile'])->name('update-profile');
 
+    Route::post('/profile/upload',[ProfileController::class, 'upload'])->name('profile-upload');
+
     Route::post('/add-education', [ProfileController::class, 'addeducation'])->name('add-education');
     Route::post('/add-employment-history', [ProfileController::class, 'addemploymenthistory'])->name('add-employment-history');
     Route::post('/add-certificate', [ProfileController::class, 'addcertificate'])->name('add-certificate');

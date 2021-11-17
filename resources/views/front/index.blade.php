@@ -4,17 +4,17 @@
     <!-- Home Section Starts -->
 <section class="home">
 	<div class="container">
-		<div class="row"> 
+		<div class="row">
 			<div class="home-text">
 				<div class="home-text-head">The Easiest way</div>
 				<div class="home-main-text">
-					To get your new job <img src="{{asset('assets/img/users.png')}}" alt="Users" /> 
+					To get your new job <img src="{{asset('assets/img/users.png')}}" alt="Users" />
 				</div>
 				<div class="home-text-desc">
-					Learn the basics and fundamentals of Adobe Photoshop CC, including how to open images, work with the interface, save work, and more. 
+					Learn the basics and fundamentals of Adobe Photoshop CC, including how to open images, work with the interface, save work, and more.
 				</div>
 				<div class="home-btns">
-					<a href="#" class="btn-red">Upload your cv</a> <span>or</span> <a href="#" class="btn-orange">post a job</a>
+					<a href="{{route('user.update-profile')}}" class="btn-red">Upload your cv</a> <span>or</span> <a href="{{route('employer.post-job')}}" class="btn-orange">post a job</a>
 				</div>
 			</div>
 			<div class="home-img">
@@ -158,7 +158,7 @@
 							</div>
 							<div class="main-jobs-item-head">
 								<div class="main-jobs-item-head-img">
-									<img src="{{asset('assets/img/d.png')}}" alt="D" />
+									<img src="{{$job->employer->profile->profile_image}}" width="70px" height="70px" alt="D" />
 								</div>
 								<div class="main-jobs-item-head-text">
 									<p class="project-title">{{$job->title}}</p>
@@ -371,7 +371,7 @@
                 .catch(function (error) {
                     // handle error
                     console.log(error);
-				});            
+				});
     }
 
     function save(slug) {
