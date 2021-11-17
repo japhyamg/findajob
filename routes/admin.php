@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\ManageUserController;
+use App\Http\Controllers\Admin\ManageAdminController;
 use App\Http\Controllers\Admin\ManageEmployerController;
 use App\Http\Controllers\Admin\ManageIndustryController;
 use App\Http\Controllers\Admin\Auth\ResetPasswordController;
@@ -16,6 +18,10 @@ Route::middleware(['auth:admin'])->group(function () {
     // Manage Users
     // Manage Employers
     Route::get('manage-employer', [ManageEmployerController::class, 'index'])->name('manage-employer');
+    // Manage Job seekers
+    Route::get('manage-user', [ManageUserController::class, 'index'])->name('manage-user');
+    // Manage Job seekers
+    Route::get('manage-admin', [ManageAdminController::class, 'index'])->name('manage-admin');
 
 
 

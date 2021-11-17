@@ -73,7 +73,8 @@ class JobController extends Controller
             'apply_with_cover' => $request->apply_with_cover == 'on' ? true : false,
             'is_sponsored' => $request->is_sponsored == 'on' ? true : false
         ]);
-        return redirect(route('employer.post-job'))->with('success', 'Job Added');
+        toastr()->success('Job Created');
+        return redirect(route('employer.post-job'));
     }
 
     /**

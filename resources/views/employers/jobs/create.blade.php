@@ -14,7 +14,7 @@
                 <div class="form-group-cont">
                     <div class="form-group" style="width: 100%;">
                         <label>job title</label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{old('title')}}">
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{old('title')}}" required>
                         @error('title')
                             <div class="invalid-feedback">
                                 {{$message}}
@@ -26,7 +26,7 @@
                 <div class="form-group-cont">
                     <div class="form-group">
                         <label>job functions</label>
-                        <input type="text" class="form-control @error('functions') is-invalid @enderror" name="functions">
+                        <input type="text" class="form-control @error('functions') is-invalid @enderror" name="functions" value="{{old('functions')}}" required>
                         @error('functions')
                             <div class="invalid-feedback">
                                 {{$message}}
@@ -35,7 +35,7 @@
                     </div>
                     <div class="form-group">
                         <label>industry</label>
-                        <select name="industry" class="form-control @error('industry') is-invalid @enderror">
+                        <select name="industry" class="form-control @error('industry') is-invalid @enderror" required>
                             <option value="">Select Industry</option>
                             @foreach ($industries as $industry)
                                 <option value="{{$industry->slug}}">{{$industry->name}}</option>
@@ -51,7 +51,7 @@
                 <div class="form-group-cont">
                     <div class="form-group">
                         <label>location</label>
-                        <select name="location" class="form-control @error('location') is-invalid @enderror">
+                        <select name="location" class="form-control @error('location') is-invalid @enderror" required>
                             <option>Nigeria</option>
                             <option>Nigeria</option>
                             <option>Nigeria</option>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="form-group">
                         <label>minimum qualification</label>
-                        <input type="text" class="form-control @error('min_qualification') is-invalid @enderror" name="min_qualification">
+                        <input type="text" class="form-control @error('min_qualification') is-invalid @enderror" name="min_qualification" value="{{old('min_qualification')}}" required>
                         @error('min_qualification')
                             <div class="invalid-feedback">
                                 {{$message}}
@@ -73,49 +73,42 @@
                     </div>
                 </div>
                 <div class="form-group-cont">
-                    {{-- <div class="form-group">
-                        <label>job level</label>
-                        <input type="text" class="form-control @error('level') is-invalid @enderror" name="level">
-                        @error('level')
-                            <div class="invalid-feedback">
-                                {{$message}}
-                            </div>
-                        @enderror
-                    </div> --}}
                     <div class="form-group">
                         <label>monthly salary</label>
-                        <input type="text" class="form-control @error('monthly_salary') is-invalid @enderror" name="monthly_salary" placeholder="NGN">
+                        <input type="text" class="form-control @error('monthly_salary') is-invalid @enderror" name="monthly_salary" placeholder="NGN" value="{{old('monthly_salary')}}" required>
                         @error('monthly_salary')
                             <div class="invalid-feedback">
                                 {{$message}}
                             </div>
                         @enderror
                     </div>
-                </div>
-                <div class="form-group-cont">
+                <!-- </div>
+                <div class="form-group-cont"> -->
                     <div class="form-group">
                         <label>experience length</label>
-                        <input type="text" class="form-control @error('experience') is-invalid @enderror" name="experience" placeholder="6 years">
+                        <input type="text" class="form-control @error('experience') is-invalid @enderror" name="experience" placeholder="6 years" value="{{old('experience')}}" required>
                         @error('experience')
                             <div class="invalid-feedback">
                                 {{$message}}
                             </div>
                         @enderror
                     </div>
+                </div>
+                <div class="form-group-cont">
                     <div class="form-group">
                         <label>application deadline</label>
-                        <input type="date" class="form-control @error('deadline') is-invalid @enderror" name="deadline" placeholder="22-06-2021">
+                        <input type="date" class="form-control @error('deadline') is-invalid @enderror" name="deadline" placeholder="22-06-2021" value="{{old('deadline')}}" required>
                         @error('deadline')
                             <div class="invalid-feedback">
                                 {{$message}}
                             </div>
                         @enderror
                     </div>
-                </div>
-                <div class="form-group-cont">
+                <!-- </div>
+                <div class="form-group-cont"> -->
                     <div class="form-group">
                         <label>job level</label>
-                        <select name="level" class="form-control @error('level') is-invalid @enderror">
+                        <select name="level" class="form-control @error('level') is-invalid @enderror" required>
                             <option>Job Type</option>
                             <option>Contract</option>
                             <option>Full Time</option>
@@ -134,7 +127,7 @@
                 <div class="form-group-cont">
                     <div class="form-group mt-20" style="width:100%;">
                         <label>job summary</label>
-                        <textarea rows="10" name="summary" class="form-control @error('summary') is-invalid @enderror"></textarea>
+                        <textarea rows="2" name="summary" class="form-control @error('summary') is-invalid @enderror" required>{{old('deadline')}}</textarea>
                         @error('summary')
                             <div class="invalid-feedback">
                                 {{$message}}
@@ -146,7 +139,7 @@
                 <div class="form-group-cont">
                     <div class="form-group" style="width:100%;">
                         <label>job requirement</label>
-                        <textarea rows="10" name="requirement" class="form-control @error('requirement') is-invalid @enderror"></textarea>
+                        <textarea rows="3" name="requirement" class="form-control @error('requirement') is-invalid @enderror" required>{{old('deadline')}}</textarea>
                         @error('requirement')
                             <div class="invalid-feedback">
                                 {{$message}}

@@ -11,7 +11,9 @@
 						<div class="intro-text-head">{{auth('employer')->user()->profile->companyname}}</div>
 						<ul>
 							<li><img src="{{asset('assets/img/square.png')}}" /><span>{{auth('employer')->user()->email}}</span></li>
+							@if(auth('employer')->user()->profile->address != null)
 							<li><img src="{{asset('assets/img/square.png')}}" /><span>{{auth('employer')->user()->profile->address}}</span></li>
+							@endif
 							<li><img src="{{asset('assets/img/square.png')}}" /><span>{{auth('employer')->user()->phone}}</span></li>
 						</ul>
 					</div>

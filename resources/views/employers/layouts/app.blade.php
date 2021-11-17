@@ -16,7 +16,7 @@
 	<!-- sidebar Starts -->
 	<div class="sidebar">
 		<div class="sidebar-logo">
-			<a href="{{route('employer.dashboard')}}">
+			<a href="{{route('index')}}">
 				<img src="{{asset('assets/img/logo.png')}}" alt="Logo" />
 			</a>
 		</div>
@@ -119,9 +119,9 @@
 			</div>
 			<div class="footer-item-links">
 				<ul>
-					<li><a href="about-us.html">about us</a></li>
-					<li><a href="terms.html">terms of services</a></li>
-					<li><a href="privacy.html">privacy</a></li>
+					<li><a href="{{route('about-us')}}">about us</a></li>
+					<li><a href="{{route('terms')}}">terms of services</a></li>
+					<li><a href="{{route('privacy')}}">privacy</a></li>
 				</ul>
 			</div>
 		</div>
@@ -131,10 +131,10 @@
 			</div>
 			<div class="footer-item-links">
 				<ul>
-					<li><a href="job-search.html">job search</a></li>
-					<li><a href="pricing-plans.html">price plans</a></li>
-					<li><a href="employers.html">employers</a></li>
-					<li><a href="job-seekers.html">job seekers</a></li>
+					<li><a href="{{route('register')}}">job search</a></li>
+					<li><a href="{{route('pricing-plans')}}">pricing plans</a></li>
+					<li><a href="{{route('employers')}}">employers</a></li>
+					<li><a href="{{route('job-seekers')}}">job seekers</a></li>
 				</ul>
 			</div>
 		</div>
@@ -144,11 +144,11 @@
 			</div>
 			<div class="footer-item-links">
 				<ul>
-					<li><a href="self-employed.html">become self employed</a></li>
-					<li><a href="loop-vc.html">loop VC</a></li>
-					<li><a href="nysc.html">NYSC</a></li>
-					<li><a href="ayeen.html">ayeen</a></li>
-					<li><a href="nde.html">NDE</a></li>
+					<li><a href="{{route('self-employed')}}">become self employed</a></li>
+					<li><a href="{{route('loop-vc')}}">loop VC</a></li>
+					<li><a href="{{route('nysc')}}">NYSC</a></li>
+					<li><a href="{{route('ayeen')}}">ayeen</a></li>
+					<li><a href="{{route('nde')}}">NDE</a></li>
 				</ul>
 			</div>
 		</div>
@@ -158,9 +158,9 @@
 			</div>
 			<div class="footer-item-links">
 				<ul>
-					<li><a href="cv-creator.html">CV creator</a></li>
-					<li><a href="job-centers.html">job centers</a></li>
-					<li><a href="job-seeker-videos.html">job seeker videos</a></li>
+					<li><a href="{{route('register')}}">CV creator</a></li>
+					<li><a href="{{route('register')}}">job centers</a></li>
+					<li><a href="{{route('register')}}">job seeker videos</a></li>
 				</ul>
 			</div>
 		</div>
@@ -170,8 +170,8 @@
 			</div>
 			<div class="footer-item-links">
 				<ul>
-					<li><a href="faq.html">FAQs</a></li>
-					<li><a href="contact-us.html">contact us</a></li>
+					<li><a href="{{route('faqs')}}">FAQs</a></li>
+					<li><a href="{{route('contact-us')}}">contact us</a></li>
 				</ul>
 			</div>
 		</div>

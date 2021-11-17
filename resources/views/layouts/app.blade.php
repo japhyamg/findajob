@@ -98,7 +98,7 @@
 			</div>
 			<div class="footer-item-links">
 				<ul>
-					<li><a href="{{route('job-search')}}">job search</a></li>
+					<li><a href="{{route('register')}}">job search</a></li>
 					<li><a href="{{route('pricing-plans')}}">pricing plans</a></li>
 					<li><a href="{{route('employers')}}">employers</a></li>
 					<li><a href="{{route('job-seekers')}}">job seekers</a></li>
@@ -125,9 +125,9 @@
 			</div>
 			<div class="footer-item-links">
 				<ul>
-					<li><a href="{{route('cv-creator')}}">CV creator</a></li>
-					<li><a href="{{route('job-centers')}}">job centers</a></li>
-					<li><a href="{{route('job-seeker-videos')}}">job seeker videos</a></li>
+					<li><a href="{{route('register')}}">CV creator</a></li>
+					<li><a href="{{route('register')}}">job centers</a></li>
+					<li><a href="{{route('register')}}">job seeker videos</a></li>
 				</ul>
 			</div>
 		</div>

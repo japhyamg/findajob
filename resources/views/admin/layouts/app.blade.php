@@ -24,24 +24,33 @@
 			<ul>
 				<li><a href="{{route('admin.dashboard')}}" class="@if(Route::is('admin.dashboard')) active @endif"><img src="{{asset('assets/img/dash-icon-1.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-1-1.png')}}" class="light" />dashboards</a></li>
 				<li>
-					<a href="#" class="dropdown-btn" id="dropdown-btn"><img src="{{asset('assets/img/dash-icon-2.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-2-2.png')}}" class="light" />Company profile <i class="fa fa-angle-down angle-down"></i></a></li>
+					<a href="#" class="dropdown-btn @if(Route::is('admin.manage-user') || Route::is('admin.manage-employer') || Route::is('admin.manage-admin')) active @endif" id="dropdown-btn"><img src="{{asset('assets/img/dash-icon-2.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-2-2.png')}}" class="light" />Manage users <i class="fa fa-angle-down angle-down"></i></a></li>
 				</li>
-				<li class="job-dropdown"><a href="company-details.html"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />company details</a></li>
-				<li class="job-dropdown"><a href="contact-person.html"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />contact person</a></li>
-				<li>
-					<a href="#" class="dropdown-btn" id="dropdown-btn2"><img src="{{asset('assets/img/dash-icon-2.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-2-2.png')}}" class="light" />Manage users <i class="fa fa-angle-down angle-down"></i></a></li>
-				</li>
-				<li class="users-dropdown"><a href="{{route('admin.manage-employer')}}"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />Employers</a></li>
-				<li class="users-dropdown"><a href="contact-person.html"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />job seekers</a></li>
-
-				<li><a href="post-job.html" class="dropdown-btn"><img src="{{asset('assets/img/dash-icon-3.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-3-3.png')}}" class="light" />post a new job</a></li>
-				<li><a href="search.html"><img src="{{asset('assets/img/dash-icon-11.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-11-11.png')}}" class="light" />search</a></li>
-				<li><a href="payments.html"><img src="{{asset('assets/img/dash-icon-12.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-12-12.png')}}" class="light" />payments</a></li>
+				<li class="job-dropdown users"><a href="{{route('admin.manage-user')}}" class="@if(Route::is('admin.manage-user')) active @endif"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />job seeker</a></li>
+				<li class="job-dropdown users"><a href="{{route('admin.manage-employer')}}" class="@if(Route::is('admin.manage-employer')) active @endif"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />Employers</a></li>
+				<li class="job-dropdown users"><a href="{{route('admin.manage-admin')}}" class="@if(Route::is('admin.manage-admin')) active @endif"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />Administrator </a></li>
+				
+				<li><a href="post-job.html" class="dropdown-btn"><img src="{{asset('assets/img/dash-icon-3.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-3-3.png')}}" class="light" />manage jobs</a></li>
+				<!-- <li><a href="search.html"><img src="{{asset('assets/img/dash-icon-11.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-11-11.png')}}" class="light" />search</a></li>
+				<li><a href="payments.html"><img src="{{asset('assets/img/dash-icon-12.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-12-12.png')}}" class="light" />payments</a></li> -->
 				<li><a href="{{route('admin.manage-industry')}}"><img src="{{asset('assets/img/dash-icon-12.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-12-12.png')}}" class="light" />manage industry</a></li>
-				<li><a href="manage-jobs.html"><img src="{{asset('assets/img/dash-icon-13.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-13-13.png')}}" class="light" />manage jobs</a></li>
-				<li><a href="applications.html"><img src="{{asset('assets/img/dash-icon-5.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-5-5.png')}}" class="light" />applications</a></li>
+				<!-- <li><a href="manage-jobs.html"><img src="{{asset('assets/img/dash-icon-13.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-13-13.png')}}" class="light" />manage jobs</a></li> -->
+				<!-- <li><a href="applications.html"><img src="{{asset('assets/img/dash-icon-5.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-5-5.png')}}" class="light" />applications</a></li>
 				<li><a href="shortlisted-resume.html"><img src="{{asset('assets/img/dash-icon-3.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-3-3.png')}}" class="light" />shortlisted resume</a></li>
-				<li><a href="messages.html"><img src="{{asset('assets/img/dash-icon-14.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-14-14.png')}}" class="light" />messages</a></li>
+				<li><a href="messages.html"><img src="{{asset('assets/img/dash-icon-14.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-14-14.png')}}" class="light" />messages</a></li> -->
+				<li>
+					<a href="#" class="dropdown-btn" id="dropdown-btn1"><img src="{{asset('assets/img/dash-icon-2.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-2-2.png')}}" class="light" />settings <i class="fa fa-angle-down angle-down"></i></a></li>
+				</li>
+				<li class="job-dropdown settings"><a href="#"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />site settings</a></li>
+				<li class="job-dropdown settings"><a href="#"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />parsehub</a></li>
+				<li>
+					<a href="#" class="dropdown-btn" id="dropdown-btn2"><img src="{{asset('assets/img/dash-icon-2.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-2-2.png')}}" class="light" />cms <i class="fa fa-angle-down angle-down"></i></a></li>
+				</li>
+				<li class="job-dropdown cms"><a href="#"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />about us</a></li>
+				<li class="job-dropdown cms"><a href="#"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />NYSC</a></li>
+				<li class="job-dropdown cms"><a href="#"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />terms of service</a></li>
+				<li class="job-dropdown cms"><a href="#"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />privacy</a></li>
+				<li class="job-dropdown cms"><a href="#"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />FAQs</a></li>
 				<li>
                     <a onclick="event.preventDefault(); document.getElementById('logout-form').submit()" href="{{ route('admin.logout') }}" role="button"><i class="fa fa-sign-out"></i>logout</a>
                     <form style="display: none;" action="{{ route('admin.logout') }}" id="logout-form" method="post">
@@ -197,13 +206,13 @@
   <script type="text/javascript">
   	$(document).ready(function(){
   	  $("#dropdown-btn").click(function(){
-  	    $(".job-dropdown").toggle();
+  	    $(".job-dropdown.users").toggle();
   	  });
   	  $("#dropdown-btn1").click(function(){
-  	    $(".resume-dropdown").toggle();
+  	    $(".job-dropdown.settings").toggle();
   	  });
   	  $("#dropdown-btn2").click(function(){
-  	    $(".users-dropdown").toggle();
+  	    $(".job-dropdown.cms").toggle();
   	  });
   	});
   </script>
