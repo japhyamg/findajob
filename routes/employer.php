@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Employers\ApplicationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Employers\HomeController;
 use App\Http\Controllers\Employers\Auth\LoginController;
@@ -19,6 +20,7 @@ Route::middleware(['auth:employer', 'verified:employer.verification.notice'])->g
     Route::post('/post-job', [JobController::class, 'store'])->name('post-job');
 
     Route::get('/manage-jobs', [JobController::class, 'index'])->name('manage-jobs');
+    Route::get('/applications', [ApplicationController::class, 'index'])->name('applications');
 
 
     // Company Profile

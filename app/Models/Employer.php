@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Notifications\Notifiable;
+use App\Notifications\VerifyEmailNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Notifications\ResetPasswordNotification;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
-use App\Notifications\ResetPasswordNotification;
-use App\Notifications\VerifyEmailNotification;
 
 class Employer extends Authenticatable implements MustVerifyEmail
 {
@@ -94,17 +95,35 @@ class Employer extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Job::class);
     }
 
-    public function getApplicationsAttribute()
+    public function applications()
+    {
+        return $this->hasMany(User::class)
+                    ->withPivot(['job_id']);
+    }
+
+    // public function getApplicationsAttribute()
+    // {
+    //     $jobs = $this->jobs;
+    //     $applications = [];
+    //     foreach($jobs as $job){
+    //         // $ap = $job->applicants;
+    //         // dd($ap);
+    //         $applications[] = $job->applicants->toArray();
+    //     }
+        
+    //     dd($applications);
+
+    //     return $applications;
+    // }
+
+    public function getApplicantsAttribute()
     {
         $jobs = $this->jobs;
         $count = 0;
         foreach($jobs as $job){
-            $count += $job->applications->count();
+            $count += $job->applicants->count();
         }
 
         return $count;
     }
-
-
-
 }

@@ -5,7 +5,7 @@
 			<div class="intro">
 				<div class="intro-img-text">
 					<div class="intro-img">
-						<img src="{{asset('assets/img/profile-4.png')}}" alt="Profile Image" />
+						<img src="{{auth('employer')->user()->profile->profile_image}}" alt="Profile Image" />
 					</div>
 					<div class="intro-text">
 						<div class="intro-text-head">{{auth('employer')->user()->profile->companyname}}</div>
@@ -53,14 +53,14 @@
 						<div class="boxes-item-title">jobs</div>
 					</div>
 					<div class="boxes-item bg-red">
-						<div class="boxes-item-number">456</div>
+						<div class="boxes-item-number">0</div>
 						<div class="boxes-item-icon">
 							<img src="{{asset('assets/img/view.png')}}" alt="Brief Case" />
 						</div>
 						<div class="boxes-item-title">profile viewed</div>
 					</div>
 					<div class="boxes-item bg-orange">
-						<div class="boxes-item-number">{{auth('employer')->user()->applications}}</div>
+						<div class="boxes-item-number">{{auth('employer')->user()->applicants}}</div>
 						<div class="boxes-item-icon">
 							<img src="{{asset('assets/img/apps.png')}}" alt="Brief Case" />
 						</div>
@@ -82,7 +82,7 @@
 								<table>
 									<tr>
 										<td>all jobs</td>
-										<td>52</td>
+										<td>{{auth('employer')->user()->jobs->count()}}</td>
 									</tr>
 									<tr>
 										<td>expired jobs</td>
@@ -94,15 +94,15 @@
 									</tr>
 									<tr>
 										<td>applications</td>
-										<td>97</td>
+										<td>{{auth('employer')->user()->applicants}}</td>
 									</tr>
 									<tr>
 										<td>track applicant</td>
-										<td>1</td>
+										<td>0</td>
 									</tr>
 									<tr>
 										<td>all jobs</td>
-										<td>52</td>
+										<td>{{auth('employer')->user()->jobs->count()}}</td>
 									</tr>
 								</table>
 							</div>

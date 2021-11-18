@@ -48,7 +48,6 @@ class JobController extends Controller
             'location' => 'required',
             'level' => 'required',
             'min_qualification' => 'required',
-            'monthly_salary' => 'required',
             'experience' => 'required',
             'deadline' => 'required',
             'summary' => 'required',
@@ -74,7 +73,7 @@ class JobController extends Controller
             'is_sponsored' => $request->is_sponsored == 'on' ? true : false
         ]);
         toastr()->success('Job Created');
-        return redirect(route('employer.post-job'));
+        return redirect(route('employer.manage-jobs'));
     }
 
     /**

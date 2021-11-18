@@ -56,11 +56,11 @@
 			<div class="login-signup">
 				@auth()
 					<a href="{{route('user.dashboard')}}"><span>Dashboard</span></a>
-				@endauth
-				@auth('employer')
+				@elseif(auth('employer'))
+				<!-- @auth('employer') -->
 					<a href="{{route('employer.dashboard')}}"><span>Dashboard</span></a>
-				@endauth
-				@guest()
+				<!-- @endauth -->
+				@else
 					<a href="{{route('get-started')}}"><img src="{{asset('assets/img/user.png')}}"> <span>Login / Signup</span></a>
 				@endauth
 

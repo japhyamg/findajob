@@ -30,21 +30,28 @@ class EmployerDetailsController extends Controller
             'industry' => ['required', 'string', 'max:255'],
         ]);
 
-        if($request->has('logo')){
-            $temporaryfile = TemporaryFile::where('folder', $request->logo)->first();
-            if($temporaryfile){
-                auth('employer')
-                    ->user()->profile
-                    ->addMedia(storage_path('app/employers/tmp/'.$request->logo.'/'.$temporaryfile->filename))
-                    ->toMediaCollection('employers/profile');
-
-                rmdir(storage_path('app/employers/tmp/'.$request->logo));
-                $temporaryfile->delete();
-            }
+        if($request->hasFile('logo') && $request->file('logo')->isValid()){
+            auth('employer')
+                ->user()->profile
+                ->addMediaFromRequest('logo')
+                ->toMediaCollection('employers/profile');
         }
 
-        auth('employer')->user()->profile->update($request->except(['token','save','logo']));
+        // if($request->has('logo')){
+        //     $temporaryfile = TemporaryFile::where('folder', $request->logo)->first();
+        //     if($temporaryfile){
+                // auth('employer')
+                //     ->user()->profile
+                //     ->addMedia(storage_path('app/employers/tmp/'.$request->logo.'/'.$temporaryfile->filename))
+                //     ->toMediaCollection('employers/profile');
 
+        //         rmdir(storage_path('app/employers/tmp/'.$request->logo));
+        //         $temporaryfile->delete();
+        //     }
+        // }
+
+        auth('employer')->user()->profile->update($request->except(['token','save','logo']));
+        toastr()->success('Company Details Updated');
         return redirect(route('employer.company-details'))->with('success', 'Company Details Updated');
     }
 

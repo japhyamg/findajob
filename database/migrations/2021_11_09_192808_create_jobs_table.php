@@ -23,7 +23,7 @@ class CreateJobsTable extends Migration
             $table->string('location');
             $table->string('level');
             $table->string('min_qualification');
-            $table->string('monthly_salary');
+            $table->string('monthly_salary')->nullable();
             $table->string('experience');
             $table->string('deadline');
 

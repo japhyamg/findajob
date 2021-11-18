@@ -18,7 +18,6 @@ class CreateEmployerProfilesTable extends Migration
             $table->unsignedBigInteger('employer_id');
             $table->string('companyname');
             $table->string('companyrc')->nullable();
-            $table->string('logo')->nullable();
             $table->string('nationality');
             $table->text('address')->nullable();
             $table->string('website')->nullable();

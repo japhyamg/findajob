@@ -8,18 +8,13 @@
             <p>basic information <img src="{{asset('assets/img/question.png')}}" alt="Info Img" /> <img src="{{asset('assets/img/check.png')}}" alt="Check Icon" /></p>
         </div>
         <div class="basic-info-body">
-            <form method="POST" action="{{route('user.update-profile')}}">
+            <form method="POST" action="{{route('user.update-profile')}}" enctype="multipart/form-data">
                 @csrf
-                <div class="form-group-cont">
-                    <div class="form-group">
-                        <label>Profile image</label>
-                        <input type="file" id="avatar" class="filepond" name="avatar" accept="image/png, image/jpeg, image/gif" />
-                        <span>Max file size is 1MB, Minimum dimension: 330x300 And Suitable files are .jpg & .png</span>
-                    </div>
-                    <div class="form-group">
-                        <img class="img-thumbnail w-50"  src="{{auth()->user()->profile_image}}" alt="profile image">
-                    </div>
-                </div>
+                <div class="upload-btn-wrapper">
+                    <button class="btn">browse profile image</button>
+                    <input type="file" name="profile_image" accept="image/png, image/jpeg, image/gif" />
+                    <span>Max file size is 1MB, Minimum dimension: 330x300 And Suitable files are .jpg & .png</span>
+				</div>
                 <div class="form-group-cont">
                     <div class="form-group">
                         <label>id type</label>
@@ -1003,20 +998,6 @@
       $("#language-btn").click(function(){
         $(".language").toggle();
       });
-    });
-</script>
-<script>
-    const inputElement = document.querySelector('input[id="avatar"]');
-
-    const pond = FilePond.create(inputElement);
-    pond.setOptions({
-        server: {
-            url:'{{route("user.profile-upload")}}',
-            method: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': "{{ csrf_token() }}"
-            }
-        },
     });
 </script>
 @endpush

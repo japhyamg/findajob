@@ -43,13 +43,13 @@
                         </div>
                     @endif
                     <div class="form-control">
-                        <input type="text" name="firstname" placeholder="First Name">
+                        <input type="text" name="firstname" placeholder="First Name" value="{{old('firstname')}}">
                         {{-- @error('firstname')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror --}}
-                        <input type="text" name="lastname" placeholder="Last Name">
+                        <input type="text" name="lastname" placeholder="Last Name" value="{{old('lastname')}}">
                         {{-- @error('lastname')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -57,7 +57,7 @@
                         @enderror --}}
                     </div>
                     <div class="form-control">
-                        <input type="email" name="email" placeholder="Email">
+                        <input type="email" name="email" placeholder="Email" value="{{old('email')}}">
                         {{-- @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -72,15 +72,16 @@
                     </div>
                     <div class="form-control">
                         <input type="password" name="password_confirmation" placeholder="Confirm Password">
-                    </div>
-                    <div class="form-control">
-                        <input type="text" name="nationality" placeholder="Nationality">
+                    
+                        <input type="text" name="nationality" placeholder="Nationality" value="{{old('nationality')}}">
                         {{-- @error('nationality')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror --}}
-                        <input type="number" name="phone" placeholder="Phone Number">
+                    </div>
+                    <div class="form-control">
+                        <input type="number" name="phone" placeholder="Phone Number" value="{{old('phone')}}">
                         {{-- @error('phone')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

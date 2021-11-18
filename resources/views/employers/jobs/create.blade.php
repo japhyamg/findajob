@@ -75,7 +75,7 @@
                 <div class="form-group-cont">
                     <div class="form-group">
                         <label>monthly salary</label>
-                        <input type="text" class="form-control @error('monthly_salary') is-invalid @enderror" name="monthly_salary" placeholder="NGN" value="{{old('monthly_salary')}}" required>
+                        <input type="number" class="form-control @error('monthly_salary') is-invalid @enderror" name="monthly_salary" placeholder="NGN" value="{{old('monthly_salary')}}" required>
                         @error('monthly_salary')
                             <div class="invalid-feedback">
                                 {{$message}}

@@ -72,8 +72,7 @@
                     </div>
                     <div class="form-control">
                         <input type="password" name="password_confirmation" placeholder="Confirm Password">
-                    </div>
-                    <div class="form-control">
+                    
                         <select name="position">
                             <option>Position in Company</option>
                             <option>Position 1</option>
@@ -86,6 +85,8 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror --}}
+                    </div>
+                    <div class="form-control">
                         <select name="sex">
                             <option>Sex</option>
                             <option>Male</option>
@@ -97,28 +98,32 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror --}}
-                    </div>
-                    <div class="form-control">
+                    <!-- </div>
+                    <div class="form-control"> -->
                         <input type="text" name="nationality" placeholder="Nationality">
                         {{-- @error('nationality')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror --}}
+                    </div>
+                    <div class="form-control">
                         <input type="number" name="phone" placeholder="Phone Number">
                         {{-- @error('phone')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror --}}
-                    </div>
-                    <div class="form-control">
+                    <!-- </div>
+                    <div class="form-control"> -->
                         <input type="text" name="companyname" placeholder="Company Name">
                         {{-- @error('companyname')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror --}}
+                    </div>
+                    <div class="form-control">
                         <select name="industry">
                             <option value="">Select Industry</option>
                             @foreach ($industries as $industry)

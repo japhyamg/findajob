@@ -1,21 +1,5 @@
 @extends('employers.layouts.app')
-<!-- <style>
-    .filepond--drop-label {
-	color: #4c4e53;
-}
 
-.filepond--label-action {
-	text-decoration-color: #babdc0;
-}
-
-.filepond--panel-root {
-	background-color: #edf0f4;
-}
-.filepond--root {
-	width:170px;
-	margin: 0 0;
-}
-</style> -->
 @section('content')
 <div class="company-details-sec main-content">
     <div class="company-details">
@@ -26,19 +10,13 @@
             </p>
         </div>
         <div class="company-details-body">
-            <form action="{{route('employer.update-company-details')}}" method="POST">
+            <form action="{{route('employer.update-company-details')}}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="form-group-cont">
-                    <div class="form-group">
-                        <img class="img-thumbnail w-50"  src="{{auth('employer')->user()->profile->profile_image}}" alt="profile image">
-                    </div>
-                    <div class="upload-btn-wrapper">
-                        <label for="">Logo</label>
-                      <!-- <button class="btn">browse logo</button> -->
-                      <input type="file" id="logo" class="filepond" name="logo" accept="image/png, image/jpeg, image/gif" />
-                      <span>Max file size is 1MB, Minimum dimension: 330x300 And Suitable files are .jpg & .png</span>
-                    </div>
-                </div>
+                <div class="upload-btn-wrapper">
+                    <button class="btn">browse logo</button>
+                    <input type="file" name="logo" accept="image/png, image/jpeg, image/gif" />
+                    <span>Max file size is 1MB, Minimum dimension: 330x300 And Suitable files are .jpg & .png</span>
+				</div>
                 <div class="form-group-cont">
                     <div class="form-group">
                         <label>company name</label>
@@ -86,30 +64,6 @@
                                 {{$message}}
                             </div>
                         @enderror
-                        <!-- <br> <br>
-                        <label>number of employees</label>
-                        <select name="noofemployers" class="form-control @error('noofemployers') is-invalid @enderror">
-                            <option>1,000 - 10,000+</option>
-                            <option>10,000 - 100,000+</option>
-                        </select>
-                        @error('noofemployers')
-                            <div class="invalid-feedback">
-                                {{$message}}
-                            </div>
-                        @enderror
-                        <br><br>
-                        <label>industry</label>
-                        <select name="industry" class="form-control @error('industry') is-invalid @enderror">
-                            <option value="">Select Industry</option>
-                            @foreach ($industries as $industry)
-                                <option value="{{$industry->slug}}" @if (auth('employer')->user()->profile->industry == $industry->slug) selected @endif >{{$industry->name}}</option>
-                            @endforeach
-                        </select>
-                        @error('industry')
-                            <div class="invalid-feedback">
-                                {{$message}}
-                            </div>
-                        @enderror -->
                     </div>
                 </div>
                 <div class="form-group-cont">
@@ -229,26 +183,4 @@
 @endsection
 
 @push('scripts')
-<script>
-    const inputElement = document.querySelector('input[id="logo"]');
-
-
-    // We register the plugins required to do
-    // image previews, cropping, resizing, etc.
-    // FilePond.registerPlugin(
-    //     FilePondPluginImagePreview
-    // );
-
-    // Create a FilePond instance
-    const pond = FilePond.create(inputElement);
-    pond.setOptions({
-        server: {
-            url:'{{route("employer.profile-upload")}}',
-            method: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': "{{ csrf_token() }}"
-            }
-        },
-    });
-</script>
 @endpush
