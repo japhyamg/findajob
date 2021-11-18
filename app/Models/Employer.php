@@ -95,11 +95,15 @@ class Employer extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Job::class);
     }
 
-    public function applications()
-    {
-        return $this->hasMany(User::class)
-                    ->withPivot(['job_id']);
-    }
+    // public function getApplicationsAttribute()
+    // {
+    //     // $jobs = $this->jobs->pluck('id');
+
+    //     $applications = $this->jobs()->with('applicants')->get();
+    //     // dd($applications);
+    //     return $applications;
+
+    // }
 
     // public function getApplicationsAttribute()
     // {
@@ -110,7 +114,7 @@ class Employer extends Authenticatable implements MustVerifyEmail
     //         // dd($ap);
     //         $applications[] = $job->applicants->toArray();
     //     }
-        
+
     //     dd($applications);
 
     //     return $applications;

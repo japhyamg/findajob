@@ -25,24 +25,17 @@ class ProfileController extends Controller
             'lastname' => 'required',
             'firstname' => 'required',
             'dofb' => 'required',
-            'sex' => 'required',
+            'gender' => 'required',
             'phone' => 'required',
             'nationality' => 'required',
         ]);
 
-        if($request->has('avatar')){
-            $temporaryfile = TemporaryFile::where('folder', $request->avatar)->first();
-            if($temporaryfile){
-                auth()
-                    ->user()
-                    ->addMedia(storage_path('app/avatars/tmp/'.$request->avatar.'/'.$temporaryfile->filename))
-                    ->toMediaCollection('avatars');
-
-                rmdir(storage_path('app/avatars/tmp/'.$request->avatar));
-                $temporaryfile->delete();
-            }
+        if($request->hasFile('avatar') && $request->file('avatar')->isValid()){
+            auth()
+                ->user()
+                ->addMediaFromRequest('avatar')
+                ->toMediaCollection('avatars');
         }
-
 
         auth()->user()->update($request->except(['token', 'save']));
 

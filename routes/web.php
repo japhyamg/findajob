@@ -62,6 +62,7 @@ Route::middleware(['auth', 'verified'])->name('user.')->group(function () {
     Route::post('/job/save/{slug}', [JobController::class, 'save'])->name('save');
 
     Route::get('/job/saved', [JobController::class, 'savedjobs'])->name('savedjobs');
+    Route::get('/job/applications', [JobController::class, 'applications'])->name('applications');
 
 
 
@@ -69,7 +70,6 @@ Route::middleware(['auth', 'verified'])->name('user.')->group(function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::post('/profile', [ProfileController::class, 'updateprofile'])->name('update-profile');
 
-    Route::post('/profile/upload',[ProfileController::class, 'upload'])->name('profile-upload');
 
     Route::post('/add-education', [ProfileController::class, 'addeducation'])->name('add-education');
     Route::post('/add-employment-history', [ProfileController::class, 'addemploymenthistory'])->name('add-employment-history');

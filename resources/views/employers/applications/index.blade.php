@@ -29,15 +29,17 @@
                     <th>qualification</th>
                     <th>actions</th>
                 </tr>
-                @if ($applications)
-                    @foreach ($applications as $applicant)
-                        <tr>
-                            <td>{{$applicant->job->title}}</td>
-                            <td>{{$applicant->user->full_name}}</td>
-                            <td>{{$applicant->created_at->diffForHumans()}}</td>
-                            <td>33</td>
-                            <td class="action-btns"><a href="#">view</a><a href="#" class="grey-bg">Invoice</a></td>
-                        </tr>
+                @if ($jobs)
+                    @foreach ($jobs as $job)
+                        @foreach ($job->applicants as $applicant)
+                            <tr>
+                                <td>{{$job->title}}</td>
+                                <td>{{$applicant->full_name}}</td>
+                                <td>{{$applicant->pivot->created_at->diffForHumans()}}</td>
+                                <td>33</td>
+                                <td class="action-btns"><a href="#">view</a><a href="#" class="grey-bg">shortlist</a></td>
+                            </tr>
+                        @endforeach
                     @endforeach
                 @endif
                 {{-- <tr>

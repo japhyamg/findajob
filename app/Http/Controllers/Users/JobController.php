@@ -23,8 +23,11 @@ class JobController extends Controller
 
     public function fetchjob($slug)
     {
+        // $job = Job::with(['employer', 'employer.profile'])->where('slug', $slug)->first();
         $job = Job::where('slug', $slug)->first();
         $job->applyroute = route('user.apply', $job->slug);
+        $job->employer = $job->employer;
+        $job->profile_image = $job->employer->profile->profile_image;
         return response($job);
     }
 
@@ -56,5 +59,10 @@ class JobController extends Controller
             auth()->user()->savedjobs()->attach($job->id);
             return response('Added to saved jobs');
         }
+    }
+
+    public function applications()
+    {
+        return view('users.job.applications');
     }
 }

@@ -12,7 +12,7 @@
                 @csrf
                 <div class="upload-btn-wrapper">
                     <button class="btn">browse profile image</button>
-                    <input type="file" name="profile_image" accept="image/png, image/jpeg, image/gif" />
+                    <input type="file" name="avatar" accept="image/png, image/jpeg, image/gif" />
                     <span>Max file size is 1MB, Minimum dimension: 330x300 And Suitable files are .jpg & .png</span>
 				</div>
                 <div class="form-group-cont">
@@ -67,10 +67,10 @@
                     </div>
                     <div class="form-group">
                         <label>gender</label>
-                        <select name="sex" class="form-control @error('sex') is-invalid @enderror ">
-                            <option {{auth()->user()->sex == 'Male' ? 'selected' : ''}} >Male</option>
-                            <option {{auth()->user()->sex == 'Female' ? 'selected' : ''}}>Female</option>
-                            <option {{auth()->user()->sex == 'Other' ? 'selected' : ''}}>Other</option>
+                        <select name="gender" class="form-control @error('gender') is-invalid @enderror ">
+                            <option {{auth()->user()->gender == 'Male' ? 'selected' : ''}} >Male</option>
+                            <option {{auth()->user()->gender == 'Female' ? 'selected' : ''}}>Female</option>
+                            <option {{auth()->user()->gender == 'Other' ? 'selected' : ''}}>Other</option>
                         </select>
                         @error('sex')
                             <div class="invalid-feedback">

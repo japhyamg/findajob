@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use App\Models\Employer;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -11,7 +12,8 @@ class PagesController extends Controller
     public function index()
     {
         $jobs = Job::orderBy('created_at', 'DESC')->get();
-        return view('front.index', compact('jobs'));
+        $employers = Employer::orderBy('created_at', 'DESC')->limit(5)->get();
+        return view('front.index', compact('jobs', 'employers'));
     }
 
     public function getstarted()

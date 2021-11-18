@@ -154,7 +154,9 @@
 							<div class="badge"><img src="{{asset('assets/img/badge.png')}}" alt="Badge"></div>
 							<div class="main-jobs-item-head-btn">
 								<a href="#" class="orange">{{$job->level}}</a>
-								<a href="#" class="red"><img src="{{asset('assets/img/heart.png')}}" /><span>save job</span></a>
+								<a href="#" onclick="save('{{route('user.save', $job->slug)}}');" class="{{$job->slug}} @auth
+                                    @if($job->jobs_saved()->where('user_id', auth()->user()->id)->exists() == 1) bg-danger @else bg-secondary @endif
+                                @else bg-secondary @endauth "><img src="{{asset('assets/img/heart.png')}}" /><span>save job</span></a>
 							</div>
 							<div class="main-jobs-item-head">
 								<div class="main-jobs-item-head-img">
@@ -175,7 +177,7 @@
 									<img src="{{asset('assets/img/location.png')}}" alt="Location" /><span>{{$job->location}}</span>
 								</div>
 								<div class="main-jobs-item-footer-item">
-									<img src="{{asset('assets/img/money.png')}}" alt="Money" /><span>{{$job->monthly_salary}}</span>
+									<img src="{{asset('assets/img/money.png')}}" alt="Money" /><span>₦{{number_format($job->monthly_salary,2)}}</span>
 								</div>
 								<div class="main-jobs-item-footer-item">
 									<img src="{{asset('assets/img/clock.png')}}" alt="Clock" /><span>{{$job->created_at->diffForHumans()}}</span>
@@ -327,10 +329,14 @@
 		</div>
 		<div id="employers-slider">
 		   <div class="MS-content">
-		       <div class="item">
-		           <img src="{{asset('assets/img/kpmg.png')}}" alt="KPMG" />
-		       </div>
-		       <div class="item">
+               @if ($employers)
+                    @foreach ($employers as $employer)
+                        <div class="item">
+                            <img src="{{$employer->profile->profile_image}}" width="220px" height="150px" alt="KPMG" />
+                        </div>
+                    @endforeach
+               @endif
+		       {{-- <div class="item">
 		           <img src="{{asset('assets/img/uba.png')}}" alt="UBA" />
 		       </div>
 		       <div class="item">
@@ -341,7 +347,7 @@
 		       </div>
 		       <div class="item">
 		           <img src="{{asset('assets/img/total.png')}}" alt="Total" />
-		       </div>
+		       </div> --}}
 		   </div>
 		   <div class="MS-controls">
 		       <button class="MS-left"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>

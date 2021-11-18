@@ -25,7 +25,7 @@
                         </div>
                         <div class="recommended-jobs-item-head">
                             <div class="recommended-jobs-item-head-img">
-                                <img src="{{asset('assets/img/kpmg-logo1.png')}}" alt="KPMG" />
+                                <img id src="{{$job->employer->profile->profile_image}}" width="80px" height="32px" alt="KPMG" />
                             </div>
                             <div class="recommended-jobs-item-head-text">
                                 <p class="project-title">{{$job->title}}</p>
@@ -45,7 +45,7 @@
                                 <img src="{{asset('assets/img/location.png')}}" alt="Location" /><span>{{$job->location}}</span>
                             </div>
                             <div class="recommended-jobs-item-footer-item">
-                                <img src="{{asset('assets/img/money.png')}}" alt="Money" /><span>{{$job->monthly_salary}}</span>
+                                <img src="{{asset('assets/img/money.png')}}" alt="Money" /><span>₦{{number_format($job->monthly_salary,2)}}</span>
                             </div>
                             <div class="recommended-jobs-item-footer-item">
                                 <img src="{{asset('assets/img/clock.png')}}" alt="Clock" /><span>{{$job->created_at->diffForHumans()}}</span>
@@ -60,7 +60,7 @@
         </div>
         <div class="accountant">
             <div class="accountant-head">
-                <div class="accountant-head-img"><img src="{{asset('assets/img/d.png')}}" /></div>
+                <div class="accountant-head-img"><img id="job-logo" width="70px" height="70px" src="{{$job->employer->profile->profile_image}}" /></div>
                 <div class="accountant-head-text">
                     <p id="job-title">{{$jobs[0]->title}}</p>
                 </div>
@@ -148,6 +148,7 @@
         var jobexperience = document.getElementById('job-experience');
         var jobsummary = document.getElementById('job-summary');
         var jobrequirement = document.getElementById('job-requirement');
+        var joblogo = document.getElementById('job-logo');
         var applyroute = document.getElementById('applyroute');
 
 
@@ -161,6 +162,7 @@
             jobexperience.innerText = '';
             jobsummary.innerText = '';
             jobrequirement.innerText = '';
+            joblogo.src = '';
 
             // jobslist.style.width = '58%';
             // accountant.style.display = 'block';
@@ -172,7 +174,7 @@
                 .then(function (response) {
                     // handle success
                     var data = response.data
-                    // console.log(response);
+                    console.log(response);
                     localStorage.setItem("selectedJob", JSON.stringify(data));
                     jobtitle.innerText = data.title;
                     jobqualification.innerText = data.min_qualification;
@@ -180,6 +182,7 @@
                     jobexperience.innerText = data.experience;
                     jobsummary.innerText = data.summary;
                     jobrequirement.innerText = data.requirement;
+                    joblogo.src = data.profile_image;
 
                     // applyroute.href = data.applyroute
                 })

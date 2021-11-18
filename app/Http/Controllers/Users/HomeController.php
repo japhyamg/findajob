@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Users;
 
+use App\Models\Job;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -24,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('users.index');
+        $jobs = Job::orderBy('created_at', 'DESC')->limit(2)->get();
+        // dd($jobs);
+        return view('users.index', compact('jobs'));
     }
 }

@@ -92,21 +92,27 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
         return $this->belongsToMany(Job::class, 'saved_jobs', 'user_id', 'job_id')->withTimestamps();
     }
 
+    public function getCompaniesAppliedAttribute()
+    {
+        $count = 0;
+
+        $lastempId = 0;
+        foreach($this->applications as $application){
+            if($application->employer_id !== $lastempId){
+                $lastempId = $application->employer_id;
+                $count++;
+            }
+        }
+        return $count;
+    }
+
     public function getProfileImageAttribute()
     {
-        if($this->avatar !== null){
-            $media = $this->getMedia('avatars');
-            return $media[0]->getUrl();
+        if($media = $this->getMedia('avatars')->last()){
+            // $url = str_replace("storage","public", $media->getUrl());
+            $url = $media->getUrl();
+            return $url;
         }
-        // if($media = $this->getMedia('employers/profile')->last()){
-        //     $url = str_replace("storage","public", $media->getUrl());
-        //     return $url;
-        // }
-        // if($this->avatar !== null){
-        //     $media = $this->getMedia('avatars');
-        //     $url = str_replace("storage","public",$media[0]->getFullUrl());
-        //     return $url;
-        // }
         return asset('assets/img/profile-4.png');
     }
 

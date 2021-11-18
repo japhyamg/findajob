@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> --}}
   <link rel="stylesheet" href="{{asset('assets/css/dashboard.css')}}">
   @toastr_css
 </head>
@@ -23,21 +23,21 @@
 		<div class="sidebar-menu">
 			<ul>
 				<li><a href="{{route('user.dashboard')}}" class="@if(Route::is('user.dashboard')) active @endif"><img src="{{asset('assets/img/dash-icon-1.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-1-1.png')}}" class="light" />dashboards</a></li>
-				<li><a href="{{route('user.profile')}}"><img src="{{asset('assets/img/dash-icon-2.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-2-2.png')}}" class="light" />profile</a></li>
+				<li><a href="{{route('user.profile')}}" class="@if(Route::is('user.profile')) active @endif"><img src="{{asset('assets/img/dash-icon-2.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-2-2.png')}}" class="light" />profile</a></li>
 				<li>
-					<a href="#" class="dropdown-btn" id="dropdown-btn"><img src="{{asset('assets/img/dash-icon-3.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-3-3.png')}}" class="light" />job <i class="fa fa-angle-down angle-down"></i></a></li>
+					<a href="#" class="dropdown-btn @if(Route::is('user.find') || Route::is('user.savedjobs') || Route::is('user.applications')) active @endif" id="dropdown-btn"><img src="{{asset('assets/img/dash-icon-3.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-3-3.png')}}" class="light" />job <i class="fa fa-angle-down angle-down"></i></a></li>
 				</li>
-				<li class="job-dropdown"><a href="{{route('user.find')}}"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />find a job</a></li>
-				<li class="job-dropdown"><a href="#"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />application</a></li>
-				<li class="job-dropdown"><a href="{{route('user.savedjobs')}}"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />saved jobs</a></li>
+				<li class="job-dropdown find"><a href="{{route('user.find')}}" class="@if(Route::is('user.find')) active @endif"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />find a job</a></li>
+				<li class="job-dropdown find"><a href="{{route('user.applications')}}" class="@if(Route::is('user.applications')) active @endif"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />applications</a></li>
+				<li class="job-dropdown find"><a href="{{route('user.savedjobs')}}"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />saved jobs</a></li>
 				<li>
 					<a href="companies.html" class="dropdown-btn"><img src="{{asset('assets/img/dash-icon-4.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-4-4.png')}}" class="light" />companies</a></li>
 				</li>
 				<li>
 					<a href="#" class="dropdown-btn" id="dropdown-btn1"><img src="{{asset('assets/img/dash-icon-3.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-3-3.png')}}" class="light" />my resume <i class="fa fa-angle-down angle-down"></i></a></li>
 				</li>
-				<li class="resume-dropdown"><a href="upload-resume.html"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />upload resume</a></li>
-				<li class="resume-dropdown"><a href="video-resume.html"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />video resume</a></li>
+				<li class="job-dropdown resume"><a href="upload-resume.html"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />upload resume</a></li>
+				<li class="job-dropdown resume"><a href="video-resume.html"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />video resume</a></li>
 				<li><a href="job-centers.html"><img src="{{asset('assets/img/dash-icon-6.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-6-6.png')}}" class="light" />job centers</a></li>
 				<li><a href="transactions.html"><img src="{{asset('assets/img/dash-icon-7.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-7-7.png')}}" class="light" />transactions</a></li>
 				<li><a href="interviews.html"><img src="{{asset('assets/img/dash-icon-8.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-8-8.png')}}" class="light" />interviews</a></li>
@@ -77,9 +77,9 @@
 			</div>
 		</div>
 		<!-- Header Ends -->
-		<div class="main-content">
-			@yield('content')
-		</div>
+        @yield('content')
+		{{-- <div class="main-content">
+		</div> --}}
 	</div>
 	<!-- Main Content Ends -->
 
@@ -197,10 +197,10 @@
    <script type="text/javascript">
   	$(document).ready(function(){
   	  $("#dropdown-btn").click(function(){
-  	    $(".job-dropdown").toggle();
+  	    $(".job-dropdown.find").toggle();
   	  });
   	  $("#dropdown-btn1").click(function(){
-  	    $(".resume-dropdown").toggle();
+  	    $(".job-dropdown.resume").toggle();
   	  });
   	});
   </script>
