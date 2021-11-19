@@ -10,6 +10,7 @@
   <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="{{asset('assets/css/dashboard2.css')}}">
+  @toastr_css
 </head>
 <body>
 <div class="wrapper">
@@ -34,6 +35,8 @@
 				<!-- <li><a href="search.html"><img src="{{asset('assets/img/dash-icon-11.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-11-11.png')}}" class="light" />search</a></li>
 				<li><a href="payments.html"><img src="{{asset('assets/img/dash-icon-12.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-12-12.png')}}" class="light" />payments</a></li> -->
 				<li><a href="{{route('admin.manage-industry')}}"><img src="{{asset('assets/img/dash-icon-12.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-12-12.png')}}" class="light" />manage industry</a></li>
+				<li><a href="{{route('admin.manage-country')}}"><img src="{{asset('assets/img/dash-icon-12.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-12-12.png')}}" class="light" />manage country</a></li>
+				<li><a href="{{route('admin.manage-location')}}"><img src="{{asset('assets/img/dash-icon-12.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-12-12.png')}}" class="light" />manage location</a></li>
 				<!-- <li><a href="manage-jobs.html"><img src="{{asset('assets/img/dash-icon-13.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-13-13.png')}}" class="light" />manage jobs</a></li> -->
 				<!-- <li><a href="applications.html"><img src="{{asset('assets/img/dash-icon-5.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-5-5.png')}}" class="light" />applications</a></li>
 				<li><a href="shortlisted-resume.html"><img src="{{asset('assets/img/dash-icon-3.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-3-3.png')}}" class="light" />shortlisted resume</a></li>
@@ -219,6 +222,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@toastr_js
+  @toastr_render
 @stack('scripts')
 </body>
 </html>

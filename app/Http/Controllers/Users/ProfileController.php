@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Users;
 
 use App\Models\Industry;
+use App\Models\Nationality;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\TemporaryFile;
@@ -14,7 +15,8 @@ class ProfileController extends Controller
     {
         $educations = auth()->user()->education()->orderBy('id','DESC')->get();
         $industries = Industry::orderBy('id', 'DESC')->get();
-        return view('users.profile.index', compact('educations', 'industries'));
+        $countries = Nationality::orderBy('id', 'DESC')->get();
+        return view('users.profile.index', compact('educations', 'industries', 'countries'));
     }
 
     public function updateprofile(Request $request)

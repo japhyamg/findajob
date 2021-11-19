@@ -7,6 +7,7 @@ use App\Models\Industry;
 use Illuminate\Support\Str;
 use App\Models\EmployerProfile;
 use App\Http\Controllers\Controller;
+use App\Models\Nationality;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
@@ -123,8 +124,9 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
+        $countries = Nationality::orderBy('id', 'DESC')->get();
         $industries = Industry::orderBy('id', 'DESC')->get();
-        return view('employers.auth.register', compact('industries'));
+        return view('employers.auth.register', compact('industries', 'countries'));
     }
 
     /**

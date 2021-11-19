@@ -91,7 +91,13 @@
                     </div>
                     <div class="form-group">
                         <label>nationality</label>
-                        <input type="text" name="nationality" class="form-control @error('nationality') is-invalid @enderror " value="{{auth()->user()->nationality}}"/>
+                        <select name="nationality" class="form-control @error('nationality') is-invalid @enderror">
+                            <option value="">Select Country</option>
+                            @foreach ($countries as $country)
+                                <option value="{{$country->slug}}" @if(auth()->user()->nationality == $country->country) selected @endif >{{$country->country}}</option>
+                            @endforeach
+                        </select>
+                        {{-- <input type="text" name="nationality" class="form-control @error('nationality') is-invalid @enderror " value="{{auth()->user()->nationality}}"/> --}}
                         @error('nationality')
                             <div class="invalid-feedback">
                                 {{$message}}
@@ -305,7 +311,14 @@
                     </div>
                     <div class="form-group">
                         <label>country</label>
-                        <select name="country" class="form-control @error('country') is-invalid @enderror " >
+                        <select name="country" class="form-control @error('country') is-invalid @enderror">
+                            <option value="">Select Country</option>
+                            @foreach ($countries as $country)
+                                <option value="{{$country->slug}}">{{$country->country}}</option>
+                            @endforeach
+                        </select>
+
+                        {{-- <select name="country" class="form-control @error('country') is-invalid @enderror " >
                             <option>Please Select...</option>
                             <option value="Afganistan">Afghanistan</option>
                            <option value="Albania">Albania</option>
@@ -553,7 +566,7 @@
                            <option value="Zaire">Zaire</option>
                            <option value="Zambia">Zambia</option>
                            <option value="Zimbabwe">Zimbabwe</option>
-                        </select>
+                        </select> --}}
                         @error('country')
                             <div class="invalid-feedback">
                                 {{$message}}

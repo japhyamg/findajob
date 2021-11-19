@@ -43,7 +43,7 @@
                             </td>
                             <td>33</td>
                             <td>90</td>
-                            <td>{{$job->applications->count()}}</td>
+                            <td>{{$job->applicants->count()}}</td>
                             <td class="action-btns"><a href="#">view</a><a href="#" class="grey-bg">Invoice</a></td>
                         </tr>
                     @endforeach

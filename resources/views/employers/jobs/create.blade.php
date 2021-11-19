@@ -52,9 +52,10 @@
                     <div class="form-group">
                         <label>location</label>
                         <select name="location" class="form-control @error('location') is-invalid @enderror" required>
-                            <option>Nigeria</option>
-                            <option>Nigeria</option>
-                            <option>Nigeria</option>
+                            <option value="">Select Location</option>
+                            @foreach ($locations as $location)
+                                <option value="{{$location->slug}}">{{$location->name}}</option>
+                            @endforeach
                         </select>
                         @error('location')
                             <div class="invalid-feedback">

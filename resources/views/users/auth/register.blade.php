@@ -72,8 +72,13 @@
                     </div>
                     <div class="form-control">
                         <input type="password" name="password_confirmation" placeholder="Confirm Password">
-                    
-                        <input type="text" name="nationality" placeholder="Nationality" value="{{old('nationality')}}">
+                        <select name="nationality">
+                            <option value="">Select Country</option>
+                            @foreach ($countries as $country)
+                                <option value="{{$country->slug}}">{{$country->country}}</option>
+                            @endforeach
+                        </select>
+                        {{-- <input type="text" name="nationality" placeholder="Nationality" value="{{old('nationality')}}"> --}}
                         {{-- @error('nationality')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

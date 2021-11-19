@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Employers;
 
+use App\Models\Employer;
 use App\Models\Industry;
+use App\Models\Nationality;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Employer;
-use App\Models\EmployerProfile;
 use App\Models\TemporaryFile;
+use App\Models\EmployerProfile;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -17,7 +18,8 @@ class EmployerDetailsController extends Controller
     public function index()
     {
         $industries = Industry::orderBy('id', 'DESC')->get();
-        return view('employers.companydetails.index', compact('industries'));
+        $countries = Nationality::orderBy('id', 'DESC')->get();
+        return view('employers.companydetails.index', compact('industries','countries'));
     }
 
 

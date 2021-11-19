@@ -110,7 +110,13 @@
                     </div>
                     <div class="form-group">
                         <label>nationality</label>
-                        <input type="text" class="form-control @error('nationality') is-invalid @enderror" name="nationality" value="{{auth('employer')->user()->profile->nationality}}" placeholder="Nigeria">
+                        {{-- <input type="text" class="form-control @error('nationality') is-invalid @enderror" name="nationality" value="{{auth('employer')->user()->profile->nationality}}" placeholder="Nigeria"> --}}
+                        <select name="nationality" class="form-control @error('nationality') is-invalid @enderror">
+                            <option value="">Select Country</option>
+                            @foreach ($countries as $country)
+                                <option value="{{$country->slug}}" @if (auth('employer')->user()->profile->nationality == $country->country) selected @endif>{{$country->country}}</option>
+                            @endforeach
+                        </select>
                         @error('nationality')
                             <div class="invalid-feedback">
                                 {{$message}}

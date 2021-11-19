@@ -100,7 +100,13 @@
                         @enderror --}}
                     <!-- </div>
                     <div class="form-control"> -->
-                        <input type="text" name="nationality" placeholder="Nationality">
+                        {{-- <input type="text" name="nationality" placeholder="Nationality"> --}}
+                        <select name="nationality">
+                            <option value="">Select Country</option>
+                            @foreach ($countries as $country)
+                                <option value="{{$country->slug}}">{{$country->country}}</option>
+                            @endforeach
+                        </select>
                         {{-- @error('nationality')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

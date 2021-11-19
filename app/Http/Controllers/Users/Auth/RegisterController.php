@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Users\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Models\Nationality;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -84,6 +85,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('users.auth.register');
+        $countries = Nationality::orderBy('id', 'DESC')->get();
+        return view('users.auth.register', compact('countries'));
     }
 }

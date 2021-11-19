@@ -7,6 +7,7 @@ use App\Models\Industry;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Location;
 use Carbon\Carbon;
 
 class JobController extends Controller
@@ -30,7 +31,8 @@ class JobController extends Controller
     public function create()
     {
         $industries = Industry::orderBy('id', 'DESC')->get();
-        return view('employers.jobs.create', compact('industries'));
+        $locations = Location::orderBy('id', 'DESC')->get();
+        return view('employers.jobs.create', compact('industries', 'locations'));
     }
 
     /**
