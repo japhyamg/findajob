@@ -72,9 +72,16 @@ Route::middleware(['auth', 'verified'])->name('user.')->group(function () {
 
 
     Route::post('/add-education', [ProfileController::class, 'addeducation'])->name('add-education');
+    Route::delete('/delete-education', [ProfileController::class, 'deleteeducation'])->name('delete-education');
     Route::post('/add-employment-history', [ProfileController::class, 'addemploymenthistory'])->name('add-employment-history');
+    Route::delete('/delete-employment-history', [ProfileController::class, 'deleteemploymenthistory'])->name('delete-employment-history');
     Route::post('/add-certificate', [ProfileController::class, 'addcertificate'])->name('add-certificate');
+    Route::delete('/delete-certificate', [ProfileController::class, 'deletecertificate'])->name('delete-certificate');
     Route::post('/add-skill', [ProfileController::class, 'addskill'])->name('add-skill');
+    Route::delete('/delete-skill', [ProfileController::class, 'deleteskill'])->name('delete-skill');
+
+    // Update password
+    Route::post('/update-password', [ProfileController::class, 'updatepassword'])->name('update-password');
 
 });
 

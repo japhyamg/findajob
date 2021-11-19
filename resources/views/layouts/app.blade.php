@@ -54,7 +54,14 @@
 				<i class="fa fa-bars"></i>
 			</div>
 			<div class="login-signup">
-				@auth()
+                @if(Auth::guard()->check())
+                    <a href="{{route('user.dashboard')}}"><span>Dashboard</span></a>
+                @elseif(Auth::guard('employer')->check())
+                    <a href="{{route('employer.dashboard')}}"><span>Dashboard</span></a>
+                @else
+                    <a href="{{route('get-started')}}"><img src="{{asset('assets/img/user.png')}}"> <span>Login / Signup</span></a>
+                @endif
+				{{-- @auth()
 					<a href="{{route('user.dashboard')}}"><span>Dashboard</span></a>
 				@endauth
                 @auth('employer')
@@ -62,7 +69,7 @@
 				@endauth
                 @guest
                     <a href="{{route('get-started')}}"><img src="{{asset('assets/img/user.png')}}"> <span>Login / Signup</span></a>
-                @endguest
+                @endguest --}}
 			</div>
 		</div>
 	</div>

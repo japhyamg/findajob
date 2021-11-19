@@ -15,14 +15,12 @@ class CreateJobUserTable extends Migration
     {
         Schema::create('job_user', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('job_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('job_id')->constrained();
+            $table->foreignId('employer_id')->references('id')->on('employers');
 
             $table->text('coverletter')->nullable();
             $table->text('resume')->nullable();
-
-
-
             $table->timestamps();
         });
     }

@@ -60,7 +60,8 @@
 						<div class="boxes-item-title">profile viewed</div>
 					</div>
 					<div class="boxes-item bg-orange">
-						<div class="boxes-item-number">{{auth('employer')->user()->applicants}}</div>
+						{{-- <div class="boxes-item-number">{{auth('employer')->user()->applicants}}</div> --}}
+						<div class="boxes-item-number">{{auth('employer')->user()->applications->count()}}</div>
 						<div class="boxes-item-icon">
 							<img src="{{asset('assets/img/apps.png')}}" alt="Brief Case" />
 						</div>

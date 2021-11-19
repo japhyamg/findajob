@@ -29,7 +29,18 @@
                     <th>qualification</th>
                     <th>actions</th>
                 </tr>
-                @if ($jobs)
+                @if ($applications)
+                    @foreach ($applications as $applicant)
+                        <tr>
+                            <td>{{$applicant->job->title}}</td>
+                            <td>{{$applicant->applicant->full_name}}</td>
+                            <td>{{$applicant->created_at->diffForHumans()}}</td>
+                            <td>{{$applicant->applicant->education->pluck('min_qualification')}}</td>
+                            <td class="action-btns"><a href="#">view</a><a href="#" class="grey-bg">shortlist</a></td>
+                        </tr>
+                    @endforeach
+                @endif
+                {{-- @if ($jobs)
                     @foreach ($jobs as $job)
                         @foreach ($job->applicants as $applicant)
                             <tr>
@@ -41,7 +52,7 @@
                             </tr>
                         @endforeach
                     @endforeach
-                @endif
+                @endif --}}
                 {{-- <tr>
                     <td>accountant</td>
                     <td>06-01-2021</td>

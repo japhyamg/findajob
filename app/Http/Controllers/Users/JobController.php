@@ -43,7 +43,7 @@ class JobController extends Controller
             return redirect(route('user.find'));
         }
 
-        auth()->user()->applications()->attach($job->id, ['coverletter' => $request->coverletter, 'resume' => $request->resume]);
+        auth()->user()->applications()->attach($job->id, ['employer_id' => $job->employer_id,'coverletter' => $request->coverletter, 'resume' => $request->resume]);
         toastr()->success('Successfully applied');
         // return redirect(route('user.find'))->with('success', 'Successfully applied');
         return redirect(route('user.find'));

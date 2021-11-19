@@ -82,6 +82,11 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
         return $this->hasMany(LangOrSkills::class);
     }
 
+    // public function applications()
+    // {
+    //     return $this->belongsToMany(Job::class, 'job_user', 'user_id', 'job_id')->withTimestamps();
+    // }
+
     public function applications()
     {
         return $this->belongsToMany(Job::class, 'job_user', 'user_id', 'job_id')->withTimestamps();

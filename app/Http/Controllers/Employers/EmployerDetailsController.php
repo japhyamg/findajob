@@ -39,54 +39,9 @@ class EmployerDetailsController extends Controller
                 ->toMediaCollection('employers/profile');
         }
 
-        // if($request->has('logo')){
-        //     $temporaryfile = TemporaryFile::where('folder', $request->logo)->first();
-        //     if($temporaryfile){
-                // auth('employer')
-                //     ->user()->profile
-                //     ->addMedia(storage_path('app/employers/tmp/'.$request->logo.'/'.$temporaryfile->filename))
-                //     ->toMediaCollection('employers/profile');
-
-        //         rmdir(storage_path('app/employers/tmp/'.$request->logo));
-        //         $temporaryfile->delete();
-        //     }
-        // }
-
         auth('employer')->user()->profile->update($request->except(['token','save','logo']));
         toastr()->success('Company Details Updated');
         return redirect(route('employer.company-details'))->with('success', 'Company Details Updated');
-    }
-
-    public function upload(Request $request)
-    {
-        // $user = auth('employer')->user();
-        if($request->hasFile('logo')){
-            $file = $request->file('logo');
-            // $filename = $file->getClientOriginalName();
-            $filename = Str::random(10).'.'.$file->getClientOriginalExtension();
-            $folder = uniqid() .'-'.now()->timestamp;
-
-
-            $file->storeAs('employers/tmp/'.$folder, $filename);
-
-            TemporaryFile::create([
-                'folder' => $folder,
-                'filename' => $filename,
-            ]);
-
-            return $folder;
-
-            // Image::make(storage_path('app/public/employers/profiles/'.$user->id.'/'.$filename))
-            //         ->fit(50,50)
-            //         ->save(storage_path('app/public/employers/profiles/'.$user->id.'/thumb-'.$filename));
-
-            // $user->profile->update([
-            //     'logo' => $filename
-            // ]);
-
-
-        }
-        return '';
     }
 
     public function contactperson()
@@ -109,7 +64,7 @@ class EmployerDetailsController extends Controller
 
 
         auth('employer')->user()->update($request->except(['token','save']));
-
+        toastr()->success('Contact Person Details Updated');
         return redirect(route('employer.contact-person'))->with('success', 'Contact Person Details Updated');
     }
 
@@ -123,6 +78,7 @@ class EmployerDetailsController extends Controller
 
         if (Hash::check($request->current_password, Auth::guard('employer')->user()->password) == false)
         {
+            toastr()->error('Current password does not match our record.');
             return redirect()->back()->with("error","Current password does not match our record.");
             // return response(['message' => 'Unauthorized'], 401);
         }
@@ -130,7 +86,7 @@ class EmployerDetailsController extends Controller
         $user = Auth::guard('employer')->user();
         $user->password = Hash::make($request->password);
         $user->save();
-
+        toastr()->success('Password Updated');
         return redirect(route('employer.contact-person'))->with('status', 'Password Updated');
     }
 

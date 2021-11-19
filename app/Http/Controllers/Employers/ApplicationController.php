@@ -11,8 +11,8 @@ class ApplicationController extends Controller
     public function index()
     {
         $jobs = auth('employer')->user()->jobs()->orderBy('created_at', 'DESC')->get();
-        // $applications = auth('employer')->user()->jobs;
+        $applications = auth('employer')->user()->applications;
         // dd($applications);
-        return view('employers.applications.index', compact('jobs'));
+        return view('employers.applications.index', compact('jobs', 'applications'));
     }
 }

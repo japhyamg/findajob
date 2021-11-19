@@ -3,20 +3,28 @@
 namespace App\Http\Controllers\Users;
 
 use App\Models\Industry;
+use App\Models\Education;
+use App\Models\Employment;
+use App\Models\Certificate;
 use App\Models\Nationality;
 use Illuminate\Support\Str;
+use App\Models\LangOrSkills;
 use Illuminate\Http\Request;
-use App\Models\TemporaryFile;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
     public function index()
     {
         $educations = auth()->user()->education()->orderBy('id','DESC')->get();
+        $employments = auth()->user()->employment_history()->orderBy('id','DESC')->get();
+        $certificates = auth()->user()->certificates()->orderBy('id','DESC')->get();
+        $skills = auth()->user()->skills()->orderBy('id','DESC')->get();
         $industries = Industry::orderBy('id', 'DESC')->get();
         $countries = Nationality::orderBy('id', 'DESC')->get();
-        return view('users.profile.index', compact('educations', 'industries', 'countries'));
+        return view('users.profile.index', compact('educations', 'industries', 'countries', 'employments', 'certificates', 'skills'));
     }
 
     public function updateprofile(Request $request)
@@ -46,29 +54,6 @@ class ProfileController extends Controller
         return redirect(route('user.profile'));
     }
 
-    public function upload(Request $request)
-    {
-        // $user = auth('employer')->user();
-        if($request->hasFile('avatar')){
-            $file = $request->file('avatar');
-            // $filename = $file->getClientOriginalName();
-            $filename = Str::random(10).'.'.$file->getClientOriginalExtension();
-            $folder = uniqid() .'-'.now()->timestamp;
-
-
-            $file->storeAs('avatars/tmp/'.$folder, $filename);
-
-            TemporaryFile::create([
-                'folder' => $folder,
-                'filename' => $filename,
-            ]);
-
-            return $folder;
-        }
-        return '';
-    }
-
-
     public function addeducation(Request $request)
     {
         $request->validate([
@@ -78,12 +63,23 @@ class ProfileController extends Controller
             'end_date' => 'required'
         ]);
 
-
         auth()->user()->education()->create($request->except(['token', 'save']));
 
         // dd($request->all());
         toastr()->success('Profile Updated');
         return redirect(route('user.profile'))->with('success', 'Profile Updated');
+    }
+
+    public function deleteeducation(Request $request)
+    {
+        if($education = Education::find($request->id)){
+            $education->delete();
+            toastr()->success('Education Deleted');
+            return redirect(route('user.profile'));
+        }else{
+            toastr()->error('Invalid Action');
+            return redirect(route('user.profile'));
+        }
     }
 
     public function addemploymenthistory(Request $request)
@@ -123,6 +119,18 @@ class ProfileController extends Controller
         return redirect(route('user.profile'))->with('success', 'Employment History Added');
     }
 
+    public function deleteemploymenthistory(Request $request)
+    {
+        if($employment = Employment::find($request->id)){
+            $employment->delete();
+            toastr()->success('Employment History Deleted');
+            return redirect(route('user.profile'));
+        }else{
+            toastr()->error('Invalid Action');
+            return redirect(route('user.profile'));
+        }
+    }
+
     public function addcertificate(Request $request)
     {
         $request->validate([
@@ -140,6 +148,18 @@ class ProfileController extends Controller
         return redirect(route('user.profile'))->with('success', 'Certificate/Reward History Added');
     }
 
+    public function deletecertificate(Request $request)
+    {
+        if($certificate = Certificate::find($request->id)){
+            $certificate->delete();
+            toastr()->success('Certificate Deleted');
+            return redirect(route('user.profile'));
+        }else{
+            toastr()->error('Invalid Action');
+            return redirect(route('user.profile'));
+        }
+    }
+
     public function addskill(Request $request)
     {
         $request->validate([
@@ -153,6 +173,40 @@ class ProfileController extends Controller
         ]);
         toastr()->success('Language/Skill History Added');
         return redirect(route('user.profile'))->with('success', 'Language/Skill History Added');
+    }
+
+    public function deleteskill(Request $request)
+    {
+        if($skill = LangOrSkills::find($request->id)){
+            $skill->delete();
+            toastr()->success('Skill Deleted');
+            return redirect(route('user.profile'));
+        }else{
+            toastr()->error('Invalid Action');
+            return redirect(route('user.profile'));
+        }
+    }
+
+    public function updatepassword(Request $request)
+    {
+        // dd($request->all());
+        $request->validate([
+            'current_password' => 'required',
+            'password' => 'required|string|confirmed|min:8'
+        ]);
+
+        if (Hash::check($request->current_password, Auth::guard()->user()->password) == false)
+        {
+            toastr()->success('Current password does not match our record.');
+            return redirect()->back()->with("error","Current password does not match our record.");
+            // return response(['message' => 'Unauthorized'], 401);
+        }
+
+        $user = Auth::guard()->user();
+        $user->password = Hash::make($request->password);
+        $user->save();
+        toastr()->success('Password Updated');
+        return redirect(route('user.profile'))->with('status', 'Password Updated');
     }
 
 }

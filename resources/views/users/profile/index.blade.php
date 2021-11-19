@@ -111,6 +111,51 @@
                 </div>
             </form>
         </div>
+
+    </div>
+    <div class="basic-info" style="border-bottom:none;">
+        <div class="basic-info-head">
+            <p>change password</p>
+        </div>
+        <div class="basic-info-body">
+            <form method="POST" action="{{route('user.update-password')}}">
+                @csrf
+                <div class="form-group-cont">
+                    <div class="form-group" style="width:100%;">
+                        <label>Current Password</label>
+                        <input type="password" class="form-control @error('current_password') is-invalid @enderror" name="current_password">
+                        @error('current_password')
+                            <div class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                        @enderror
+                    </div>
+                    {{-- <div class="form-group">
+                        <label>twitter</label>
+                        <input type="text" class="form-control" name="twitter">
+                    </div> --}}
+                </div>
+                <div class="form-group-cont">
+                    <div class="form-group">
+                        <label>New password</label>
+                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password">
+                        @error('password')
+                            <div class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm password</label>
+                        <input type="password" class="form-control" name="password_confirmation">
+                    </div>
+                </div>
+                <div class="cancel-submit-btn">
+                    <input type="reset" name="cancel" value="Cancel">
+                    <input type="submit" name="save" value="Save Changes">
+                </div>
+            </form>
+        </div>
     </div>
     <div class="ecl basic-info">
         <div class="basic-info-head">
@@ -209,12 +254,21 @@
                             <td>{{$education->institution}}</td>
                             <td>{{$education->min_qualification}}</td>
                             <td>{{$education->start_date}} / {{$education->end_date}}</td>
-                            <td></td>
+                            <td>
+                                <a class="btn btn-sm btn-danger" href="javascript:void(0);" data-toggle="tooltip" onclick="deleteitem('delete-education-{{ $education->id }}')" data-placement="top" data-original-title="Delete">
+                                    Delete
+                                </a>
+                                <form action="{{ route('user.delete-education') }}" method="POST" id="delete-education-{{ $education->id }}">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="hidden" name="id" value="{{ $education->id }}">
+                                </form>
+                            </td>
                         </tr>
                         @endforeach
                     @endif
                 </tbody>
-              </table>
+            </table>
             {{-- <div class="transactions main-content">
                 <div style="overflow-x:auto;height: 500px;">
                   <table>
@@ -745,6 +799,39 @@
                     </div>
                 </div>
             </form>
+            <table class="table mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Employer</th>
+                        <th scope="col">Job Title</th>
+                        <th scope="col">Start Date/End Date</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if ($employments)
+                        @foreach ($employments as $index => $employment)
+                        <tr>
+                            <th scope="row">{{$index+1}}</th>
+                            <td>{{$employment->employer_name}}</td>
+                            <td>{{$employment->job_title}}</td>
+                            <td>{{$employment->start_date}} / @if ($employment->currently_work_here && is_null($employment->end_date)) Current Job @else {{$employment->end_date}} @endif  {{$employment->end_date}}</td>
+                            <td>
+                                <a class="btn btn-sm btn-danger" href="javascript:void(0);" data-toggle="tooltip" onclick="deleteitem('delete-employment-{{ $employment->id }}')" data-placement="top" data-original-title="Delete">
+                                    Delete
+                                </a>
+                                <form action="{{ route('user.delete-employment-history') }}" method="POST" id="delete-employment-{{ $employment->id }}">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="hidden" name="id" value="{{ $employment->id }}">
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    @endif
+                </tbody>
+            </table>
         </div>
     </div>
     <div class="ecl basic-info">
@@ -793,6 +880,37 @@
                     </div>
                 </div>
             </form>
+            <table class="table mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Certificate</th>
+                        <th scope="col">Start Date/End Date</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if ($certificates)
+                        @foreach ($certificates as $index => $certificate)
+                        <tr>
+                            <th scope="row">{{$index+1}}</th>
+                            <td>{{$certificate->certificate}}</td>
+                            <td>{{$certificate->start_date}} / {{$certificate->end_date}}</td>
+                            <td>
+                                <a class="btn btn-sm btn-danger" href="javascript:void(0);" data-toggle="tooltip" onclick="deleteitem('delete-certificate-{{ $certificate->id }}')" data-placement="top" data-original-title="Delete">
+                                    Delete
+                                </a>
+                                <form action="{{ route('user.delete-certificate') }}" method="POST" id="delete-certificate-{{ $certificate->id }}">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="hidden" name="id" value="{{ $certificate->id }}">
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    @endif
+                </tbody>
+            </table>
         </div>
 
     </div>
@@ -811,148 +929,148 @@
                         <label>Language/Skill</label>
                         <select name="skill" class="form-control @error('skill') is-invalid @enderror " name="languages">
                                 <option>Select...</option>
-                            <option value="af">Afrikaans</option>
-                            <option value="sq">Albanian - shqip</option>
-                            <option value="am">Amharic - አማርኛ</option>
-                            <option value="ar">Arabic - العربية</option>
-                            <option value="an">Aragonese - aragonés</option>
-                            <option value="hy">Armenian - հայերեն</option>
-                            <option value="ast">Asturian - asturianu</option>
-                            <option value="az">Azerbaijani - azərbaycan dili</option>
-                            <option value="eu">Basque - euskara</option>
-                            <option value="be">Belarusian - беларуская</option>
-                            <option value="bn">Bengali - বাংলা</option>
-                            <option value="bs">Bosnian - bosanski</option>
-                            <option value="br">Breton - brezhoneg</option>
-                            <option value="bg">Bulgarian - български</option>
-                            <option value="ca">Catalan - català</option>
-                            <option value="ckb">Central Kurdish - کوردی (دەستنوسی عەرەبی)</option>
-                            <option value="zh">Chinese - 中文</option>
-                            <option value="zh-HK">Chinese (Hong Kong) - 中文（香港）</option>
-                            <option value="zh-CN">Chinese (Simplified) - 中文（简体）</option>
-                            <option value="zh-TW">Chinese (Traditional) - 中文（繁體）</option>
-                            <option value="co">Corsican</option>
-                            <option value="hr">Croatian - hrvatski</option>
-                            <option value="cs">Czech - čeština</option>
-                            <option value="da">Danish - dansk</option>
-                            <option value="nl">Dutch - Nederlands</option>
-                            <option value="en">English</option>
-                            <option value="en-AU">English (Australia)</option>
-                            <option value="en-CA">English (Canada)</option>
-                            <option value="en-IN">English (India)</option>
-                            <option value="en-NZ">English (New Zealand)</option>
-                            <option value="en-ZA">English (South Africa)</option>
-                            <option value="en-GB">English (United Kingdom)</option>
-                            <option value="en-US">English (United States)</option>
-                            <option value="eo">Esperanto - esperanto</option>
-                            <option value="et">Estonian - eesti</option>
-                            <option value="fo">Faroese - føroyskt</option>
-                            <option value="fil">Filipino</option>
-                            <option value="fi">Finnish - suomi</option>
-                            <option value="fr">French - français</option>
-                            <option value="fr-CA">French (Canada) - français (Canada)</option>
-                            <option value="fr-FR">French (France) - français (France)</option>
-                            <option value="fr-CH">French (Switzerland) - français (Suisse)</option>
-                            <option value="gl">Galician - galego</option>
-                            <option value="ka">Georgian - ქართული</option>
-                            <option value="de">German - Deutsch</option>
-                            <option value="de-AT">German (Austria) - Deutsch (Österreich)</option>
-                            <option value="de-DE">German (Germany) - Deutsch (Deutschland)</option>
-                            <option value="de-LI">German (Liechtenstein) - Deutsch (Liechtenstein)</option>
-                            <option value="de-CH">German (Switzerland) - Deutsch (Schweiz)</option>
-                            <option value="el">Greek - Ελληνικά</option>
-                            <option value="gn">Guarani</option>
-                            <option value="gu">Gujarati - ગુજરાતી</option>
-                            <option value="ha">Hausa</option>
-                            <option value="haw">Hawaiian - ʻŌlelo Hawaiʻi</option>
-                            <option value="he">Hebrew - עברית</option>
-                            <option value="hi">Hindi - हिन्दी</option>
-                            <option value="hu">Hungarian - magyar</option>
-                            <option value="is">Icelandic - íslenska</option>
-                            <option value="id">Indonesian - Indonesia</option>
-                            <option value="ia">Interlingua</option>
-                            <option value="ga">Irish - Gaeilge</option>
-                            <option value="it">Italian - italiano</option>
-                            <option value="it-IT">Italian (Italy) - italiano (Italia)</option>
-                            <option value="it-CH">Italian (Switzerland) - italiano (Svizzera)</option>
-                            <option value="ja">Japanese - 日本語</option>
-                            <option value="kn">Kannada - ಕನ್ನಡ</option>
-                            <option value="kk">Kazakh - қазақ тілі</option>
-                            <option value="km">Khmer - ខ្មែរ</option>
-                            <option value="ko">Korean - 한국어</option>
-                            <option value="ku">Kurdish - Kurdî</option>
-                            <option value="ky">Kyrgyz - кыргызча</option>
-                            <option value="lo">Lao - ລາວ</option>
-                            <option value="la">Latin</option>
-                            <option value="lv">Latvian - latviešu</option>
-                            <option value="ln">Lingala - lingála</option>
-                            <option value="lt">Lithuanian - lietuvių</option>
-                            <option value="mk">Macedonian - македонски</option>
-                            <option value="ms">Malay - Bahasa Melayu</option>
-                            <option value="ml">Malayalam - മലയാളം</option>
-                            <option value="mt">Maltese - Malti</option>
-                            <option value="mr">Marathi - मराठी</option>
-                            <option value="mn">Mongolian - монгол</option>
-                            <option value="ne">Nepali - नेपाली</option>
-                            <option value="no">Norwegian - norsk</option>
-                            <option value="nb">Norwegian Bokmål - norsk bokmål</option>
-                            <option value="nn">Norwegian Nynorsk - nynorsk</option>
-                            <option value="oc">Occitan</option>
-                            <option value="or">Oriya - ଓଡ଼ିଆ</option>
-                            <option value="om">Oromo - Oromoo</option>
-                            <option value="ps">Pashto - پښتو</option>
-                            <option value="fa">Persian - فارسی</option>
-                            <option value="pl">Polish - polski</option>
-                            <option value="pt">Portuguese - português</option>
-                            <option value="pt-BR">Portuguese (Brazil) - português (Brasil)</option>
-                            <option value="pt-PT">Portuguese (Portugal) - português (Portugal)</option>
-                            <option value="pa">Punjabi - ਪੰਜਾਬੀ</option>
-                            <option value="qu">Quechua</option>
-                            <option value="ro">Romanian - română</option>
-                            <option value="mo">Romanian (Moldova) - română (Moldova)</option>
-                            <option value="rm">Romansh - rumantsch</option>
-                            <option value="ru">Russian - русский</option>
-                            <option value="gd">Scottish Gaelic</option>
-                            <option value="sr">Serbian - српски</option>
-                            <option value="sh">Serbo-Croatian - Srpskohrvatski</option>
-                            <option value="sn">Shona - chiShona</option>
-                            <option value="sd">Sindhi</option>
-                            <option value="si">Sinhala - සිංහල</option>
-                            <option value="sk">Slovak - slovenčina</option>
-                            <option value="sl">Slovenian - slovenščina</option>
-                            <option value="so">Somali - Soomaali</option>
-                            <option value="st">Southern Sotho</option>
-                            <option value="es">Spanish - español</option>
-                            <option value="es-AR">Spanish (Argentina) - español (Argentina)</option>
-                            <option value="es-419">Spanish (Latin America) - español (Latinoamérica)</option>
-                            <option value="es-MX">Spanish (Mexico) - español (México)</option>
-                            <option value="es-ES">Spanish (Spain) - español (España)</option>
-                            <option value="es-US">Spanish (United States) - español (Estados Unidos)</option>
-                            <option value="su">Sundanese</option>
-                            <option value="sw">Swahili - Kiswahili</option>
-                            <option value="sv">Swedish - svenska</option>
-                            <option value="tg">Tajik - тоҷикӣ</option>
-                            <option value="ta">Tamil - தமிழ்</option>
-                            <option value="tt">Tatar</option>
-                            <option value="te">Telugu - తెలుగు</option>
-                            <option value="th">Thai - ไทย</option>
-                            <option value="ti">Tigrinya - ትግርኛ</option>
-                            <option value="to">Tongan - lea fakatonga</option>
-                            <option value="tr">Turkish - Türkçe</option>
-                            <option value="tk">Turkmen</option>
-                            <option value="tw">Twi</option>
-                            <option value="uk">Ukrainian - українська</option>
-                            <option value="ur">Urdu - اردو</option>
-                            <option value="ug">Uyghur</option>
-                            <option value="uz">Uzbek - o‘zbek</option>
-                            <option value="vi">Vietnamese - Tiếng Việt</option>
-                            <option value="wa">Walloon - wa</option>
-                            <option value="cy">Welsh - Cymraeg</option>
-                            <option value="fy">Western Frisian</option>
-                            <option value="xh">Xhosa</option>
-                            <option value="yi">Yiddish</option>
-                            <option value="yo">Yoruba - Èdè Yorùbá</option>
-                            <option value="zu">Zulu - isiZulu</option>
+                            <option >Afrikaans</option>
+                            <option >Albanian - shqip</option>
+                            <option >Amharic - አማርኛ</option>
+                            <option >Arabic - العربية</option>
+                            <option >Aragonese - aragonés</option>
+                            <option >Armenian - հայերեն</option>
+                            <option >Asturian - asturianu</option>
+                            <option >Azerbaijani - azərbaycan dili</option>
+                            <option >Basque - euskara</option>
+                            <option >Belarusian - беларуская</option>
+                            <option >Bengali - বাংলা</option>
+                            <option >Bosnian - bosanski</option>
+                            <option >Breton - brezhoneg</option>
+                            <option >Bulgarian - български</option>
+                            <option >Catalan - català</option>
+                            <option >Central Kurdish - کوردی (دەستنوسی عەرەبی)</option>
+                            <option >Chinese - 中文</option>
+                            <option >Chinese (Hong Kong) - 中文（香港）</option>
+                            <option >Chinese (Simplified) - 中文（简体）</option>
+                            <option >Chinese (Traditional) - 中文（繁體）</option>
+                            <option >Corsican</option>
+                            <option >Croatian - hrvatski</option>
+                            <option >Czech - čeština</option>
+                            <option >Danish - dansk</option>
+                            <option >Dutch - Nederlands</option>
+                            <option >English</option>
+                            <option >English (Australia)</option>
+                            <option >English (Canada)</option>
+                            <option >English (India)</option>
+                            <option >English (New Zealand)</option>
+                            <option >English (South Africa)</option>
+                            <option >English (United Kingdom)</option>
+                            <option >English (United States)</option>
+                            <option >Esperanto - esperanto</option>
+                            <option >Estonian - eesti</option>
+                            <option >Faroese - føroyskt</option>
+                            <option >Filipino</option>
+                            <option >Finnish - suomi</option>
+                            <option >French - français</option>
+                            <option >French (Canada) - français (Canada)</option>
+                            <option >French (France) - français (France)</option>
+                            <option >French (Switzerland) - français (Suisse)</option>
+                            <option >Galician - galego</option>
+                            <option >Georgian - ქართული</option>
+                            <option >German - Deutsch</option>
+                            <option >German (Austria) - Deutsch (Österreich)</option>
+                            <option >German (Germany) - Deutsch (Deutschland)</option>
+                            <option >German (Liechtenstein) - Deutsch (Liechtenstein)</option>
+                            <option >German (Switzerland) - Deutsch (Schweiz)</option>
+                            <option >Greek - Ελληνικά</option>
+                            <option >Guarani</option>
+                            <option >Gujarati - ગુજરાતી</option>
+                            <option >Hausa</option>
+                            <option >Hawaiian - ʻŌlelo Hawaiʻi</option>
+                            <option >Hebrew - עברית</option>
+                            <option >Hindi - हिन्दी</option>
+                            <option >Hungarian - magyar</option>
+                            <option >Icelandic - íslenska</option>
+                            <option >Indonesian - Indonesia</option>
+                            <option >Interlingua</option>
+                            <option >Irish - Gaeilge</option>
+                            <option >Italian - italiano</option>
+                            <option >Italian (Italy) - italiano (Italia)</option>
+                            <option >Italian (Switzerland) - italiano (Svizzera)</option>
+                            <option >Japanese - 日本語</option>
+                            <option >Kannada - ಕನ್ನಡ</option>
+                            <option >Kazakh - қазақ тілі</option>
+                            <option >Khmer - ខ្មែរ</option>
+                            <option >Korean - 한국어</option>
+                            <option >Kurdish - Kurdî</option>
+                            <option >Kyrgyz - кыргызча</option>
+                            <option >Lao - ລາວ</option>
+                            <option >Latin</option>
+                            <option >Latvian - latviešu</option>
+                            <option >Lingala - lingála</option>
+                            <option >Lithuanian - lietuvių</option>
+                            <option >Macedonian - македонски</option>
+                            <option >Malay - Bahasa Melayu</option>
+                            <option >Malayalam - മലയാളം</option>
+                            <option >Maltese - Malti</option>
+                            <option >Marathi - मराठी</option>
+                            <option >Mongolian - монгол</option>
+                            <option >Nepali - नेपाली</option>
+                            <option >Norwegian - norsk</option>
+                            <option >Norwegian Bokmål - norsk bokmål</option>
+                            <option >Norwegian Nynorsk - nynorsk</option>
+                            <option >Occitan</option>
+                            <option >Oriya - ଓଡ଼ିଆ</option>
+                            <option >Oromo - Oromoo</option>
+                            <option >Pashto - پښتو</option>
+                            <option >Persian - فارسی</option>
+                            <option >Polish - polski</option>
+                            <option >Portuguese - português</option>
+                            <option >Portuguese (Brazil) - português (Brasil)</option>
+                            <option >Portuguese (Portugal) - português (Portugal)</option>
+                            <option >Punjabi - ਪੰਜਾਬੀ</option>
+                            <option >Quechua</option>
+                            <option >Romanian - română</option>
+                            <option >Romanian (Moldova) - română (Moldova)</option>
+                            <option >Romansh - rumantsch</option>
+                            <option >Russian - русский</option>
+                            <option >Scottish Gaelic</option>
+                            <option >Serbian - српски</option>
+                            <option >Serbo-Croatian - Srpskohrvatski</option>
+                            <option >Shona - chiShona</option>
+                            <option >Sindhi</option>
+                            <option >Sinhala - සිංහල</option>
+                            <option >Slovak - slovenčina</option>
+                            <option >Slovenian - slovenščina</option>
+                            <option >Somali - Soomaali</option>
+                            <option >Southern Sotho</option>
+                            <option >Spanish - español</option>
+                            <option >Spanish (Argentina) - español (Argentina)</option>
+                            <option >Spanish (Latin America) - español (Latinoamérica)</option>
+                            <option >Spanish (Mexico) - español (México)</option>
+                            <option >Spanish (Spain) - español (España)</option>
+                            <option >Spanish (United States) - español (Estados Unidos)</option>
+                            <option >Sundanese</option>
+                            <option >Swahili - Kiswahili</option>
+                            <option >Swedish - svenska</option>
+                            <option >Tajik - тоҷикӣ</option>
+                            <option >Tamil - தமிழ்</option>
+                            <option >Tatar</option>
+                            <option >Telugu - తెలుగు</option>
+                            <option >Thai - ไทย</option>
+                            <option >Tigrinya - ትግርኛ</option>
+                            <option >Tongan - lea fakatonga</option>
+                            <option >Turkish - Türkçe</option>
+                            <option >Turkmen</option>
+                            <option >Twi</option>
+                            <option >Ukrainian - українська</option>
+                            <option >Urdu - اردو</option>
+                            <option >Uyghur</option>
+                            <option >Uzbek - o‘zbek</option>
+                            <option >Vietnamese - Tiếng Việt</option>
+                            <option >Walloon - wa</option>
+                            <option >Welsh - Cymraeg</option>
+                            <option >Western Frisian</option>
+                            <option >Xhosa</option>
+                            <option >Yiddish</option>
+                            <option >Yoruba - Èdè Yorùbá</option>
+                            <option >Zulu - isiZulu</option>
                         </select>
                         @error('skill')
                             <div class="invalid-feedback">
@@ -984,6 +1102,37 @@
                     </div>
                 </div>
             </form>
+            <table class="table mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Skill</th>
+                        <th scope="col">Proficiency</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if ($skills)
+                        @foreach ($skills as $index => $skill)
+                        <tr>
+                            <th scope="row">{{$index+1}}</th>
+                            <td>{{$skill->skill}}</td>
+                            <td>{{$skill->proficiency}}</td>
+                            <td>
+                                <a class="btn btn-sm btn-danger" href="javascript:void(0);" data-toggle="tooltip" onclick="deleteitem('delete-skill-{{ $skill->id }}')" data-placement="top" data-original-title="Delete">
+                                    Delete
+                                </a>
+                                <form action="{{ route('user.delete-skill') }}" method="POST" id="delete-skill-{{ $skill->id }}">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="hidden" name="id" value="{{ $skill->id }}">
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    @endif
+                </tbody>
+            </table>
         </div>
     </div>
     <div class="preview-profile-btn">
@@ -994,6 +1143,28 @@
 @endsection
 
 @push('scripts')
+<script>
+    function deleteitem(formid){
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+                document.getElementById(formid).submit()
+            }
+        })
+    }
+</script>
 <script type="text/javascript">
     $(document).ready(function(){
       $("#tertiary-edu-btn").click(function(){
