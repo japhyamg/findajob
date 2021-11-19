@@ -5,7 +5,7 @@
 			<div class="intro">
 				<div class="intro-img-text">
 					<div class="intro-img">
-						<img src="{{auth('employer')->user()->profile->profile_image}}" alt="Profile Image" />
+						<img src="{{auth('employer')->user()->profile->profile_image}}" alt="Profile Image" width="149px" height="149px" />
 					</div>
 					<div class="intro-text">
 						<div class="intro-text-head">{{auth('employer')->user()->profile->companyname}}</div>
