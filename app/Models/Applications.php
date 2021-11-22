@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Applications extends Pivot
+class Applications extends Pivot implements HasMedia
 {
+    use InteractsWithMedia;
     protected $table = 'job_user';
 
     public function employer()
