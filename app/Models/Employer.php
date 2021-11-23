@@ -97,6 +97,6 @@ class Employer extends Authenticatable implements MustVerifyEmail
 
     public function applications()
     {
-        return $this->hasMany(Applications::class, 'employer_id', 'id');
+        return $this->hasMany(Application::class, 'employer_id', 'id');
     }
 }

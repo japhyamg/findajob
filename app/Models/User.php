@@ -33,6 +33,7 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
         'identification_no',
     ];
 
+    protected $appends = ['profile_image', 'full_name'];
     /**
      * The attributes that should be hidden for serialization.
      *

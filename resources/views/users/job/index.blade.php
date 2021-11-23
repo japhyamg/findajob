@@ -107,7 +107,7 @@
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
-        <form action="" method="POST" id="applyform">
+        <form action="" method="POST" id="applyform" enctype="multipart/form-data">
             @csrf
             <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">Apply</h5>
@@ -117,7 +117,8 @@
                 <h3 class="text-center">Upload Resume & Cover Letter</h3>
                 <div class="mb-3">
                     <label for="coverletter" class="form-label">Cover letter</label>
-                    <input type="text" name="coverletter" class="form-control" id="coverletter" aria-describedby="coverletterHelp">
+                    <input type="file" name="coverletter" class="form-control" id="coverletter" aria-describedby="coverletterHelp" accept="application/pdf">
+                    <div class="form-text">Please upload a pdf document</div>
                     <div id="coverletterHelp" class="form-text" style="display: none;"></div>
                 </div>
                 <div class="mb-3">
@@ -191,21 +192,6 @@
                     console.log(error);
                 });
 
-        // }else{
-        //     // jobslist.style.width = '100%';
-        //     accountant.style.display = 'none';
-        // }
-
-
-
-        // const res = axios({
-        //                 method: 'get',
-        //                 url: url
-        //             });
-
-        // console.log(res);
-
-
     }
 
     function apply(event){
@@ -236,12 +222,6 @@
         applyform.setAttribute('action', apurl);
         // console.log(apurl);
 
-
-        // var joblevel = document.getElementById('job-level');
-        // var jobexperience = document.getElementById('job-experience');
-        // var jobsummary = document.getElementById('job-summary');
-        // var jobrequirement = document.getElementById('job-requirement');
-        // var applyroute = document.getElementById('applyroute');
 
         myModal.show()
 

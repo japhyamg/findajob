@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
+use App\Models\Applications;
 use App\Models\Job;
 use Illuminate\Http\Request;
 
@@ -43,7 +44,25 @@ class JobController extends Controller
             return redirect(route('user.find'));
         }
 
-        auth()->user()->applications()->attach($job->id, ['employer_id' => $job->employer_id,'coverletter' => $request->coverletter, 'resume' => $request->resume]);
+        $application = Applications::create([
+            'job_id' => $job->id,
+            'user_id' => auth()->user()->id,
+            'employer_id' => $job->employer_id,
+            'coverletter' => $job->apply_with_cover == 1 ? true : false,
+            'resume' => 'ffkkfkf'
+        ]);
+
+        // dd($application);
+
+        if($request->hasFile('coverletter')){
+            $application->addMediaFromRequest('coverletter')->toMediaCollection('coverletter');
+        }
+
+        // auth()->user()->applications()
+        // ->attach($job->id, ['employer_id' => $job->employer_id,'coverletter' => $request->coverletter, 'resume' => $request->resume])
+        // ->addMediaFromRequest('coverletter')
+        // ->toMediaCollection('coverletter');
+
         toastr()->success('Successfully applied');
         // return redirect(route('user.find'))->with('success', 'Successfully applied');
         return redirect(route('user.find'));

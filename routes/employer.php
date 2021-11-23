@@ -21,6 +21,8 @@ Route::middleware(['auth:employer', 'verified:employer.verification.notice'])->g
 
     Route::get('/manage-jobs', [JobController::class, 'index'])->name('manage-jobs');
     Route::get('/applications', [ApplicationController::class, 'index'])->name('applications');
+    Route::post('/application/fetch', [ApplicationController::class, 'fetch'])->name('fetchapplication');
+    Route::post('/application/shortlist', [ApplicationController::class, 'shortlist'])->name('shortlistapplicant');
 
 
     // Company Profile
