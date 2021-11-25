@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\ManageJobCenter;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\ManageUserController;
 use App\Http\Controllers\Admin\ManageAdminController;
@@ -38,12 +39,16 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::post('/store-country', [ManageNationalityController::class, 'store'])->name('store-country');
     Route::post('/update-country', [ManageNationalityController::class, 'update'])->name('update-country');
     Route::delete('/delete-country', [ManageNationalityController::class, 'delete'])->name('delete-country');
-    
+
     // Manage Locations
     Route::get('/manage-location', [ManageLocationController::class, 'index'])->name('manage-location');
     Route::post('/store-location', [ManageLocationController::class, 'store'])->name('store-location');
     Route::post('/update-location', [ManageLocationController::class, 'update'])->name('update-location');
     Route::delete('/delete-location', [ManageLocationController::class, 'delete'])->name('delete-location');
+
+    // Manage Job Centers
+    Route::get('/job-center', [ManageJobCenter::class, 'index'])->name('job-centers');
+    Route::post('/job-center', [ManageJobCenter::class, 'store'])->name('add-job-center');
 
 });
 

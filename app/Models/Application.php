@@ -17,6 +17,9 @@ class Application extends Model implements HasMedia
 
     protected $appends = ['cover_letter_file'];
 
+    public const STATUS_APPLIED = 'applied';
+    public const STATUS_SHORTLISTED = 'shortlisted';
+
     public function employer()
     {
         return $this->belongsTo(Employer::class, 'employer_id');

@@ -1,6 +1,7 @@
 @extends('employers.layouts.app')
 
 @section('content')
+<div class="main-content">
     <!-- Intro Section Starts -->
 			<div class="intro">
 				<div class="intro-img-text">
@@ -203,6 +204,8 @@
 				</div>
 			</div>
 			<!-- Latest Jobs Section Ends -->
+
+</div>
 @endsection
 
 @push('scripts')

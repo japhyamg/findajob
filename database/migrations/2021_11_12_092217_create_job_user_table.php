@@ -19,8 +19,8 @@ class CreateJobUserTable extends Migration
             $table->foreignId('job_id')->constrained();
             $table->foreignId('employer_id')->references('id')->on('employers');
 
-            $table->text('coverletter')->nullable();
-            $table->text('resume')->nullable();
+            $table->string('coverletter')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

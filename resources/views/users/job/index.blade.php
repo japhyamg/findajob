@@ -121,11 +121,6 @@
                     <div class="form-text">Please upload a pdf document</div>
                     <div id="coverletterHelp" class="form-text" style="display: none;"></div>
                 </div>
-                <div class="mb-3">
-                    <label for="resume" class="form-label">Resume</label>
-                    <input type="text" name="resume" class="form-control" id="resume" aria-describedby="resumeHelp">
-                    <div id="resumeHelp" class="form-text">Upload new resume or leave blank to use current resume</div>
-                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

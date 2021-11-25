@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\Employers\ApplicationController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Employers\JobController;
 use App\Http\Controllers\Employers\HomeController;
+use App\Http\Controllers\Employers\SearchController;
 use App\Http\Controllers\Employers\Auth\LoginController;
+use App\Http\Controllers\Employers\ApplicationController;
 use App\Http\Controllers\Employers\Auth\RegisterController;
+use App\Http\Controllers\Employers\EmployerDetailsController;
 use App\Http\Controllers\Employers\Auth\VerificationController;
 use App\Http\Controllers\Employers\Auth\ResetPasswordController;
 use App\Http\Controllers\Employers\Auth\ForgotPasswordController;
-use App\Http\Controllers\Employers\EmployerDetailsController;
-use App\Http\Controllers\Employers\JobController;
 
 Route::middleware(['auth:employer', 'verified:employer.verification.notice'])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
@@ -23,7 +24,10 @@ Route::middleware(['auth:employer', 'verified:employer.verification.notice'])->g
     Route::get('/applications', [ApplicationController::class, 'index'])->name('applications');
     Route::post('/application/fetch', [ApplicationController::class, 'fetch'])->name('fetchapplication');
     Route::post('/application/shortlist', [ApplicationController::class, 'shortlist'])->name('shortlistapplicant');
+    Route::get('/applications/shortlisted', [ApplicationController::class, 'shortlisted'])->name('shortlistedapplications');
 
+    //Search
+    Route::get('/search', [SearchController::class, 'index'])->name('search');
 
     // Company Profile
     Route::get('/company-details', [EmployerDetailsController::class, 'index'])->name('company-details');

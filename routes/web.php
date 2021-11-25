@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\Users\JobController;
 use App\Http\Controllers\Users\HomeController;
+use App\Http\Controllers\Users\ResumeController;
 use App\Http\Controllers\Users\ProfileController;
+use App\Http\Controllers\Users\InterviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +56,7 @@ Route::middleware(['auth', 'verified'])->name('user.')->group(function () {
 
 
 
-    // User Dashboard Find a job
+    // Find a job
     Route::get('/job/find', [JobController::class, 'index'])->name('find');
     Route::get('/job/fetch/{slug}', [JobController::class, 'fetchjob'])->name('fetchjob');
 
@@ -64,6 +66,13 @@ Route::middleware(['auth', 'verified'])->name('user.')->group(function () {
     Route::get('/job/saved', [JobController::class, 'savedjobs'])->name('savedjobs');
     Route::get('/job/applications', [JobController::class, 'applications'])->name('applications');
 
+    // Upload Resume
+    Route::get('/upload-cv', [ResumeController::class, 'index'] )->name('upload-cv');
+    Route::post('/upload-cv', [ResumeController::class, 'storecv'] )->name('upload-cv');
+    Route::delete('/delete-cv', [ResumeController::class, 'deletecv'] )->name('delete-cv');
+
+    // Interviews
+    Route::get('/interviews', [InterviewController::class, 'index'])->name('interviews');
 
 
     // Profile

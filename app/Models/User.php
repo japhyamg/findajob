@@ -9,8 +9,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 
-class User extends Authenticatable implements MustVerifyEmail, HasMedia
+class User extends Authenticatable implements MustVerifyEmail, HasMedia, Searchable
 {
     use HasApiTokens, HasFactory, Notifiable, InteractsWithMedia;
 
@@ -121,5 +123,23 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
         }
         return asset('assets/img/profile-4.png');
     }
+
+    public function resumes()
+    {
+        $resumes = $this->getMedia('resumes');
+        // return $this->hasMany(Resume::class);
+        return $resumes;
+    }
+
+    public function getSearchResult(): SearchResult
+     {
+        $url = route('employer.search', $this->slug);
+
+         return new SearchResult(
+            $this,
+            $this->firstname,
+            $url
+         );
+     }
 
 }

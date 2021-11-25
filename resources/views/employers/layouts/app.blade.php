@@ -39,13 +39,13 @@
 				</li>
 				<li class="job-dropdown profile"><a href="{{route('employer.company-details')}}" class="@if(Route::is('employer.company-details')) active @endif"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />company details</a></li>
 				<li class="job-dropdown profile"><a href="{{route('employer.contact-person')}}" class="@if(Route::is('employer.contact-person')) active @endif"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />contact person</a></li>
-				<li><a href="{{route('employer.post-job')}}" class="@if(Route::is('employer.post-job')) active @endif""><img src="{{asset('assets/img/dash-icon-3.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-3-3.png')}}" class="light" />post a new job</a></li>
+				<li><a href="{{route('employer.post-job')}}" class="@if(Route::is('employer.post-job')) active @endif"><img src="{{asset('assets/img/dash-icon-3.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-3-3.png')}}" class="light" />post a new job</a></li>
 				</li>
-				<li><a href="search.html"><img src="{{asset('assets/img/dash-icon-11.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-11-11.png')}}" class="light" />search</a></li>
+				<li><a href="{{route('employer.search')}}" class="@if(Route::is('employer.search')) active @endif"><img src="{{asset('assets/img/dash-icon-11.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-11-11.png')}}" class="light" />search</a></li>
 				<li><a href="payments.html"><img src="{{asset('assets/img/dash-icon-12.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-12-12.png')}}" class="light" />payments</a></li>
-				<li><a href="{{route('employer.manage-jobs')}}" class="@if(Route::is('employer.manage-jobs')) active @endif""><img src="{{asset('assets/img/dash-icon-13.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-13-13.png')}}" class="light" />manage jobs</a></li>
-				<li><a href="{{route('employer.applications')}}" class="@if(Route::is('employer.applications')) active @endif""><img src="{{asset('assets/img/dash-icon-5.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-5-5.png')}}" class="light" />applications</a></li>
-				<li><a href="shortlisted-resume.html"><img src="{{asset('assets/img/dash-icon-3.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-3-3.png')}}" class="light" />shortlisted resume</a></li>
+				<li><a href="{{route('employer.manage-jobs')}}" class="@if(Route::is('employer.manage-jobs')) active @endif"><img src="{{asset('assets/img/dash-icon-13.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-13-13.png')}}" class="light" />manage jobs</a></li>
+				<li><a href="{{route('employer.applications')}}" class="@if(Route::is('employer.applications')) active @endif"><img src="{{asset('assets/img/dash-icon-5.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-5-5.png')}}" class="light" />applications</a></li>
+				<li><a href="{{route('employer.shortlistedapplications')}}" class="@if(Route::is('employer.shortlistedapplications')) active @endif"><img src="{{asset('assets/img/dash-icon-3.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-3-3.png')}}" class="light" />shortlisted resume</a></li>
 				<li><a href="messages.html"><img src="{{asset('assets/img/dash-icon-14.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-14-14.png')}}" class="light" />messages</a></li>
 				<li>
                     <a onclick="event.preventDefault(); document.getElementById('logout-form').submit()" href="{{ route('employer.logout') }}" role="button"><i class="fa fa-sign-out"></i>logout</a></a>
@@ -83,9 +83,8 @@
 			</div>
 		</div>
 		<!-- Header Ends -->
-		<div class="main-content">
-			@yield('content')
-		</div>
+        @yield('content')
+
 	</div>
 	<!-- Main Content Ends -->
 

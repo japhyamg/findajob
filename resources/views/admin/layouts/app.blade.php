@@ -13,6 +13,15 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="{{asset('assets/css/dashboard2.css')}}">
   @toastr_css
+  <style>
+    .sidebar-menu ul{
+        padding-left: 0;
+    }
+    .links ul{
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+</style>
 </head>
 <body>
 <div class="wrapper">
@@ -36,13 +45,13 @@
 				<li><a href="post-job.html" class="dropdown-btn"><img src="{{asset('assets/img/dash-icon-3.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-3-3.png')}}" class="light" />manage jobs</a></li>
 				<!-- <li><a href="search.html"><img src="{{asset('assets/img/dash-icon-11.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-11-11.png')}}" class="light" />search</a></li>
 				<li><a href="payments.html"><img src="{{asset('assets/img/dash-icon-12.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-12-12.png')}}" class="light" />payments</a></li> -->
-				<li><a href="{{route('admin.manage-industry')}}"><img src="{{asset('assets/img/dash-icon-12.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-12-12.png')}}" class="light" />manage industry</a></li>
-				<li><a href="{{route('admin.manage-country')}}"><img src="{{asset('assets/img/dash-icon-12.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-12-12.png')}}" class="light" />manage country</a></li>
-				<li><a href="{{route('admin.manage-location')}}"><img src="{{asset('assets/img/dash-icon-12.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-12-12.png')}}" class="light" />manage location</a></li>
-				<!-- <li><a href="manage-jobs.html"><img src="{{asset('assets/img/dash-icon-13.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-13-13.png')}}" class="light" />manage jobs</a></li> -->
-				<!-- <li><a href="applications.html"><img src="{{asset('assets/img/dash-icon-5.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-5-5.png')}}" class="light" />applications</a></li>
+				<li><a href="{{route('admin.manage-industry')}}" class="@if(Route::is('admin.manage-industry')) active @endif"><img src="{{asset('assets/img/dash-icon-12.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-12-12.png')}}" class="light" />manage industry</a></li>
+				<li><a href="{{route('admin.manage-country')}}" class="@if(Route::is('admin.manage-country')) active @endif"><img src="{{asset('assets/img/dash-icon-12.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-12-12.png')}}" class="light" />manage country</a></li>
+				<li><a href="{{route('admin.manage-location')}}" class="@if(Route::is('admin.manage-location')) active @endif"><img src="{{asset('assets/img/dash-icon-12.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-12-12.png')}}" class="light" />manage location</a></li>
+				<li><a href="{{route('admin.job-centers')}}" class="@if(Route::is('admin.job-centers')) active @endif"><img src="{{asset('assets/img/dash-icon-3.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-3-3.png')}}" class="light" />job centers</a></li>
+				{{-- <li><a href="applications.html"><img src="{{asset('assets/img/dash-icon-5.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-5-5.png')}}" class="light" />applications</a></li>
 				<li><a href="shortlisted-resume.html"><img src="{{asset('assets/img/dash-icon-3.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-3-3.png')}}" class="light" />shortlisted resume</a></li>
-				<li><a href="messages.html"><img src="{{asset('assets/img/dash-icon-14.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-14-14.png')}}" class="light" />messages</a></li> -->
+				<li><a href="messages.html"><img src="{{asset('assets/img/dash-icon-14.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-14-14.png')}}" class="light" />messages</a></li> --}}
 				<li>
 					<a href="#" class="dropdown-btn" id="dropdown-btn1"><img src="{{asset('assets/img/dash-icon-2.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-2-2.png')}}" class="light" />settings <i class="fa fa-angle-down angle-down"></i></a></li>
 				</li>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
-use App\Models\Applications;
+use App\Models\Application;
 use App\Models\Job;
 use Illuminate\Http\Request;
 
@@ -44,12 +44,13 @@ class JobController extends Controller
             return redirect(route('user.find'));
         }
 
-        $application = Applications::create([
+        $application = Application::create([
             'job_id' => $job->id,
             'user_id' => auth()->user()->id,
             'employer_id' => $job->employer_id,
-            'coverletter' => $job->apply_with_cover == 1 ? true : false,
-            'resume' => 'ffkkfkf'
+            // 'coverletter' => $job->apply_with_cover == 1 ? true : false,
+            'coverletter' => $request->hasFile('coverletter') ? true : false,
+            'status' => Application::STATUS_APPLIED
         ]);
 
         // dd($application);
