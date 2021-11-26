@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Users;
 use App\Http\Controllers\Controller;
 use App\Models\Application;
 use App\Models\Job;
+use App\Models\Jobcenter;
 use Illuminate\Http\Request;
+use ProtoneMedia\LaravelCrossEloquentSearch\Search;
 
 class JobController extends Controller
 {
@@ -84,5 +86,19 @@ class JobController extends Controller
     public function applications()
     {
         return view('users.job.applications');
+    }
+
+    public function jobcenters(Request $request)
+    {
+        $jobcenters = Jobcenter::orderBy('created_at', 'DESC')->paginate(1);
+        if($request->has('search')){
+            $jobcenters = Search::add(Jobcenter::class, ['name', 'phone', 'address', 'location'])
+            ->beginWithWildcard()
+            ->paginate(1)
+            ->get($request->search);
+            // $jobcenters = Jobcenter::where() orderBy('created_at', 'DESC')->paginate(1);
+        }
+        // dd($jobcenters);
+        return view('users.job.jobcenters', compact('jobcenters'));
     }
 }

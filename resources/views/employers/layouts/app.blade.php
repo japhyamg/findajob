@@ -46,7 +46,7 @@
 				<li><a href="{{route('employer.manage-jobs')}}" class="@if(Route::is('employer.manage-jobs')) active @endif"><img src="{{asset('assets/img/dash-icon-13.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-13-13.png')}}" class="light" />manage jobs</a></li>
 				<li><a href="{{route('employer.applications')}}" class="@if(Route::is('employer.applications')) active @endif"><img src="{{asset('assets/img/dash-icon-5.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-5-5.png')}}" class="light" />applications</a></li>
 				<li><a href="{{route('employer.shortlistedapplications')}}" class="@if(Route::is('employer.shortlistedapplications')) active @endif"><img src="{{asset('assets/img/dash-icon-3.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-3-3.png')}}" class="light" />shortlisted resume</a></li>
-				<li><a href="messages.html"><img src="{{asset('assets/img/dash-icon-14.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-14-14.png')}}" class="light" />messages</a></li>
+				<li><a href="{{route('employer.messages')}}"  class="@if(Route::is('employer.messages')) active @endif"><img src="{{asset('assets/img/dash-icon-14.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-14-14.png')}}" class="light" />messages</a></li>
 				<li>
                     <a onclick="event.preventDefault(); document.getElementById('logout-form').submit()" href="{{ route('employer.logout') }}" role="button"><i class="fa fa-sign-out"></i>logout</a></a>
                     <form style="display: none;" action="{{ route('employer.logout') }}" id="logout-form" method="post">

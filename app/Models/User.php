@@ -9,10 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\Searchable\Searchable;
-use Spatie\Searchable\SearchResult;
 
-class User extends Authenticatable implements MustVerifyEmail, HasMedia, Searchable
+class User extends Authenticatable implements MustVerifyEmail, HasMedia
 {
     use HasApiTokens, HasFactory, Notifiable, InteractsWithMedia;
 
@@ -131,15 +129,21 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia, Searcha
         return $resumes;
     }
 
-    public function getSearchResult(): SearchResult
-     {
-        $url = route('employer.search', $this->slug);
+    public function videoresumes()
+    {
+        $resumes = $this->getMedia('video-resumes');
+        // return $this->hasMany(Resume::class);
+        return $resumes;
+    }
 
-         return new SearchResult(
-            $this,
-            $this->firstname,
-            $url
-         );
-     }
+    public function messages()
+    {
+        return $this->morphMany(Message::class, 'sender' );
+    }
+
+    public function inbox()
+    {
+        return $this->morphMany(Message::class, 'receiver');
+    }
 
 }

@@ -25,6 +25,7 @@ class ManageJobCenter extends Controller
             'location' => 'required',
             'open' => 'required',
             'close' => 'required',
+            'logo' => 'required|mimes:png,jpeg,jpg,gif|max:1000'
         ]);
 
         Jobcenter::create([
@@ -34,9 +35,20 @@ class ManageJobCenter extends Controller
             'location' => $request->location,
             'open' => $request->open,
             'close' => $request->close,
-        ]);
+        ])->addMediaFromRequest('logo')
+        ->toMediaCollection('jobcenters');;
 
         toastr()->success('Job Center Created');
+        return redirect(route('admin.job-centers'));
+    }
+
+    public function delete(Request $request)
+    {
+        $jobcenter = Jobcenter::find($request->id);
+
+        $jobcenter->delete();
+
+        toastr()->success('Job Center Deleted');
         return redirect(route('admin.job-centers'));
     }
 

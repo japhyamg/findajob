@@ -6,6 +6,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\Users\JobController;
 use App\Http\Controllers\Users\HomeController;
 use App\Http\Controllers\Users\ResumeController;
+use App\Http\Controllers\Users\MessageController;
 use App\Http\Controllers\Users\ProfileController;
 use App\Http\Controllers\Users\InterviewController;
 
@@ -71,8 +72,19 @@ Route::middleware(['auth', 'verified'])->name('user.')->group(function () {
     Route::post('/upload-cv', [ResumeController::class, 'storecv'] )->name('upload-cv');
     Route::delete('/delete-cv', [ResumeController::class, 'deletecv'] )->name('delete-cv');
 
+    // Upload Video Resume
+    Route::get('/upload-video-cv', [ResumeController::class, 'videocv'] )->name('upload-video-cv');
+    Route::post('/upload-video-cv', [ResumeController::class, 'storevideocv'] )->name('upload-video-cv');
+    Route::delete('/delete-video-cv', [ResumeController::class, 'deletevideocv'] )->name('delete-video-cv');
+
     // Interviews
     Route::get('/interviews', [InterviewController::class, 'index'])->name('interviews');
+
+    // messages
+    Route::get('/messages', [MessageController::class, 'index'])->name('messages');
+
+    // Job Centers
+    Route::get('/job-centers', [JobController::class, 'jobcenters'])->name('job-centers');
 
 
     // Profile

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f40412671e9e7ff085cbe9dc3840158a",
+    "content-hash": "23a2b83db722d9df6e4056146c094a15",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2390,6 +2390,71 @@
             "time": "2021-08-28T21:27:29+00:00"
         },
         {
+            "name": "protonemedia/laravel-cross-eloquent-search",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/protonemedia/laravel-cross-eloquent-search.git",
+                "reference": "664d90072f78bbdb5b7525d57a05ecf590987520"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/protonemedia/laravel-cross-eloquent-search/zipball/664d90072f78bbdb5b7525d57a05ecf590987520",
+                "reference": "664d90072f78bbdb5b7525d57a05ecf590987520",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.3.3",
+                "orchestra/testbench": "^4.0|^5.0|^6.0",
+                "phpunit/phpunit": "^8.5|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ProtoneMedia\\LaravelCrossEloquentSearch\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ProtoneMedia\\LaravelCrossEloquentSearch\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pascal Baljet",
+                    "email": "pascal@protone.media",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel package to search through multiple Eloquent models. Supports pagination, eager loading relations, single/multiple columns, sorting and scoped queries.",
+            "homepage": "https://github.com/protonemedia/laravel-cross-eloquent-search",
+            "keywords": [
+                "laravel-cross-eloquent-search",
+                "protonemedia"
+            ],
+            "support": {
+                "issues": "https://github.com/protonemedia/laravel-cross-eloquent-search/issues",
+                "source": "https://github.com/protonemedia/laravel-cross-eloquent-search/tree/2.4.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/pascalbaljet",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-10-06T13:36:05+00:00"
+        },
+        {
             "name": "psr/container",
             "version": "1.1.1",
             "source": {
@@ -3270,72 +3335,6 @@
                 }
             ],
             "time": "2021-11-17T09:36:26+00:00"
-        },
-        {
-            "name": "spatie/laravel-searchable",
-            "version": "1.10.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-searchable.git",
-                "reference": "1c57e0adb522f5567d93e2c98e42ffe6bb2ea884"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-searchable/zipball/1c57e0adb522f5567d93e2c98e42ffe6bb2ea884",
-                "reference": "1c57e0adb522f5567d93e2c98e42ffe6bb2ea884",
-                "shasum": ""
-            },
-            "require": {
-                "ext-pdo": "*",
-                "laravel/framework": "^8.0",
-                "php": "^7.3|^8.0"
-            },
-            "require-dev": {
-                "larapack/dd": "^1.0",
-                "orchestra/testbench": "^6.0",
-                "phpunit/phpunit": "^9.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Searchable\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Alex Vanderbist",
-                    "email": "alex@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Pragmatically search through models and other sources",
-            "homepage": "https://github.com/spatie/laravel-searchable",
-            "keywords": [
-                "laravel-searchable",
-                "spatie"
-            ],
-            "support": {
-                "issues": "https://github.com/spatie/laravel-searchable/issues",
-                "source": "https://github.com/spatie/laravel-searchable/tree/1.10.0"
-            },
-            "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                }
-            ],
-            "time": "2021-06-24T13:05:38+00:00"
         },
         {
             "name": "spatie/temporary-directory",

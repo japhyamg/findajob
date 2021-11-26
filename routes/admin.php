@@ -49,6 +49,7 @@ Route::middleware(['auth:admin'])->group(function () {
     // Manage Job Centers
     Route::get('/job-center', [ManageJobCenter::class, 'index'])->name('job-centers');
     Route::post('/job-center', [ManageJobCenter::class, 'store'])->name('add-job-center');
+    Route::delete('/delete-job-center', [ManageJobCenter::class, 'delete'])->name('delete-job-center');
 
 });
 

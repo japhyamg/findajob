@@ -99,4 +99,14 @@ class Employer extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Application::class, 'employer_id', 'id');
     }
+
+    public function messages()
+    {
+        return $this->morphMany(Message::class, 'sender' );
+    }
+
+    public function inbox()
+    {
+        return $this->morphMany(Message::class, 'receiver');
+    }
 }

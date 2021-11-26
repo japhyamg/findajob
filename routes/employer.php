@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Employers\JobController;
 use App\Http\Controllers\Employers\HomeController;
 use App\Http\Controllers\Employers\SearchController;
+use App\Http\Controllers\Employers\MessageController;
 use App\Http\Controllers\Employers\Auth\LoginController;
 use App\Http\Controllers\Employers\ApplicationController;
 use App\Http\Controllers\Employers\Auth\RegisterController;
@@ -28,6 +29,9 @@ Route::middleware(['auth:employer', 'verified:employer.verification.notice'])->g
 
     //Search
     Route::get('/search', [SearchController::class, 'index'])->name('search');
+
+    //Messages
+    Route::get('/messages', [MessageController::class, 'index'])->name('messages');
 
     // Company Profile
     Route::get('/company-details', [EmployerDetailsController::class, 'index'])->name('company-details');

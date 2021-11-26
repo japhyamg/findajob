@@ -46,13 +46,14 @@
 					<a href="companies.html" class="dropdown-btn"><img src="{{asset('assets/img/dash-icon-4.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-4-4.png')}}" class="light" />companies</a></li>
 				</li>
 				<li>
-					<a href="#" class="dropdown-btn @if(Route::is('user.upload-cv') ) active @endif" id="dropdown-btn1"><img src="{{asset('assets/img/dash-icon-3.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-3-3.png')}}" class="light" />my resume <i class="fa fa-angle-down angle-down"></i></a></li>
+					<a href="#" class="dropdown-btn @if(Route::is('user.upload-cv') || Route::is('user.upload-video-cv')) active @endif" id="dropdown-btn1"><img src="{{asset('assets/img/dash-icon-3.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-3-3.png')}}" class="light" />my resume <i class="fa fa-angle-down angle-down"></i></a></li>
 				</li>
 				<li class="job-dropdown resume"><a href="{{route('user.upload-cv')}}" class="@if(Route::is('user.upload-cv') ) active @endif"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />upload resume</a></li>
-				<li class="job-dropdown resume"><a href="video-resume.html"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />video resume</a></li>
-				<li><a href="job-centers.html"><img src="{{asset('assets/img/dash-icon-6.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-6-6.png')}}" class="light" />job centers</a></li>
-				<li><a href="transactions.html"><img src="{{asset('assets/img/dash-icon-7.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-7-7.png')}}" class="light" />transactions</a></li>
+				<li class="job-dropdown resume"><a href="{{route('user.upload-video-cv')}}" class="@if(Route::is('user.upload-video-cv') ) active @endif"><img src="{{asset('assets/img/dash-icon-10.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-10-10.png')}}" class="light" />video resume</a></li>
+				<li><a href="{{route('user.job-centers')}}" class="@if(Route::is('user.job-centers') ) active @endif"><img src="{{asset('assets/img/dash-icon-6.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-6-6.png')}}" class="light" />job centers</a></li>
+				<li><a href="transactions.html" ><img src="{{asset('assets/img/dash-icon-7.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-7-7.png')}}" class="light" />transactions</a></li>
 				<li><a href="{{route('user.interviews')}}" class="@if(Route::is('user.interviews') ) active @endif"><img src="{{asset('assets/img/dash-icon-8.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-8-8.png')}}" class="light" />interviews</a></li>
+				<li><a href="{{route('user.messages')}}" class="@if(Route::is('user.messages') ) active @endif"><img src="{{asset('assets/img/dash-icon-14.png')}}" class="dark" /><img src="{{asset('assets/img/dash-icon-14-14.png')}}" class="light" />messages</a></li>
 				<li>
                     <a onclick="event.preventDefault(); document.getElementById('logout-form').submit()" href="{{ route('logout') }}" role="button"><i class="fa fa-sign-out"></i>logout</a></a>
                     <form style="display: none;" action="{{ route('logout') }}" id="logout-form" method="post">

@@ -5,13 +5,12 @@
     <!-- Job Search Section Starts -->
     <div class="job-search-cont">
         <form method="get" action="{{route('employer.search')}}">
-            @csrf
             <select>
                 <option>Location</option>
             </select>
             <input type="text" name="search" />
             <a href="#" class="filter-btn"><img src="{{asset('assets/img/filter-icon.png')}}" />Filter</a>
-            <input type="submit" name="submit" value="Search" />
+            <input type="submit"/>
         </form>
     </div>
     <!-- Job Search Section Ends -->
@@ -113,37 +112,40 @@
         <div class="search-result">
             <div class="search-result-head">
                 {{-- <p>Showing 1-10 of 44 Job Seekers</p> --}}
-                <p>Showing 1-10 of 44 Job Seekers</p>
+                <p>Showing {{($searchResults->currentpage()-1)*$searchResults->perpage()+1}} - {{$searchResults->currentpage()*$searchResults->perpage()}}
+                    of {{$searchResults->total()}} Job Seekers</p>
             </div>
-            @foreach ($searchResults as $result)
-                <div class="search-result-item">
-                    <div class="search-result-item-img">
-                        <div class="check">
-                            <img src="{{asset('assets/img/check.png')}}" />
+            @if ($searchResults)
+                @foreach ($searchResults as $result)
+                    <div class="search-result-item">
+                        <div class="search-result-item-img">
+                            <div class="check">
+                                <img src="{{asset('assets/img/check.png')}}" />
+                            </div>
+                            <img src="{{asset('assets/img/profile-2.png')}}" alt="Profile Image" />
                         </div>
-                        <img src="{{asset('assets/img/profile-2.png')}}" alt="Profile Image" />
+                        <div class="search-result-item-text">
+                            <div class="search-result-item-text-head">
+                                <p>{{$result->full_name}} <span>5 yrs.exp</span></p>
+                            </div>
+                            <div class="search-result-item-text-designation">
+                                <p>{{$result->employment_history->last()->job_title ?? ''}}</p>
+                            </div>
+                            <div class="search-result-item-text-company">
+                                <p>Working in <b>{{$result->employment_history->last()->employer_name ?? ''}}</b> as {{$result->employment_history->last()->function ?? ''}}</p>
+                            </div>
+                            <div class="search-result-item-text-location">
+                                <p>New York {{$result->nationality}}</p>
+                            </div>
+                            <div class="search-result-item-text-btns">
+                                <a href="#">view</a>
+                                <a href="#">contact</a>
+                                <a href="#">download resume</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="search-result-item-text">
-                        <div class="search-result-item-text-head">
-                            <p>{{$result->searchable->full_name}} <span>5 yrs.exp</span></p>
-                        </div>
-                        <div class="search-result-item-text-designation">
-                            <p>{{$result->searchable->employment_history->last()->job_title ?? ''}}</p>
-                        </div>
-                        <div class="search-result-item-text-company">
-                            <p>Working in <b>{{$result->searchable->employment_history->last()->employer_name ?? ''}}</b> as {{$result->searchable->employment_history->last()->function ?? ''}}</p>
-                        </div>
-                        <div class="search-result-item-text-location">
-                            <p>New York {{$result->searchable->nationality}}</p>
-                        </div>
-                        <div class="search-result-item-text-btns">
-                            <a href="#">view</a>
-                            <a href="#">contact</a>
-                            <a href="#">download resume</a>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
+                @endforeach
+            @endif
             {{-- <div class="search-result-item">
                 <div class="search-result-item-img">
                     <div class="check">
@@ -225,6 +227,9 @@
                     </div>
                 </div>
             </div> --}}
+            <div class="mt-1">
+                {{$searchResults->links()}}
+            </div>
         </div>
     @endif
     <!-- Search Results Section Ends -->

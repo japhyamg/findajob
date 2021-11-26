@@ -33,7 +33,18 @@
                                 <td>{{$jobcenter->address}}</td>
                                 <td>{{$jobcenter->location}}</td>
                                 <td>{{$jobcenter->open}} / {{$jobcenter->close}}</td>
-                                <td></td>
+                                <td>
+                                    <a href="#" class="btn btn-warning btn-sm editind" data-id="{{$jobcenter->id}}" data-jobcenter="{{$jobcenter->name}}" data-bs-toggle="modal" data-bs-target="#editjobcenter">Edit</a>
+                                    {{-- <a href="#" class="btn btn-danger btn-sm" onclick="deleteInd('{{$jobcenter->id}}')">delete</a> --}}
+                                    <a class="btn btn-sm btn-danger" href="javascript:void(0);" data-toggle="tooltip" onclick="deletejobcenter('delete-jobcenter-{{ $jobcenter->id }}')" data-placement="top" data-original-title="Delete">
+                                        Delete
+                                    </a>
+                                    <form action="{{ route('admin.delete-job-center') }}" method="POST" id="delete-jobcenter-{{ $jobcenter->id }}">
+                                        @csrf
+                                        @method('delete')
+                                        <input type="hidden" name="id" value="{{ $jobcenter->id }}">
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     @endif
@@ -57,7 +68,7 @@
         <h5 class="modal-title" id="staticBackdropLabel">Add Job Center</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-        <form method="POST" action="{{route('admin.add-job-center')}}">
+        <form method="POST" action="{{route('admin.add-job-center')}}" enctype="multipart/form-data">
             @csrf
             <div class="modal-body">
                 <div class="mb-3">
@@ -68,6 +79,11 @@
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Phone</label>
                     <input type="number" name="phone" class="form-control" required>
+                    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Logo</label>
+                    <input type="file" name="logo" class="form-control" accept="" required>
                     <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                 </div>
                 <div class="mb-3">
@@ -146,7 +162,7 @@
     })
 
 
-    function deleteInd(formid){
+    function deletejobcenter(formid){
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -159,7 +175,7 @@
             if (result.isConfirmed) {
                 Swal.fire(
                     'Deleted!',
-                    'Your file has been deleted.',
+                    'Job Center has been deleted.',
                     'success'
                 )
                 document.getElementById(formid).submit()
